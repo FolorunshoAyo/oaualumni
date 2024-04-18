@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Meta Tags -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Homex template">
+    <meta name="keywords" content="">
+    <meta name="author" content="Unicoder">
+
+    <!-- Title -->
+    <title>Homex - Real Estate Template</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,500,600,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa:400,700" rel="stylesheet">
+
+    <!-- Css Link -->
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-slider.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/layerslider.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/color.css" id="color-change">
+    <link rel="stylesheet" type="text/css" href="assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/webfonts/flaticon/flaticon.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+</head>
+
+<body>
+
+    <!--	Page Loader
+=============================================================
+<div class="page-loader position-fixed z-index-9999 w-100 bg-white vh-100">
+	<div class="d-flex justify-content-center y-middle position-relative">
+	  <div class="spinner-border" role="status">
+		<span class="sr-only">Loading...</span>
+	  </div>
+	</div>
+</div>
+-->
+
+    <!-- Color Settings -->
+    <div class="color-panel">
+        <div class="on-panel bg-primary"><img src="assets/images/settings.png" alt=""></div>
+        <div class="panel-box"> <span class="panel-title">Theme Colors</span>
+            <ul class="color-box">
+                <li class="default" data-name="default" data-path="assets/css/color.css" data-image="assets/images/logo/logo.png" data-target="assets/images/logo/logo.png"></li>
+                <li class="color_2" data-name="color_2" data-path="assets/css/colors/color_2.css" data-image="assets/images/logo/logo.png" data-target="assets/images/logo/logo.png"></li>
+                <li class="color_3" data-name="color_3" data-path="assets/css/colors/color_3.css" data-image="assets/images/logo/logo.png" data-target="assets/images/logo/logo.png"></li>
+                <li class="color_4" data-name="color_4" data-path="assets/css/colors/color_4.css" data-image="assets/images/logo/logo.png" data-target="assets/images/logo/logo.png"></li>
+                <li class="color_5" data-name="color_5" data-path="assets/css/colors/color_5.css" data-image="assets/images/logo/logo.png" data-target="assets/images/logo/logo.png"></li>
+                <li class="color_6" data-name="color_6" data-path="assets/css/colors/color_6.css" data-image="assets/images/logo/logo.png" data-target="assets/images/logo/logo.png"></li>
+            </ul>
+        </div>
+        <div class="switcher_layout"> <span class="layout_title">Layout Style</span>
+            <div class="radio_check">
+                <input type="checkbox" id="layout_type" name="layout" value="Yes">
+                <label class="bg-primary text-left" for="layout_type"><span class="text-white">Box</span><span class="text-white">Full</span></label>
+            </div>
+        </div>
+        <div class="box_bg_style"> <span class="layout_title">Background pattern</span>
+            <div class="select_bg">
+                <ul>
+                    <li>
+                        <input type="radio" name="radio" id="patrn1" value="pattern_1" />
+                        <label for="patrn1" class="radios pattern1"></label>
+                    </li>
+                    <li>
+                        <input type="radio" name="radio" id="patrn2" value="pattern_2" />
+                        <label for="patrn2" class="radios pattern2"></label>
+                    </li>
+                    <li>
+                        <input type="radio" name="radio" id="patrn3" value="pattern_3" />
+                        <label for="patrn3" class="radios pattern3"></label>
+                    </li>
+                    <li>
+                        <input type="radio" name="radio" id="patrn4" value="pattern_4" />
+                        <label for="patrn4" class="radios pattern4"></label>
+                    </li>
+                    <li>
+                        <input type="radio" name="radio" id="patrn5" value="pattern_5" />
+                        <label for="patrn5" class="radios pattern5"></label>
+                    </li>
+                    <li>
+                        <input type="radio" name="radio" id="patrn6" value="pattern_6" />
+                        <label for="patrn6" class="radios pattern6"></label>
+                    </li>
+                    <li>
+                        <input type="radio" name="radio" id="patrn7" value="pattern_7" />
+                        <label for="patrn7" class="radios pattern7"></label>
+                    </li>
+                    <li>
+                        <input type="radio" name="radio" id="patrn8" value="pattern_8" />
+                        <label for="patrn8" class="radios pattern8"></label>
+                    </li>
+                    <li>
+                        <input type="radio" name="radio" id="patrn9" value="pattern_9" />
+                        <label for="patrn9" class="radios pattern9"></label>
+                    </li>
+                    <li>
+                        <input type="radio" name="radio" id="patrn10" value="pattern_10" />
+                        <label for="patrn10" class="radios pattern10"></label>
+                    </li>
+                    <li>
+                        <input type="radio" name="radio" id="patrn11" value="pattern_11" />
+                        <label for="patrn11" class="radios pattern11"></label>
+                    </li>
+                    <li>
+                        <input type="radio" name="radio" id="patrn12" value="pattern_12" />
+                        <label for="patrn12" class="radios pattern12"></label>
+                    </li>
+                    <li>
+                        <input type="radio" name="radio" id="patrn13" value="pattern_13" />
+                        <label for="patrn13" class="radios pattern13"></label>
+                    </li>
+                    <li>
+                        <input type="radio" name="radio" id="patrn14" value="pattern_14" />
+                        <label for="patrn14" class="radios pattern14"></label>
+                    </li>
+                    <li>
+                        <input type="radio" name="radio" id="patrn15" value="pattern_15" />
+                        <label for="patrn15" class="radios pattern15"></label>
+                    </li>
+                </ul>
+            </div>
+            <span class="layout_title">Background pattern</span>
+            <div class="select_bg">
+                <ul>
+                    <li>
+                        <input type="radio" name="radio" id="bg_img1" value="body_bg_1" />
+                        <label for="bg_img1" class="radios body_image1"></label>
+                    </li>
+                    <li>
+                        <input type="radio" name="radio" id="bg_img2" value="body_bg_2" />
+                        <label for="bg_img2" class="radios body_image2"></label>
+                    </li>
+                    <li>
+                        <input type="radio" name="radio" id="bg_img3" value="body_bg_3" />
+                        <label for="bg_img3" class="radios body_image3"></label>
+                    </li>
+                </ul>
+            </div>
+            <div class="select_bg">
+                <ul>
+                    <li>
+                        <input type="checkbox" name="vilena_overlay" id="bg_over" value="" /> Overlay
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- End Color Settings -->
+
+    <div id="page-wrapper" class="bg-white">
+        <!--============== Header Section Start ==============-->
+        <header id="header" class="w-100 nav-on-top">
+            <div class="top-header bg-white py-4">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-md-2">
+                            <div class="logo pe-xl-4"> <img src="assets/images/logo/logo.png" alt=""> </div>
+                        </div>
+                        <div class="col-md-3">
+                            <i class="fas fa-phone-alt font-small text-primary float-start me-3" aria-hidden="true"></i>
+                            <div class="d-table">
+                                <h6 class="text-secondary line-height-normal mb-0">Have any question?</h6>
+                                <span>(012) 345 678 102</span>
+                            </div>
+                        </div>
+                        <div class="col-md-5"> <i class="fas fa-map-marker-alt font-small text-primary float-start me-3" aria-hidden="true"></i>
+                            <div class="d-table">
+                                <h6 class="text-secondary line-height-normal mb-0">Find us in office</h6>
+                                <span>Collins Street West, Victoria 8007, Australia</span>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <a class="btn btn-primary d-table ms-auto" href="dashboard-submit-property.html">Submit Peoperty</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main-nav bg-primary hover-border-white-nav py-2 logo-hide">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <nav class="navbar navbar-light white-nav navbar-expand-lg p-0">
+                                <a class="navbar-brand p-0" href="#"><img class="nav-logo" src="assets/images/logo/logo.png" alt=""></a>
+                                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+                                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                    <ul class="navbar-nav me-auto">
+                                        <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle active" href="index.html" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Home</a>
+                                            <ul class="dropdown-menu">
+                                                <li><a class="dropdown-item" href="index.html" target="_blank">Landing Page</a></li>
+                                                <li><a class="dropdown-item" href="index-1.html">Default Home</a></li>
+                                                <li><a class="dropdown-item" href="index-2.html">Investment Home</a></li>
+                                                <li><a class="dropdown-item" href="index-3.html">Classic Home</a></li>
+                                                <li><a class="dropdown-item" href="index-4.html">Slider Search</a></li>
+                                                <li><a class="dropdown-item" href="index-5.html">Fixed Banner Search</a></li>
+                                                <li><a class="dropdown-item" href="index-6.html">Gastronomy Slider</a></li>
+                                                <li><a class="dropdown-item" href="index-7.html">Map Home</a></li>
+                                                <li><a class="dropdown-item" href="../homex-rtl/index-1.html" target="_blank">RTL Support</a></li>
+                                                <li><a class="dropdown-item" href="comming-soon.html">Coming Soon</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Agent</a>
+                                            <ul class="dropdown-menu">
+                                                <li class="dropdown"> <a class="dropdown-toggle dropdown-item" href="#">Property Agent</a>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a class="dropdown-item" href="property-agents-grid.html">Grid View</a></li>
+                                                        <li><a class="dropdown-item" href="property-agents-list.html">List View</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="dropdown"> <a class="dropdown-toggle dropdown-item" href="#">Agent Search</a>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a class="dropdown-item" href="agent-search.html">Grid View</a></li>
+                                                        <li><a class="dropdown-item" href="agent-list-search.html">List View</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="dropdown"> <a class="dropdown-toggle dropdown-item" href="#">Agent Single</a>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a class="dropdown-item" href="agent-details.html">Agent Details</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Listing</a>
+                                            <ul class="dropdown-menu">
+                                                <li class="dropdown"> <a class="dropdown-toggle dropdown-item" href="#">Property Grid</a>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a class="dropdown-item" href="property-grid-sidebar-left.html">Left Sidebar</a></li>
+                                                        <li><a class="dropdown-item" href="property-grid-sidebar-right.html">Right Sidebar</a></li>
+                                                        <li><a class="dropdown-item" href="property-grid-full.html">Full Width</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="dropdown"> <a class="dropdown-toggle dropdown-item" href="#">Property List</a>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a class="dropdown-item" href="property-list-sidebar-left.html">Left Sidebar</a></li>
+                                                        <li><a class="dropdown-item" href="property-list-sidebar-right.html">Right Sidebar</a></li>
+                                                        <li><a class="dropdown-item" href="property-list-full.html">Full Width</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="dropdown"> <a class="dropdown-toggle dropdown-item" href="#">Property Search</a>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a class="dropdown-item" href="property-list-map.html">List Map Search</a></li>
+                                                        <li><a class="dropdown-item" href="property-grid-map.html">Grid Map Search</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="dropdown"> <a class="dropdown-toggle dropdown-item" href="#">Simple Search</a>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a class="dropdown-item" href="property-grid-simple-search.html">Grid Search</a></li>
+                                                        <li><a class="dropdown-item" href="property-list-simple-search.html">List Search</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Features</a>
+                                            <ul class="dropdown-menu">
+                                                <li class="dropdown"> <a class="dropdown-toggle dropdown-item" href="#">Single Property</a>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a class="dropdown-item" href="property-single-1.html">Single Property 1</a></li>
+                                                        <li><a class="dropdown-item" href="property-single-2.html">Single Property 2</a></li>
+                                                        <li><a class="dropdown-item" href="property-single-3.html">Single Property 3</a></li>
+                                                        <li><a class="dropdown-item" href="property-single-4.html">Single Property 4</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="dropdown"> <a class="dropdown-toggle dropdown-item" href="#">Advance Search</a>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a class="dropdown-item" href="agent-search.html">Agent Search Grid</a></li>
+                                                        <li><a class="dropdown-item" href="agent-list-search.html">Agent Search List</a></li>
+                                                        <li><a class="dropdown-item" href="property-search-grid.html">Property Search Grid</a></li>
+                                                        <li><a class="dropdown-item" href="property-search-list.html">Property Search List</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="dropdown"> <a class="dropdown-toggle dropdown-item" href="#">My Account</a>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a class="dropdown-item" href="dashboard-personal-info.html">Personal Info</a></li>
+                                                        <li><a class="dropdown-item" href="dashboard-profile-setting.html">Profile Settings</a></li>
+                                                        <li><a class="dropdown-item" href="dashboard-change-password.html">Change Password</a></li>
+                                                        <li><a class="dropdown-item" href="dashboard-social-media.html">Social Media Settings</a></li>
+                                                        <li><a class="dropdown-item" href="dashboard-massanger.html">Dashboard</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="dropdown"> <a class="dropdown-toggle dropdown-item" href="#">Content Page</a>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a class="dropdown-item" href="content-left-sidebar.html">Content Left Sidebar</a></li>
+                                                        <li><a class="dropdown-item" href="content-right-sidebar.html">Content Right Sidebar</a></li>
+                                                        <li><a class="dropdown-item" href="content-both-sidebar.html">Content Both Sidebar</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a class="dropdown-item" href="submit-property.html">Submit Property</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="nav-item dropdown mega-menu-dropdown"> <a class="nav-link dropdown-toggle" href="blog-grid-classic.html" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
+                                            <ul class="dropdown-menu mega-menu">
+                                                <li>
+                                                    <ul class="mega-dropdown">
+                                                        <li><a class="dropdown-item" href="about.html">About Us</a></li>
+                                                        <li><a class="dropdown-item" href="blog.html">Blog</a></li>
+                                                        <li><a class="dropdown-item" href="blog-details.html">Blog Details</a></li>
+                                                        <li><a class="dropdown-item" href="services.html">Services</a></li>
+                                                        <li><a class="dropdown-item" href="service-details.html">Services Details</a></li>
+                                                        <li><a class="dropdown-item" href="reviews.html">Reviews</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <ul class="mega-dropdown">
+                                                        <li><a class="dropdown-item" href="pricing-table.html">Pricing</a></li>
+                                                        <li><a class="dropdown-item" href="faq.html">Faq</a></li>
+                                                        <li><a class="dropdown-item" href="register.html">Register</a></li>
+                                                        <li><a class="dropdown-item" href="login.html">Login</a></li>
+                                                        <li><a class="dropdown-item" href="forgot-password.html">Forgot Password</a></li>
+                                                        <li><a class="dropdown-item" href="timeline.html">Timeline</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <ul class="mega-dropdown">
+                                                        <li><a class="dropdown-item" href="compare.html">Compare</a></li>
+                                                        <li><a class="dropdown-item" href="property-list-sidebar-left.html">Property List Sidebar Left</a></li>
+                                                        <li><a class="dropdown-item" href="dashboard-booking.html">Dashboard Booking</a></li>
+                                                        <li><a class="dropdown-item" href="dashboard-purchase.html">Dashboard Purchase</a></li>
+                                                        <li><a class="dropdown-item" href="dashboard-submit-property.html">Submit Property</a></li>
+                                                        <li><a class="dropdown-item" href="dashboard-system-setting.html">System Settings</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <ul class="mega-dropdown">
+                                                        <li><a class="dropdown-item" href="dashboard-comment.html">Dashboard Comment</a></li>
+                                                        <li><a class="dropdown-item" href="dashboard-favorite.html">Dashboard Favorite</a></li>
+                                                        <li><a class="dropdown-item" href="dashboard-invoice.html">Invoice</a></li>
+                                                        <li><a class="dropdown-item" href="dashboard-message.html">Messages</a></li>
+                                                        <li><a class="dropdown-item" href="dashboard-tax-info.html">Tax Information</a></li>
+                                                        <li><a class="dropdown-item" href="error.html">Error Page</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="nav-item"> <a class="nav-link" href="contact.html">Contact</a> </li>
+                                    </ul>
+                                    <div class="hover-text-secondary text-white ps-3 ps-lg-3 mb-3 mb-lg-0"> <a class="d-block" href="login.html">Login / Register</a> </div>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!--============== Header Section End ==============-->
+
+        <!--============== Slider Section Start ==============-->
+        <div class="overlay-black w-100 slider-banner1 position-relative" style="background-image: url('assets/images/banner/1.jpg'); background-size: cover; background-position: center center; background-repeat: no-repeat;">
+            <div class="container h-100 position-relative">
+                <div class="row h-100 align-items-center">
+                    <div class="col-lg-12">
+                        <h1 class="mb-4 text-white"><span class="text-primary">Find</span><br> Your dream house</h1>
+                        <form method="post" action="action-page-post.html">
+                            <div class="row g-3">
+                                <div class="col-md-6 col-lg-2">
+                                    <div class="select-arrow">
+                                        <select class="form-control form-select bg-white">
+                                                <option>Any Types</option>
+                                                <option>Appartment</option>
+                                                <option>Condos</option>
+                                                <option>House</option>
+                                                <option>Commercial</option>
+                                            </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-2">
+                                    <div class="select-arrow">
+                                        <select class="form-control form-select bg-white">
+                                                <option>Any Status</option>
+                                                <option>For Rent</option>
+                                                <option>For Sale</option>
+                                            </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-8 col-lg-6">
+                                    <input type="text" class="form-control" id="validationDefault03" placeholder="Enter Address, Street and City or Enter State, Zip code" required>
+                                </div>
+                                <div class="col-md-4 col-lg-2">
+                                    <button type="submit" class="btn btn-primary w-100">Search Property</button>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="d-flex flex-wrap align-items-center mt-4">
+                            <p class="me-3 mb-3 text-white">For more filter option in advance search!</p>
+                            <a class="btn btn-primary mb-3" href="#">Advance Search</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--============== Slider Section End ==============-->
+
+        <!--============== Tex Box Three Section Start ==============-->
+        <div class="full-row bg-white p-0">
+            <div class="container">
+                <div class="divider py-5">
+                    <div class="row row-cols-md-3 row-cols-1 g-4">
+                        <div class="col">
+                            <div class="text-center">
+                                <div class="bg-primary rounded-circle round-icon d-table mx-auto text-white"><i class="flaticon-budget flat-medium" aria-hidden="true"></i></div>
+                                <h4 class="my-4 text-secondary">Invest From $50000</h4>
+                                <p>Malesuada in. Integer urna rutrum dui leo integer facilisi ante leo nonummy ante habitasse pulvinar penatibus.</p>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="text-center">
+                                <div class="bg-primary rounded-circle round-icon d-table mx-auto text-white"><i class="flaticon-diagram flat-medium" aria-hidden="true"></i></div>
+                                <h4 class="my-4 text-secondary">Increase Per Annum</h4>
+                                <p>Malesuada in. Integer urna rutrum dui leo integer facilisi ante leo nonummy ante habitasse pulvinar penatibus.</p>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="text-center">
+                                <div class="bg-primary rounded-circle round-icon d-table mx-auto text-white"><i class="flaticon-rent flat-medium" aria-hidden="true"></i></div>
+                                <h4 class="my-4 text-secondary">Tenants In Place</h4>
+                                <p>Malesuada in. Integer urna rutrum dui leo integer facilisi ante leo nonummy ante habitasse pulvinar penatibus.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--============== Tex Box Three Section End ==============-->
+
+        <!--============== Featured Properties Section Start ==============-->
+        <div class="full-row bg-white">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <h2 class="text-secondary double-down-line text-center">Featured Properties</h2>
+                        <span class="text-center mt-4 d-block mb-5">All of our featured property of this month are include </span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="owl-carousel carousel-main">
+                            <div class="featured-thumb hover-zoomer mb-4">
+                                <div class="overlay-black overflow-hidden position-relative"> <img src="assets/images/thumbnail/01.jpg" alt="">
+                                    <div class="featured bg-primary text-white">Featured</div>
+                                    <div class="sale bg-secondary text-white">For Sale</div>
+                                    <div class="price text-primary">$352,000 <span class="text-white">$1200/Sqft</span></div>
+                                    <div class="starmark text-white"><i class="far fa-star"></i></div>
+                                </div>
+                                <div class="featured-thumb-data shadow-one">
+                                    <div class="p-4">
+                                        <h5 class="text-secondary hover-text-primary mb-2"><a href="#">Nirala Appartment</a></h5>
+                                        <span class="location"><i class="fas fa-map-marker-alt text-primary"></i> Avenue South Burlington, Los Angles</span> </div>
+                                    <div class="px-4 pb-3 d-inline-block w-100">
+                                        <div class="float-start"><i class="fas fa-user text-primary me-1"></i> Jeson Billiam</div>
+                                        <div class="float-end"><i class="far fa-calendar-alt text-primary me-1"></i> 6 Months Ago</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="featured-thumb hover-zoomer mb-4">
+                                <div class="overlay-black overflow-hidden position-relative"> <img src="assets/images/thumbnail/02.jpg" alt="">
+                                    <div class="featured bg-primary text-white">Featured</div>
+                                    <div class="sale bg-secondary text-white">For Sale</div>
+                                    <div class="price text-primary">$212,000 <span class="text-white">$1200/Sqft</span></div>
+                                    <div class="starmark text-white"><i class="far fa-star"></i></div>
+                                </div>
+                                <div class="featured-thumb-data shadow-one">
+                                    <div class="p-4">
+                                        <h5 class="text-secondary hover-text-primary mb-2"><a href="#">Apolo Family Appartment</a></h5>
+                                        <span class="location"><i class="fas fa-map-marker-alt text-primary"></i> Avenue South Burlington, Los Angles</span> </div>
+                                    <div class="px-4 pb-3 d-inline-block w-100">
+                                        <div class="float-start"><i class="fas fa-user text-primary me-1"></i> Jeson Billiam</div>
+                                        <div class="float-end"><i class="far fa-calendar-alt text-primary me-1"></i> 6 Months Ago</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="featured-thumb hover-zoomer mb-4">
+                                <div class="overlay-black overflow-hidden position-relative"> <img src="assets/images/thumbnail/03.jpg" alt="">
+                                    <div class="featured bg-primary text-white">Featured</div>
+                                    <div class="sale bg-secondary text-white">For Sale</div>
+                                    <div class="price text-primary">$52,000 <span class="text-white">$1200/Sqft</span></div>
+                                    <div class="starmark text-white"><i class="far fa-star"></i></div>
+                                </div>
+                                <div class="featured-thumb-data shadow-one">
+                                    <div class="p-4">
+                                        <h5 class="text-secondary hover-text-primary mb-2"><a href="#">Office Floor In Trade Center</a></h5>
+                                        <span class="location"><i class="fas fa-map-marker-alt text-primary"></i> Avenue South Burlington, Los Angles</span> </div>
+                                    <div class="px-4 pb-3 d-inline-block w-100">
+                                        <div class="float-start"><i class="fas fa-user text-primary me-1"></i> Jeson Billiam</div>
+                                        <div class="float-end"><i class="far fa-calendar-alt text-primary me-1"></i> 6 Months Ago</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="featured-thumb hover-zoomer mb-4">
+                                <div class="overlay-black overflow-hidden position-relative"> <img src="assets/images/thumbnail/01.jpg" alt="">
+                                    <div class="featured bg-primary text-white">Featured</div>
+                                    <div class="sale bg-secondary text-white">For Sale</div>
+                                    <div class="price text-primary">$352,000 <span class="text-white">$1200/Sqft</span></div>
+                                    <div class="starmark text-white"><i class="far fa-star"></i></div>
+                                </div>
+                                <div class="featured-thumb-data shadow-one">
+                                    <div class="p-4">
+                                        <h5 class="text-secondary hover-text-primary mb-2"><a href="#">Nirala Appartment</a></h5>
+                                        <span class="location"><i class="fas fa-map-marker-alt text-primary"></i> Avenue South Burlington, Los Angles</span> </div>
+                                    <div class="px-4 pb-3 d-inline-block w-100">
+                                        <div class="float-start"><i class="fas fa-user text-primary me-1"></i> Jeson Billiam</div>
+                                        <div class="float-end"><i class="far fa-calendar-alt text-primary me-1"></i> 6 Months Ago</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--============== Featured Properties Section End ==============-->
+
+        <!--============== Happy Living Section Start ==============-->
+        <div class="full-row living bg-one overlay-secondary-half" style="background-image: url('assets/images/haddyliving.jpg'); background-size: cover; background-position: center center; background-repeat: no-repeat;">
+            <div class="container position-relative">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="living-list pe-4">
+                            <h3 class="pb-4 mb-3 text-white">Make life for happy living</h3>
+                            <ul>
+                                <li class="mb-4 text-white d-flex">
+                                    <i class="flaticon-reward flat-medium float-start d-table me-4 text-primary" aria-hidden="true"></i>
+                                    <div class="ps-2">
+                                        <h5 class="mb-3">Experience Quality</h5>
+                                        <p>Ad non vivamus Elementum eget fringilla venenatis quisque, maecenas adipiscing aliquet justo. Libero. Gravida. Sapien, dolor nostra sem. Rutrum conubia inceptos egestas dolor class.</p>
+                                    </div>
+                                </li>
+                                <li class="mb-4 text-white d-flex">
+                                    <i class="flaticon-real-estate flat-medium float-start d-table me-4 text-primary" aria-hidden="true"></i>
+                                    <div class="ps-2">
+                                        <h5 class="mb-3">Experience Quality</h5>
+                                        <p>Ad non vivamus Elementum eget fringilla venenatis quisque, maecenas adipiscing aliquet justo. Libero. Gravida. Sapien, dolor nostra sem. Rutrum conubia inceptos egestas dolor class.</p>
+                                    </div>
+                                </li>
+                                <li class="mb-4 text-white d-flex">
+                                    <i class="flaticon-seller flat-medium float-start d-table me-4 text-primary" aria-hidden="true"></i>
+                                    <div class="ps-2">
+                                        <h5 class="mb-3">Experience Quality</h5>
+                                        <p>Ad non vivamus Elementum eget fringilla venenatis quisque, maecenas adipiscing aliquet justo. Libero. Gravida. Sapien, dolor nostra sem. Rutrum conubia inceptos egestas dolor class.</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--============== Happy Living Section End ==============-->
+
+        <!--============== How It Work Section Start ==============-->
+        <div class="full-row bg-white">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <h2 class="text-secondary double-down-line text-center">How It Works</h2>
+                        <span class="text-center mt-4 d-block mb-5">Process to get your right one, almost easy, flexible and fun.</span>
+                    </div>
+                </div>
+                <div class="row row-cols-lg-3 row-cols-md-2 row-cols-1">
+                    <div class="col">
+                        <div class="p-5 mb-4 bg-white shadow-one rounded">
+                            <i class="flaticon-home flat-medium text-primary" aria-hidden="true"></i>
+                            <h5 class="text-secondary py-2 mt-3 mb-2">Search Your Home</h5>
+                            <p>Select your home or appartment and let’s contact with us. Ask what answer you need. You can also contact with the agent if you have any question.</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="p-5 mb-4 bg-white shadow-one rounded">
+                            <i class="flaticon-contact flat-medium text-primary" aria-hidden="true"></i>
+                            <h5 class="text-secondary py-2 mt-3 mb-2">Let's Contact With Us</h5>
+                            <p>Select your home or appartment and let’s contact with us. Ask what answer you need. You can also contact with the agent if you have any question.</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="p-5 mb-4 bg-white shadow-one rounded">
+                            <i class="flaticon-payment flat-medium text-primary" aria-hidden="true"></i>
+                            <h5 class="text-secondary py-2 mt-3 mb-2">Make a Deal and Payment</h5>
+                            <p>Sign upi online and move in as soon as you ready! We complete your property deal in our office. After the deal you can pay the instalment or rent in online.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--============== How It Work Section End ==============-->
+
+        <!--============== Our Team Section Start ==============-->
+        <div class="full-row bg-white pt-0">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <h2 class="text-secondary double-down-line text-center">Our Agents</h2>
+                        <span class="text-center mt-4 d-block mb-5">Process to get your right one, almost easy, flexible and fun.</span>
+                    </div>
+                </div>
+                <div class="row row-cols-lg-3 row-cols-md-2 row-cols-1 g-4">
+                    <div class="col">
+                        <div class="hover-zoomer bg-white shadow-one">
+                            <div class="overflow-hidden"> <img src="assets/images/team/01.png" alt=""> </div>
+                            <div class="py-3 text-center">
+                                <h5 class="text-secondary hover-text-primary"><a href="#">Karen Eilla Boyette</a></h5>
+                                <span>Appartment Agent</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="hover-zoomer bg-white shadow-one">
+                            <div class="overflow-hidden"> <img src="assets/images/team/02.png" alt=""> </div>
+                            <div class="py-3 text-center">
+                                <h5 class="text-secondary hover-text-primary"><a href="#">Walter Devid Moye</a></h5>
+                                <span>Condos Agent</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="hover-zoomer bg-white shadow-one">
+                            <div class="overflow-hidden"> <img src="assets/images/team/03.png" alt=""> </div>
+                            <div class="py-3 text-center">
+                                <h5 class="text-secondary hover-text-primary"><a href="#">Linda Dina Pate</a></h5>
+                                <span>Commercial Building Agent</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--============== Our Team Section End ==============-->
+
+        <!--============== Achievement Section Start ==============-->
+        <div class="full-row overlay-secondary" style="background-image: url('assets/images/counterbg.jpg'); background-size: cover; background-position: center center; background-repeat: no-repeat;">
+            <div class="container position-relative">
+                <div class="row">
+                    <div class="col">
+                        <div class="fact-counter">
+                            <div class="row row-cols-md-4 row-cols-1">
+                                <div class="col">
+                                    <div class="count wow text-center mb-sm-50" data-wow-duration="300ms"> <i class="flaticon-house flat-large text-white" aria-hidden="true"></i>
+                                        <div class="count-num text-primary my-4" data-speed="3000" data-stop="1732">0</div>
+                                        <div class="text-white h5">Property Available</div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="count wow text-center mb-sm-50" data-wow-duration="300ms"> <i class="flaticon-man flat-large text-white" aria-hidden="true"></i>
+                                        <div class="count-num text-primary my-4" data-speed="3000" data-stop="341">0</div>
+                                        <div class="text-white h5">Registered Agents</div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="count wow text-center mb-sm-50" data-wow-duration="300ms"> <i class="flaticon-invention flat-large text-white" aria-hidden="true"></i>
+                                        <div class="count-num text-primary my-4" data-speed="3000" data-stop="2350">0</div>
+                                        <div class="text-white h5">People Are Invested</div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="count wow text-center mb-sm-50" data-wow-duration="300ms"> <i class="flaticon-investment flat-large text-white" aria-hidden="true"></i>
+                                        <div class="count-num text-primary my-4" data-speed="3000" data-stop="13780">0</div>
+                                        <div class="text-white h5">Total Investment</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--============== Achievement Section End ==============-->
+
+        <!--============== Blog Section Start ==============-->
+        <div class="full-row bg-white">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <h2 class="text-secondary double-down-line text-center">Recent Articles</h2>
+                        <span class="text-center mt-4 d-block mb-5">The most recent posted articles and valuable tips.</span> </div>
+                </div>
+                <div class="row row-cols-lg-3 row-cols-md-2 row-cols-1 g-4">
+                    <div class="col">
+                        <div class="hover-zoomer thumb-two shadow-one">
+                            <div class="overlay-black overflow-hidden position-relative"> <img src="assets/images/blog/01.jpg" alt="image">
+                                <div class="date text-white position-absolute z-index-9">November 26, 2018</div>
+                            </div>
+                            <div class="p-4">
+                                <h6 class="text-secondary hover-text-primary mb-4"><a href="blog-details.html">Our team are working to provide the owneship of property.</a></h6>
+                                <p>Nunc tempus, auctor mauris montes, attis fringilla dignissim. Vitae habitant estibulum quisque commodo.</p>
+                                <a class="mt-3 text-primary hover-text-secondary" href="#">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="hover-zoomer thumb-two shadow-one">
+                            <div class="overlay-black overflow-hidden position-relative"> <img src="assets/images/blog/02.jpg" alt="image">
+                                <div class="date text-white position-absolute z-index-9">November 10, 2018</div>
+                            </div>
+                            <div class="p-4">
+                                <h6 class="text-secondary hover-text-primary mb-4"><a href="blog-details.html">Your investment is our heart, so you can stay in relax.</a></h6>
+                                <p>Nunc tempus, auctor mauris montes, attis fringilla dignissim. Vitae habitant estibulum quisque commodo.</p>
+                                <a class="mt-3 text-primary hover-text-secondary" href="#">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="hover-zoomer thumb-two shadow-one">
+                            <div class="overlay-black overflow-hidden position-relative"> <img src="assets/images/blog/03.jpg" alt="image">
+                                <div class="date text-white position-absolute z-index-9">October 31, 2018</div>
+                            </div>
+                            <div class="p-4">
+                                <h6 class="text-secondary hover-text-primary mb-4"><a href="blog-details.html">What do you thinking for your family house planing.</a></h6>
+                                <p>Nunc tempus, auctor mauris montes, attis fringilla dignissim. Vitae habitant estibulum quisque commodo.</p>
+                                <a class="mt-3 text-primary hover-text-secondary" href="#">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--============== Blog Section End ==============-->
+
+        <!--============== Massage Box One Section Start ==============-->
+        <div class="full-row bg-primary py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <h3 class="text-white text-center line-height-50">How to Become Easy and Flexible to Living in Los Angles. Get A Comfortable Appartment in Budget.</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--============== Massage Box One Section End ==============-->
+
+        <!--============== Subscribe Section Start ==============-->
+        <div class="full-row bg-gray p-0">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="divider py-80">
+                            <div class="row align-items-center g-3">
+                                <div class="col-lg-7">
+                                    <h4 class="text-secondary mb-0">Enter your email for subscribe to get monthly newslatter</h4>
+                                </div>
+                                <div class="col-lg-5">
+                                    <form class="subscribe">
+                                        <div class="input-group">
+                                            <input type="email" class="form-control" placeholder="Enter your email">
+                                            <button class="btn btn-primary" type="submit">Subscribe</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--============== Subscribe Section End ==============-->
+
+        <!--============== Footer Section Start ==============-->
+        <footer class="full-row bg-gray p-0">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="divider py-80">
+                            <div class="row g-4">
+                                <div class="col-lg-4">
+                                    <div class="footer-widget">
+                                        <div class="footer-logo mb-4">
+                                            <a href="#"><img class="logo-bottom" src="assets/images/logo/logo.png" alt="image"></a>
+                                        </div>
+                                        <p class="pb-20">Risus commodo congue augue phasellus morbi hymenaeos ante tincidunt eu orci dictum bibendum lacus platea primis mi lacinia felis gravida natoque bibendum cubilia montes tristique et arcu blandit risus. Lobortis
+                                            dignissim nam.
+                                        </p>
+                                        <a class="btn btn-primary mt-4" href="#">Register Now</a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-8">
+                                    <div class="row row-cols-md-3 row-cols-1">
+                                        <div class="col">
+                                            <div class="footer-widget footer-nav">
+                                                <h4 class="widget-title text-secondary double-down-line-left position-relative">Support</h4>
+                                                <ul>
+                                                    <li><a href="#">Forum</a></li>
+                                                    <li><a href="#">Statistics</a></li>
+                                                    <li><a href="#">Terms and Condition</a></li>
+                                                    <li><a href="#">Get Support</a></li>
+                                                    <li><a href="#">Freequenly Ask Question</a></li>
+                                                    <li><a href="#">Contact</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="footer-widget footer-nav">
+                                                <h4 class="widget-title text-secondary double-down-line-left position-relative">Quick Links</h4>
+                                                <ul>
+                                                    <li><a href="#">About Us</a></li>
+                                                    <li><a href="#">Featured Property</a></li>
+                                                    <li><a href="#">Become A Member</a></li>
+                                                    <li><a href="#">Submit Property</a></li>
+                                                    <li><a href="#">How It Work</a></li>
+                                                    <li><a href="#">Our Agents</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="footer-widget">
+                                                <h4 class="widget-title text-secondary double-down-line-left position-relative">Contact Us</h4>
+                                                <ul>
+                                                    <li>Collins Street West, Victoria 8007, Australia</li>
+                                                    <li>+1 246-345-0695</li>
+                                                    <li>helpline@homex.com</li>
+                                                </ul>
+                                            </div>
+                                            <div class="footer-widget media-widget mt-4 text-secondary hover-text-primary">
+                                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                                <a href="#"><i class="fab fa-google-plus-g"></i></a>
+                                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                                <a href="#"><i class="fas fa-rss"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Copyright Start -->
+            <div class="copyright">
+                <div class="container">
+                    <div class="row row-cols-sm-2 row-cols-1">
+                        <div class="col"> <span>© 2021 Homex All right reserved</span> </div>
+                        <div class="col">
+                            <ul class="line-menu text-ordinary float-end">
+                                <li><a href="#">Privacy & Policy</a></li>
+                                <li>|</li>
+                                <li><a href="#"> Site Map</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Copyright End -->
+        </footer>
+        <!--============== Footer Section End ==============-->
+
+        <!-- Scroll to top -->
+        <a href="#" class="bg-secondary text-white" id="scroll"><i class="fas fa-angle-up"></i></a>
+        <!-- End Scroll To top -->
+    </div>
+    <!-- Wrapper End -->
+
+    <!-- Javascript Files -->
+    <script src="assets/js/jquery.min.js"></script>
+    <!--jQuery Layer Slider -->
+    <script src="assets/js/greensock.js"></script>
+    <script src="assets/js/layerslider.transitions.js"></script>
+    <script src="assets/js/layerslider.kreaturamedia.jquery.js"></script>
+    <!--jQuery Layer Slider -->
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="assets/js/tmpl.js"></script>
+    <script src="assets/js/jquery.dependClass-0.1.js"></script>
+    <script src="assets/js/draggable-0.1.js"></script>
+    <script src="assets/js/jquery.slider.js"></script>
+    <script src="assets/js/wow.js"></script>
+    <script src="assets/js/YouTubePopUp.jquery.js"></script>
+    <script src="assets/js/validate.js"></script>
+    <script src="assets/js/jquery.cookie.js"></script>
+    <script src="assets/js/custom.js"></script>
+</body>
+
+</html>

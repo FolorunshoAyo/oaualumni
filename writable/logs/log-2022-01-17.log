@@ -1,0 +1,60 @@
+CRITICAL - 2022-01-17 06:33:39 --> Invalid file: css/phone.php
+#0 C:\xampp\htdocs\club\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('css/phone.php')
+#1 C:\xampp\htdocs\club\system\Common.php(1089): CodeIgniter\View\View->render('css/phone', Array, true)
+#2 C:\xampp\htdocs\club\app\Controllers\Pages.php(115): view('css/phone')
+#3 C:\xampp\htdocs\club\system\CodeIgniter.php(825): App\Controllers\Pages->contact()
+#4 C:\xampp\htdocs\club\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pages))
+#5 C:\xampp\htdocs\club\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\club\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-01-17 06:35:22 --> Invalid file: css/phone.php
+#0 C:\xampp\htdocs\club\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('css/phone.php')
+#1 C:\xampp\htdocs\club\system\Common.php(1089): CodeIgniter\View\View->render('css/phone', Array, true)
+#2 C:\xampp\htdocs\club\app\Controllers\Pages.php(82): view('css/phone')
+#3 C:\xampp\htdocs\club\system\CodeIgniter.php(825): App\Controllers\Pages->contact()
+#4 C:\xampp\htdocs\club\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pages))
+#5 C:\xampp\htdocs\club\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\club\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-01-17 06:53:37 --> Invalid file: css/phone.php
+#0 C:\xampp\htdocs\club\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('css/phone.php')
+#1 C:\xampp\htdocs\club\system\Common.php(1089): CodeIgniter\View\View->render('css/phone', Array, true)
+#2 C:\xampp\htdocs\club\app\Controllers\Pages.php(82): view('css/phone')
+#3 C:\xampp\htdocs\club\system\CodeIgniter.php(825): App\Controllers\Pages->contact()
+#4 C:\xampp\htdocs\club\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pages))
+#5 C:\xampp\htdocs\club\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\club\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-01-17 06:54:06 --> Invalid file: css/phone.php
+#0 C:\xampp\htdocs\club\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('css/phone.php')
+#1 C:\xampp\htdocs\club\system\Common.php(1089): CodeIgniter\View\View->render('css/phone', Array, true)
+#2 C:\xampp\htdocs\club\app\Controllers\Pages.php(82): view('css/phone')
+#3 C:\xampp\htdocs\club\system\CodeIgniter.php(825): App\Controllers\Pages->contact()
+#4 C:\xampp\htdocs\club\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pages))
+#5 C:\xampp\htdocs\club\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\club\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-01-17 06:54:08 --> Invalid file: css/phone.php
+#0 C:\xampp\htdocs\club\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('css/phone.php')
+#1 C:\xampp\htdocs\club\system\Common.php(1089): CodeIgniter\View\View->render('css/phone', Array, true)
+#2 C:\xampp\htdocs\club\app\Controllers\Pages.php(82): view('css/phone')
+#3 C:\xampp\htdocs\club\system\CodeIgniter.php(825): App\Controllers\Pages->contact()
+#4 C:\xampp\htdocs\club\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pages))
+#5 C:\xampp\htdocs\club\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\club\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+ERROR - 2022-01-17 07:03:03 --> Unknown column 'con_date' in 'field list'
+CRITICAL - 2022-01-17 07:03:03 --> Unknown column 'con_date' in 'field list'
+#0 C:\xampp\htdocs\club\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `co...', 0)
+#1 C:\xampp\htdocs\club\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `co...')
+#2 C:\xampp\htdocs\club\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `co...')
+#3 C:\xampp\htdocs\club\system\Database\BaseBuilder.php(1771): CodeIgniter\Database\BaseConnection->query('INSERT INTO `co...', Array, false)
+#4 C:\xampp\htdocs\club\system\Model.php(239): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\club\system\BaseModel.php(738): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\club\system\Model.php(625): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\club\app\Controllers\Pages.php(128): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\club\system\CodeIgniter.php(825): App\Controllers\Pages->userQuery()
+#9 C:\xampp\htdocs\club\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pages))
+#10 C:\xampp\htdocs\club\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\club\index.php(37): CodeIgniter\CodeIgniter->run()
+#12 {main}

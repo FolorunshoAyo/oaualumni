@@ -1,0 +1,107 @@
+<div class="content">
+
+	<!-- Start Page Header -->
+	<div class="page-header">
+		<h1 class="title">Edit User Deposits</h1>
+		<ol class="breadcrumb">
+			<li><a href="<?php echo site_url('admin')?>">Dashboard</a></li>
+			<li><a href="<?php echo site_url('admin/deposits')?>">deposits</a></li>
+			<li class="active">Edit deposit</li>
+		</ol>
+
+
+	</div>
+	<!-- End Page Header -->
+
+
+
+	<!-- //////////////////////////////////////////////////////////////////////////// -->
+	<!-- START CONTAINER -->
+	<div class="container-padding">
+		<!-- Start Row -->
+		<div class="row">
+			<div class="col-md-2">
+
+			</div>
+			<div class="col-md-8 offset-2">
+				<div class="panel panel-default">
+
+					<div class="panel-title">
+						Fieldset
+					</div>
+
+					<div class="panel-body">
+						<?php  checkFlash();?>
+						<div class="cierrors">
+							<?php echo validation_errors(); ?>
+						</div>
+
+						<!--<form action="<?php /*echo site_url('admin/updateUserDeposit')*/?>" class="fieldset-form" method="post">-->
+                            <?php echo form_open('admin/updateUserDeposit',['class'=>'fieldset-form'])?>
+							<fieldset>
+								<legend>Edit user deposit</legend>
+								<div class="form-group">
+									<span class="">Select Deposit Mode <span class="red">*</span></span>
+									<?php
+										$UserDepositMode = array('new'=>'New-Investment');
+										echo form_dropdown('deposit_mode',$UserDepositMode, $userDeposit[0]['ud_type'],array('class'=>'form-control'));
+									?>
+									<input type="hidden" value="<?php echo $userDeposit[0]['ud_id'] ?>" name="xeew">
+								</div>
+								<div class="form-group">
+									<span class="">Select Currency <span class="red">*</span></span>
+									<?php
+										$UserCurrency = array('USD'=>'USD');
+										echo form_dropdown('deposit_currency',$UserCurrency, $userDeposit[0]['ud_currency'],array('class'=>'form-control'));
+									?>
+								</div>
+								<div class="form-group">
+									<span>Your Amount</span><span class="red">*</span>
+									<?php
+									echo form_input('uramount',$userDeposit[0]['ud_amount'],array('class'=>'form-control','placeholder'=>'Please Add Your Amount'));
+									?>
+								</div>
+
+								<div class="form-group">
+									<span>Date</span>
+									<?php
+										echo form_input('newDate',$userDeposit[0]['ud_date'],array('class'=>'form-control datepicker','placeholder'=>'Select Date'));
+									?>
+								</div>
+
+
+								<!--<div class="form-group">
+									<span>Your  Bank Transaction Id</span><span class="red">*</span>
+									<?php
+/*									echo form_input('banktr',$userDeposit[0]['ud_bank_tr_id'],array('class'=>'form-control','placeholder'=>'Please Add Your Bank Transaction ID'));
+									*/?>
+								</div>-->
+
+								<div class="form-group">
+									<span>Status</span><span class="red">*</span>
+									<?php
+									$plansStatus = array('1'=>'Active','0'=>'Disable');
+									echo form_dropdown('status',$plansStatus,$userDeposit[0]['ud_status'],array('class'=>'form-control'));
+									?>
+								</div>
+								<button type="submit" class="btn btn-default">Update</button>
+							</fieldset>
+						</form>
+
+					</div>
+
+				</div>
+			</div>
+
+
+		</div>
+		<!-- End Row -->
+
+
+
+	</div>
+	<!-- END CONTAINER -->
+	<!-- //////////////////////////////////////////////////////////////////////////// -->
+
+
+</div>

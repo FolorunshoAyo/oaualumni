@@ -1,0 +1,93 @@
+ERROR - 2024-04-05 03:25:08 --> Unknown column 'alumni_id' in 'order clause'
+CRITICAL - 2024-04-05 03:25:08 --> Unknown column 'alumni_id' in 'order clause'
+#0 C:\xampp\htdocs\oaualumni\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `alumni`...', 0)
+#1 C:\xampp\htdocs\oaualumni\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `alumni`...')
+#2 C:\xampp\htdocs\oaualumni\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `alumni`...')
+#3 C:\xampp\htdocs\oaualumni\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `alumni`...', Array, false)
+#4 C:\xampp\htdocs\oaualumni\system\Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\oaualumni\system\BaseModel.php(584): CodeIgniter\Model->doFindAll(20, 0)
+#6 C:\xampp\htdocs\oaualumni\system\BaseModel.php(1088): CodeIgniter\BaseModel->findAll(20, 0)
+#7 C:\xampp\htdocs\oaualumni\app\Controllers\Admin.php(1626): CodeIgniter\BaseModel->paginate(20)
+#8 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(825): App\Controllers\Admin->allAlumni()
+#9 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#10 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\oaualumni\index.php(37): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-04-05 04:19:53 --> Undefined variable $allHowITWorks
+#0 C:\xampp\htdocs\oaualumni\app\Views\admin\content\allAlumni.php(30): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 30)
+#1 C:\xampp\htdocs\oaualumni\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\oaualumni\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\oaualumni\system\Common.php(1089): CodeIgniter\View\View->render('admin/content/a...', Array, true)
+#4 C:\xampp\htdocs\oaualumni\app\Controllers\Admin.php(1638): view('admin/content/a...', Array)
+#5 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(825): App\Controllers\Admin->allAlumni()
+#6 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\oaualumni\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-04-05 04:21:17 --> Undefined array key "al_featured_image"
+#0 C:\xampp\htdocs\oaualumni\app\Views\admin\content\allAlumni.php(59): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 59)
+#1 C:\xampp\htdocs\oaualumni\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\oaualumni\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\oaualumni\system\Common.php(1089): CodeIgniter\View\View->render('admin/content/a...', Array, true)
+#4 C:\xampp\htdocs\oaualumni\app\Controllers\Admin.php(1638): view('admin/content/a...', Array)
+#5 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(825): App\Controllers\Admin->allAlumni()
+#6 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\oaualumni\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2024-04-05 05:06:25 --> Unknown column 'al_id' in 'where clause'
+CRITICAL - 2024-04-05 05:06:25 --> Unknown column 'al_id' in 'where clause'
+#0 C:\xampp\htdocs\oaualumni\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\oaualumni\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\oaualumni\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\oaualumni\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\oaualumni\system\Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\oaualumni\system\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\oaualumni\app\Controllers\Admin.php(1658): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(825): App\Controllers\Admin->editAlumni('1')
+#8 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#9 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\oaualumni\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2024-04-05 05:06:53 --> Undefined array key "hi_name"
+#0 C:\xampp\htdocs\oaualumni\app\Views\admin\content\editAlumni.php(31): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 31)
+#1 C:\xampp\htdocs\oaualumni\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\oaualumni\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\oaualumni\system\Common.php(1089): CodeIgniter\View\View->render('admin/content/e...', Array, true)
+#4 C:\xampp\htdocs\oaualumni\app\Controllers\Admin.php(1668): view('admin/content/e...', Array)
+#5 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(825): App\Controllers\Admin->editAlumni('1')
+#6 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\oaualumni\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-04-05 05:07:17 --> Undefined array key "hi_set_featured"
+#0 C:\xampp\htdocs\oaualumni\app\Views\admin\content\editAlumni.php(127): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 127)
+#1 C:\xampp\htdocs\oaualumni\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\oaualumni\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\oaualumni\system\Common.php(1089): CodeIgniter\View\View->render('admin/content/e...', Array, true)
+#4 C:\xampp\htdocs\oaualumni\app\Controllers\Admin.php(1668): view('admin/content/e...', Array)
+#5 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(825): App\Controllers\Admin->editAlumni('1')
+#6 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\oaualumni\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-04-05 05:07:29 --> Undefined array key "al_set_featured"
+#0 C:\xampp\htdocs\oaualumni\app\Views\admin\content\editAlumni.php(127): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 127)
+#1 C:\xampp\htdocs\oaualumni\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\oaualumni\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\oaualumni\system\Common.php(1089): CodeIgniter\View\View->render('admin/content/e...', Array, true)
+#4 C:\xampp\htdocs\oaualumni\app\Controllers\Admin.php(1668): view('admin/content/e...', Array)
+#5 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(825): App\Controllers\Admin->editAlumni('1')
+#6 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\oaualumni\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-04-05 10:49:05 --> Invalid file: users/commitee.php
+#0 C:\xampp\htdocs\oaualumni\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('users/commitee....')
+#1 C:\xampp\htdocs\oaualumni\system\Common.php(1089): CodeIgniter\View\View->render('users/commitee', Array, true)
+#2 C:\xampp\htdocs\oaualumni\app\Controllers\Pages.php(65): view('users/commitee', Array)
+#3 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(825): App\Controllers\Pages->committee()
+#4 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pages))
+#5 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\oaualumni\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}

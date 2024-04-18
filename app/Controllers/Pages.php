@@ -1,0 +1,228 @@
+<?php
+
+
+namespace App\Controllers;
+
+use App\Models\ModContact;
+use App\Models\ModGallery;
+use App\Models\ModGalleryImages;
+
+class Pages extends BaseController
+{
+    protected $validator;
+    protected $request;
+    protected $session;
+    
+    function __construct()
+    {
+        $this->validator = \Config\Services::validation();
+        $this->request = \Config\Services::request();
+        $this->session = \Config\Services::session();
+    }
+
+
+    protected $helpers = ['url', 'custom_helper','form','text'];
+
+    public function about()
+    {
+      $data['title'] = 'About' . PROJECT;
+      $data['description'] = 'About page description';
+       echo view('header/header',$data);
+       echo view('css/allCSS');
+       echo view('css/whatsapp');
+       echo view('header/navbar');
+       echo view('content/about',$data);
+       echo view('footer/footer');
+       echo view('js/whatsapp');
+       echo view('footer/endfooter');
+    }
+
+
+
+    public function faq()
+    {
+        $data['title'] = 'FAQ' . PROJECT;
+        //$data['description'] = 'FAQ';
+        echo view('header/header',$data);
+        echo view('css/allCSS');
+        echo view('css/phone');
+        echo view('header/navbar');
+        echo view('users/faq',$data);
+        echo view('content/subscribed');
+        echo view('footer/footer');
+        echo view('js/phone');
+        echo view('footer/endfooter');
+    }
+
+    public function executives()
+    {
+        $data['title'] = 'Executives' . PROJECT;
+        //$data['description'] = 'FAQ';
+        echo view('header/header',$data);
+        echo view('css/allCSS');
+        echo view('css/phone');
+        echo view('header/navbar');
+        echo view('users/executives',$data);
+        echo view('content/subscribed');
+        echo view('footer/footer');
+        echo view('footer/endfooter');
+    }
+
+    public function terms()
+    {
+        $data['title'] = 'Terms' . PROJECT;
+        //$data['description'] = 'FAQ';
+        echo view('header/header',$data);
+        echo view('css/allCSS');
+        echo view('css/phone');
+        echo view('header/navbar');
+        echo view('users/terms',$data);
+        echo view('content/subscribed');
+        echo view('footer/footer');
+        echo view('js/phone');
+        echo view('footer/endfooter');
+    }
+
+
+
+    public function contact()
+    {
+        $data['title'] = 'Contact' . PROJECT;
+        $data['description'] = 'Contact';
+        echo view('header/header',$data);
+        echo view('css/allCSS');
+        echo view('css/phone');
+        echo view('header/navbar');
+        echo view('users/contact',$data);
+        echo view('content/subscribed');
+        echo view('footer/footer');
+        echo view('js/phone');
+        echo view('footer/endfooter');
+
+    }
+
+
+
+    public function userQuery()
+    {
+
+        $validation = $this->validator;
+        $request = $this->request;
+        $session =  $this->session;
+        customFlash('alert-warning','Please check your required fields and try again','contact');
+        //dd();
+        if (!$this->validate($validation->getRuleGroup('userQuery'))){
+            customFlash('alert-warning','Please check your required fields and try again','contact');
+            return redirect()->to(site_url('contact'));
+
+        }
+        else{
+            $myUser = [
+                'u_email'=>$request->getPost('email'),
+            ];
+
+            $ModCotnact = new ModContact();
+            if (isUserLoggedIn()) {
+                $newContact = [
+                    'user_id'=>session('u_id'),
+                    'con_message'=>$request->getPost('message'),
+                ];
+            }
+
+            $newContact = [
+                'con_name'=>$request->getPost('name'),
+                'con_email'=>$request->getPost('email'),
+                'con_phone'=>$request->getPost('relPhone'),
+                'con_message'=>$request->getPost('message'),
+                'con_subject'=>$request->getPost('subject'),
+            ];
+            $ifQueryInserted = $ModCotnact->insert($newContact);
+
+            if ($ifQueryInserted){
+                /*if (getUserAgent()) {
+                    $message =  view('emails/contactForm',$newContact);
+                    $email = \Config\Services::email();
+                    $email->setFrom(EMAIL, '5Stark');
+                    $email->setTo('shakzee171@gmail.com');
+                    $email->setSubject('New Message | 5stark.com');
+                    $email->setMessage($message);//your message here
+                    $email->send();
+
+                }*/
+                customFlash('alert-success','Thanks for being in touch with us. Over the next 24 hours, our representative will email you.','contact');
+                return redirect()->to(site_url('contact'));
+            }
+            else{
+                customFlash('alert-warning','Something went wrong, please try again.','contact');
+                return redirect()->to(site_url('contact'));
+
+            }
+
+        }
+    }
+    /*FrontGallery starts here*/
+    public function gallery()
+    {
+        $tableModGallery= new ModGallery();
+        $tableModGallery->select('gallery.*')
+            ->where([
+                'gallery.gl_status'=>1
+            ])
+            ->orderBy('gallery.gl_id','desc');
+        $data = [
+            'galleries' => $tableModGallery->paginate(5),
+            'pager' => $tableModGallery->pager
+        ];
+
+        $data['title'] =  'Gallery ' . PROJECT;
+        $data['description'] = 'Gallery Description here';
+        echo view('header/header',$data);
+        echo view('css/allCSS');
+        echo view('header/navbar');
+        echo view('content/gallery',$data);
+        echo view('footer/footer');
+        echo view('footer/endfooter');
+
+    }
+
+    public function galleryImages($gallery_id)
+    {
+        if (!empty($gallery_id) && isset($gallery_id)) {
+            $tableGalImages = new ModGalleryImages();
+            $checkGallery = $tableGalImages->select()
+                ->where([
+                    'gallery_images.gi_status'=>1,
+                    'gallery_images.gallery_id'=>$gallery_id,
+                ])
+                ->join('gallery','gallery.gl_id = gallery_images.gallery_id')
+                ->orderBy('gallery_images.gi_id','desc')
+                ->findAll();
+            if (count($checkGallery) > 0) {
+                $data['galleries'] = $checkGallery;
+                $data['title'] = 'Gallery ' . PROJECT;
+                $data['description'] = 'Gallery Description here';
+
+                echo view('header/header',$data);
+                echo view('css/allCSS');
+                echo view('css/lightGalleryCss');//extra css
+                echo view('header/navbar');
+                echo view('content/photoGalleries',$data);
+                echo view('content/subscribed');
+                echo view('footer/footer');
+                echo view('js/lightGalleryJs');
+                echo view('footer/endfooter');
+
+            }
+            else{
+                customFlash('alert-info','Photos not available in the gallery');
+                return redirect()->to(site_url('photo-galleries'));
+            }
+        }
+        else{
+            customFlash('alert-info','Something went wrong, please check your required things and try again.');
+            return redirect()->to(site_url('photo-galleries'));
+        }
+    }
+    /*FrontGallery ends here*/
+
+}//class hre

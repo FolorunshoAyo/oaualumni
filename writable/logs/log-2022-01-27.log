@@ -1,0 +1,1 @@
+ERROR - 2022-01-27 05:11:58 --> Email: sendWithSmtp throwed stream_socket_enable_crypto(): SSL/TLS already set-up for this stream

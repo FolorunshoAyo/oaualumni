@@ -1,0 +1,373 @@
+CRITICAL - 2022-01-22 05:16:45 --> Undefined variable: Mylanguages
+#0 C:\xampp\htdocs\club\app\Views\admin\content\newNewsEvents.php(68): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 68, Array)
+#1 C:\xampp\htdocs\club\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\club\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\club\system\Common.php(1089): CodeIgniter\View\View->render('admin/content/n...', Array, true)
+#4 C:\xampp\htdocs\club\app\Controllers\Admin.php(390): view('admin/content/n...', Array)
+#5 C:\xampp\htdocs\club\system\CodeIgniter.php(825): App\Controllers\Admin->newNewsEvents()
+#6 C:\xampp\htdocs\club\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\xampp\htdocs\club\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\club\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-01-22 05:27:19 --> newsEvent is not a validation rules group.
+#0 C:\xampp\htdocs\club\system\Validation\Validation.php(451): CodeIgniter\Validation\Exceptions\ValidationException::forGroupNotFound('newsEvent')
+#1 C:\xampp\htdocs\club\app\Controllers\Admin.php(421): CodeIgniter\Validation\Validation->getRuleGroup('newsEvent')
+#2 C:\xampp\htdocs\club\system\CodeIgniter.php(825): App\Controllers\Admin->addNewsEvents()
+#3 C:\xampp\htdocs\club\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#4 C:\xampp\htdocs\club\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\club\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+ERROR - 2022-01-22 05:34:02 --> Unknown column 'language_id' in 'where clause'
+CRITICAL - 2022-01-22 05:34:02 --> Unknown column 'language_id' in 'where clause'
+#0 C:\xampp\htdocs\club\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\club\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\club\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\club\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\club\system\Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\club\system\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\club\app\Controllers\Admin.php(451): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\club\system\CodeIgniter.php(825): App\Controllers\Admin->addNewsEvents()
+#8 C:\xampp\htdocs\club\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#9 C:\xampp\htdocs\club\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\club\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2022-01-22 05:44:16 --> Undefined variable: filters
+#0 C:\xampp\htdocs\club\app\Views\admin\content\allNewsEvents.php(37): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 37, Array)
+#1 C:\xampp\htdocs\club\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\club\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\club\system\Common.php(1089): CodeIgniter\View\View->render('admin/content/a...', Array, true)
+#4 C:\xampp\htdocs\club\app\Controllers\Admin.php(480): view('admin/content/a...', Array)
+#5 C:\xampp\htdocs\club\system\CodeIgniter.php(825): App\Controllers\Admin->allNewsEvents()
+#6 C:\xampp\htdocs\club\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\xampp\htdocs\club\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\club\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-01-22 05:45:32 --> Undefined variable: request
+#0 C:\xampp\htdocs\club\app\Controllers\Admin.php(470): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 470, Array)
+#1 C:\xampp\htdocs\club\system\CodeIgniter.php(825): App\Controllers\Admin->allNewsEvents()
+#2 C:\xampp\htdocs\club\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#3 C:\xampp\htdocs\club\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\club\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-01-22 05:46:02 --> Undefined index: ln_language
+#0 C:\xampp\htdocs\club\app\Views\admin\content\allNewsEvents.php(143): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 143, Array)
+#1 C:\xampp\htdocs\club\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\club\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\club\system\Common.php(1089): CodeIgniter\View\View->render('admin/content/a...', Array, true)
+#4 C:\xampp\htdocs\club\app\Controllers\Admin.php(491): view('admin/content/a...', Array)
+#5 C:\xampp\htdocs\club\system\CodeIgniter.php(825): App\Controllers\Admin->allNewsEvents()
+#6 C:\xampp\htdocs\club\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\xampp\htdocs\club\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\club\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-01-22 05:47:07 --> Undefined variable: skzUsers
+#0 C:\xampp\htdocs\club\app\Views\admin\content\allNewsEvents.php(115): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 115, Array)
+#1 C:\xampp\htdocs\club\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\club\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\club\system\Common.php(1089): CodeIgniter\View\View->render('admin/content/a...', Array, true)
+#4 C:\xampp\htdocs\club\app\Controllers\Admin.php(491): view('admin/content/a...', Array)
+#5 C:\xampp\htdocs\club\system\CodeIgniter.php(825): App\Controllers\Admin->allNewsEvents()
+#6 C:\xampp\htdocs\club\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\xampp\htdocs\club\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\club\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-01-22 05:48:46 --> Undefined index: ln_language
+#0 C:\xampp\htdocs\club\app\Views\admin\content\allNewsEvents.php(147): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 147, Array)
+#1 C:\xampp\htdocs\club\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\club\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\club\system\Common.php(1089): CodeIgniter\View\View->render('admin/content/a...', Array, true)
+#4 C:\xampp\htdocs\club\app\Controllers\Admin.php(491): view('admin/content/a...', Array)
+#5 C:\xampp\htdocs\club\system\CodeIgniter.php(825): App\Controllers\Admin->allNewsEvents()
+#6 C:\xampp\htdocs\club\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\xampp\htdocs\club\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\club\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-01-22 05:50:41 --> Call to undefined function App\Controllers\getLanguages()
+#0 C:\xampp\htdocs\club\system\CodeIgniter.php(825): App\Controllers\Admin->editNewsEvents('1')
+#1 C:\xampp\htdocs\club\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#2 C:\xampp\htdocs\club\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\club\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-01-22 05:51:56 --> Undefined variable: Mylanguages
+#0 C:\xampp\htdocs\club\app\Views\admin\content\editNewsEvents.php(67): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 67, Array)
+#1 C:\xampp\htdocs\club\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\club\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\club\system\Common.php(1089): CodeIgniter\View\View->render('admin/content/e...', Array, true)
+#4 C:\xampp\htdocs\club\app\Controllers\Admin.php(516): view('admin/content/e...', Array)
+#5 C:\xampp\htdocs\club\system\CodeIgniter.php(825): App\Controllers\Admin->editNewsEvents('1')
+#6 C:\xampp\htdocs\club\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\xampp\htdocs\club\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\club\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-01-22 06:02:28 --> Undefined index: language_id
+#0 C:\xampp\htdocs\club\app\Controllers\Admin.php(569): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 569, Array)
+#1 C:\xampp\htdocs\club\system\CodeIgniter.php(825): App\Controllers\Admin->updateNewsEvents()
+#2 C:\xampp\htdocs\club\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#3 C:\xampp\htdocs\club\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\club\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+ERROR - 2022-01-22 06:11:20 --> Unknown column 'newsevents.ne_date' in 'where clause'
+CRITICAL - 2022-01-22 06:11:20 --> Unknown column 'newsevents.ne_date' in 'where clause'
+#0 C:\xampp\htdocs\club\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp\htdocs\club\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp\htdocs\club\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp\htdocs\club\system\Database\BaseBuilder.php(1539): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\club\system\Model.php(509): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+#5 C:\xampp\htdocs\club\system\BaseModel.php(1084): CodeIgniter\Model->countAllResults(false)
+#6 C:\xampp\htdocs\club\app\Controllers\Admin.php(44): CodeIgniter\BaseModel->paginate(20)
+#7 C:\xampp\htdocs\club\system\CodeIgniter.php(825): App\Controllers\Admin->users()
+#8 C:\xampp\htdocs\club\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#9 C:\xampp\htdocs\club\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\club\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+ERROR - 2022-01-22 06:15:45 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'IS NULL
+AND `newsevents`.`ne_date` <= '2022-01-24'
+AND `newsevents`.`ne_delet...' at line 3
+CRITICAL - 2022-01-22 06:15:45 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'IS NULL
+AND `newsevents`.`ne_date` <= '2022-01-24'
+AND `newsevents`.`ne_delet...' at line 3
+#0 C:\xampp\htdocs\club\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp\htdocs\club\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp\htdocs\club\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp\htdocs\club\system\Database\BaseBuilder.php(1539): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\club\system\Model.php(509): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+#5 C:\xampp\htdocs\club\system\BaseModel.php(1084): CodeIgniter\Model->countAllResults(false)
+#6 C:\xampp\htdocs\club\app\Controllers\Admin.php(483): CodeIgniter\BaseModel->paginate(20)
+#7 C:\xampp\htdocs\club\system\CodeIgniter.php(825): App\Controllers\Admin->allNewsEvents()
+#8 C:\xampp\htdocs\club\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#9 C:\xampp\htdocs\club\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\club\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+ERROR - 2022-01-22 06:15:58 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'IS NULL
+AND `newsevents`.`ne_date` <= '2022-01-24'
+AND `newsevents`.`ne_delet...' at line 3
+CRITICAL - 2022-01-22 06:15:58 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'IS NULL
+AND `newsevents`.`ne_date` <= '2022-01-24'
+AND `newsevents`.`ne_delet...' at line 3
+#0 C:\xampp\htdocs\club\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp\htdocs\club\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp\htdocs\club\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp\htdocs\club\system\Database\BaseBuilder.php(1539): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\club\system\Model.php(509): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+#5 C:\xampp\htdocs\club\system\BaseModel.php(1084): CodeIgniter\Model->countAllResults(false)
+#6 C:\xampp\htdocs\club\app\Controllers\Admin.php(483): CodeIgniter\BaseModel->paginate(20)
+#7 C:\xampp\htdocs\club\system\CodeIgniter.php(825): App\Controllers\Admin->allNewsEvents()
+#8 C:\xampp\htdocs\club\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#9 C:\xampp\htdocs\club\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\club\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+ERROR - 2022-01-22 06:16:25 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'IS NULL
+AND `newsevents`.`ne_date` <= '2022-01-24'
+AND `newsevents`.`ne_delet...' at line 3
+CRITICAL - 2022-01-22 06:16:25 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'IS NULL
+AND `newsevents`.`ne_date` <= '2022-01-24'
+AND `newsevents`.`ne_delet...' at line 3
+#0 C:\xampp\htdocs\club\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp\htdocs\club\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp\htdocs\club\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp\htdocs\club\system\Database\BaseBuilder.php(1539): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\club\system\Model.php(509): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+#5 C:\xampp\htdocs\club\system\BaseModel.php(1084): CodeIgniter\Model->countAllResults(false)
+#6 C:\xampp\htdocs\club\app\Controllers\Admin.php(483): CodeIgniter\BaseModel->paginate(20)
+#7 C:\xampp\htdocs\club\system\CodeIgniter.php(825): App\Controllers\Admin->allNewsEvents()
+#8 C:\xampp\htdocs\club\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#9 C:\xampp\htdocs\club\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\club\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+ERROR - 2022-01-22 06:17:04 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'IS NULL
+AND `newsevents`.`ne_date` <= '2022-01-24'
+AND `newsevents`.`ne_delet...' at line 3
+CRITICAL - 2022-01-22 06:17:04 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'IS NULL
+AND `newsevents`.`ne_date` <= '2022-01-24'
+AND `newsevents`.`ne_delet...' at line 3
+#0 C:\xampp\htdocs\club\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp\htdocs\club\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp\htdocs\club\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp\htdocs\club\system\Database\BaseBuilder.php(1539): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\club\system\Model.php(509): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+#5 C:\xampp\htdocs\club\system\BaseModel.php(1084): CodeIgniter\Model->countAllResults(false)
+#6 C:\xampp\htdocs\club\app\Controllers\Admin.php(483): CodeIgniter\BaseModel->paginate(20)
+#7 C:\xampp\htdocs\club\system\CodeIgniter.php(825): App\Controllers\Admin->allNewsEvents()
+#8 C:\xampp\htdocs\club\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#9 C:\xampp\htdocs\club\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\club\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+ERROR - 2022-01-22 06:18:16 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'IS NULL
+AND `newsevents`.`ne_deleted` IS NULL' at line 3
+CRITICAL - 2022-01-22 06:18:16 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'IS NULL
+AND `newsevents`.`ne_deleted` IS NULL' at line 3
+#0 C:\xampp\htdocs\club\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp\htdocs\club\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp\htdocs\club\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp\htdocs\club\system\Database\BaseBuilder.php(1539): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\club\system\Model.php(509): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+#5 C:\xampp\htdocs\club\system\BaseModel.php(1084): CodeIgniter\Model->countAllResults(false)
+#6 C:\xampp\htdocs\club\app\Controllers\Admin.php(483): CodeIgniter\BaseModel->paginate(20)
+#7 C:\xampp\htdocs\club\system\CodeIgniter.php(825): App\Controllers\Admin->allNewsEvents()
+#8 C:\xampp\htdocs\club\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#9 C:\xampp\htdocs\club\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\club\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+ERROR - 2022-01-22 06:18:47 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'IS NULL
+AND `newsevents`.`ne_deleted` IS NULL' at line 3
+CRITICAL - 2022-01-22 06:18:47 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'IS NULL
+AND `newsevents`.`ne_deleted` IS NULL' at line 3
+#0 C:\xampp\htdocs\club\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp\htdocs\club\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp\htdocs\club\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp\htdocs\club\system\Database\BaseBuilder.php(1539): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\club\system\Model.php(509): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+#5 C:\xampp\htdocs\club\system\BaseModel.php(1084): CodeIgniter\Model->countAllResults(false)
+#6 C:\xampp\htdocs\club\app\Controllers\Admin.php(483): CodeIgniter\BaseModel->paginate(20)
+#7 C:\xampp\htdocs\club\system\CodeIgniter.php(825): App\Controllers\Admin->allNewsEvents()
+#8 C:\xampp\htdocs\club\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#9 C:\xampp\htdocs\club\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\club\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+ERROR - 2022-01-22 06:18:56 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'IS NULL
+AND `newsevents`.`ne_deleted` IS NULL' at line 3
+CRITICAL - 2022-01-22 06:18:56 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'IS NULL
+AND `newsevents`.`ne_deleted` IS NULL' at line 3
+#0 C:\xampp\htdocs\club\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp\htdocs\club\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp\htdocs\club\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp\htdocs\club\system\Database\BaseBuilder.php(1539): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\club\system\Model.php(509): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+#5 C:\xampp\htdocs\club\system\BaseModel.php(1084): CodeIgniter\Model->countAllResults(false)
+#6 C:\xampp\htdocs\club\app\Controllers\Admin.php(482): CodeIgniter\BaseModel->paginate(20)
+#7 C:\xampp\htdocs\club\system\CodeIgniter.php(825): App\Controllers\Admin->allNewsEvents()
+#8 C:\xampp\htdocs\club\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#9 C:\xampp\htdocs\club\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\club\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2022-01-22 06:26:28 --> syntax error, unexpected '$data' (T_VARIABLE)
+#0 C:\xampp\htdocs\club\system\Autoloader\Autoloader.php(241): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs...')
+#1 C:\xampp\htdocs\club\system\Autoloader\Autoloader.php(219): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#3 [internal function]: spl_autoload_call('App\\Controllers...')
+#4 C:\xampp\htdocs\club\system\CodeIgniter.php(790): class_exists('\\App\\Controller...', true)
+#5 C:\xampp\htdocs\club\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->startController()
+#6 C:\xampp\htdocs\club\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\club\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-01-22 06:44:48 --> Class 'App\Controllers\ModNewEvents' not found
+#0 C:\xampp\htdocs\club\system\CodeIgniter.php(825): App\Controllers\NewsEvents->index()
+#1 C:\xampp\htdocs\club\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\NewsEvents))
+#2 C:\xampp\htdocs\club\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\club\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-01-22 06:45:05 --> Call to undefined function App\Controllers\filterWhereForModels()
+#0 C:\xampp\htdocs\club\system\CodeIgniter.php(825): App\Controllers\NewsEvents->index()
+#1 C:\xampp\htdocs\club\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\NewsEvents))
+#2 C:\xampp\htdocs\club\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\club\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-01-22 07:11:15 --> Too few arguments to function App\Controllers\NewsEvents::readnrews(), 0 passed in C:\xampp\htdocs\club\system\CodeIgniter.php on line 825 and exactly 1 expected
+#0 C:\xampp\htdocs\club\system\CodeIgniter.php(825): App\Controllers\NewsEvents->readnrews()
+#1 C:\xampp\htdocs\club\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\NewsEvents))
+#2 C:\xampp\htdocs\club\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\club\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-01-22 07:14:25 --> syntax error, unexpected 'endif' (T_ENDIF)
+#0 C:\xampp\htdocs\club\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#1 C:\xampp\htdocs\club\system\Common.php(1089): CodeIgniter\View\View->render('newsEvents/read...', Array, true)
+#2 C:\xampp\htdocs\club\app\Controllers\NewsEvents.php(56): view('newsEvents/read...', Array)
+#3 C:\xampp\htdocs\club\system\CodeIgniter.php(825): App\Controllers\NewsEvents->readnrews('9')
+#4 C:\xampp\htdocs\club\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\NewsEvents))
+#5 C:\xampp\htdocs\club\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\club\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-01-22 07:14:45 --> Undefined variable: checkNewEnt
+#0 C:\xampp\htdocs\club\app\Views\newsEvents\readnrews.php(14): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 14, Array)
+#1 C:\xampp\htdocs\club\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\club\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\club\system\Common.php(1089): CodeIgniter\View\View->render('newsEvents/read...', Array, true)
+#4 C:\xampp\htdocs\club\app\Controllers\NewsEvents.php(56): view('newsEvents/read...', Array)
+#5 C:\xampp\htdocs\club\system\CodeIgniter.php(825): App\Controllers\NewsEvents->readnrews('9')
+#6 C:\xampp\htdocs\club\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\NewsEvents))
+#7 C:\xampp\htdocs\club\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\club\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-01-22 07:19:01 --> Undefined variable: filtrs
+#0 C:\xampp\htdocs\club\app\Views\newsEvents\readnrews.php(34): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 34, Array)
+#1 C:\xampp\htdocs\club\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\club\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\club\system\Common.php(1089): CodeIgniter\View\View->render('newsEvents/read...', Array, true)
+#4 C:\xampp\htdocs\club\app\Controllers\NewsEvents.php(56): view('newsEvents/read...', Array)
+#5 C:\xampp\htdocs\club\system\CodeIgniter.php(825): App\Controllers\NewsEvents->readnrews('9dfdfd')
+#6 C:\xampp\htdocs\club\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\NewsEvents))
+#7 C:\xampp\htdocs\club\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\club\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-01-22 07:19:43 --> Undefined variable: filtrs
+#0 C:\xampp\htdocs\club\app\Views\newsEvents\readnrews.php(34): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 34, Array)
+#1 C:\xampp\htdocs\club\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\club\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\club\system\Common.php(1089): CodeIgniter\View\View->render('newsEvents/read...', Array, true)
+#4 C:\xampp\htdocs\club\app\Controllers\NewsEvents.php(56): view('newsEvents/read...', Array)
+#5 C:\xampp\htdocs\club\system\CodeIgniter.php(825): App\Controllers\NewsEvents->readnrews('9')
+#6 C:\xampp\htdocs\club\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\NewsEvents))
+#7 C:\xampp\htdocs\club\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\club\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-01-22 07:57:26 --> Undefined variable: filtrs
+#0 C:\xampp\htdocs\club\app\Views\newsEvents\readnrews.php(34): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 34, Array)
+#1 C:\xampp\htdocs\club\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\club\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\club\system\Common.php(1089): CodeIgniter\View\View->render('newsEvents/read...', Array, true)
+#4 C:\xampp\htdocs\club\app\Controllers\NewsEvents.php(56): view('newsEvents/read...', Array)
+#5 C:\xampp\htdocs\club\system\CodeIgniter.php(825): App\Controllers\NewsEvents->readnrews('9')
+#6 C:\xampp\htdocs\club\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\NewsEvents))
+#7 C:\xampp\htdocs\club\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\club\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-01-22 07:58:34 --> syntax error, unexpected '=>' (T_DOUBLE_ARROW)
+#0 C:\xampp\htdocs\club\system\Autoloader\Autoloader.php(241): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs...')
+#1 C:\xampp\htdocs\club\system\Autoloader\Autoloader.php(219): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#3 [internal function]: spl_autoload_call('App\\Controllers...')
+#4 C:\xampp\htdocs\club\system\CodeIgniter.php(790): class_exists('\\App\\Controller...', true)
+#5 C:\xampp\htdocs\club\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->startController()
+#6 C:\xampp\htdocs\club\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\club\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-01-22 08:04:52 --> syntax error, unexpected 'endif' (T_ENDIF)
+#0 C:\xampp\htdocs\club\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#1 C:\xampp\htdocs\club\system\Common.php(1089): CodeIgniter\View\View->render('content/MainHom...', Array, true)
+#2 C:\xampp\htdocs\club\app\Controllers\Home.php(20): view('content/MainHom...', Array)
+#3 C:\xampp\htdocs\club\system\CodeIgniter.php(825): App\Controllers\Home->index()
+#4 C:\xampp\htdocs\club\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#5 C:\xampp\htdocs\club\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\club\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-01-22 08:05:20 --> Call to undefined function word_limiter()
+#0 C:\xampp\htdocs\club\system\View\View.php(210): include()
+#1 C:\xampp\htdocs\club\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 C:\xampp\htdocs\club\system\Common.php(1089): CodeIgniter\View\View->render('content/MainHom...', Array, true)
+#3 C:\xampp\htdocs\club\app\Controllers\Home.php(20): view('content/MainHom...', Array)
+#4 C:\xampp\htdocs\club\system\CodeIgniter.php(825): App\Controllers\Home->index()
+#5 C:\xampp\htdocs\club\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#6 C:\xampp\htdocs\club\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\club\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+ERROR - 2022-01-22 08:33:06 --> Error connecting to the database: Access denied for user '****'@'localhost' (using password: NO)
+CRITICAL - 2022-01-22 08:33:06 --> Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost' (using password: NO)
+#0 /home/u595490171/domains/internationalfamilyclub.org/public_html/system/Database/BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 /home/u595490171/domains/internationalfamilyclub.org/public_html/system/Database/BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 /home/u595490171/domains/internationalfamilyclub.org/public_html/system/Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#3 /home/u595490171/domains/internationalfamilyclub.org/public_html/system/BaseModel.php(584): CodeIgniter\Model->doFindAll(2, 0)
+#4 /home/u595490171/domains/internationalfamilyclub.org/public_html/app/Controllers/Home.php(15): CodeIgniter\BaseModel->findAll(2)
+#5 /home/u595490171/domains/internationalfamilyclub.org/public_html/system/CodeIgniter.php(825): App\Controllers\Home->index()
+#6 /home/u595490171/domains/internationalfamilyclub.org/public_html/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#7 /home/u595490171/domains/internationalfamilyclub.org/public_html/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/u595490171/domains/internationalfamilyclub.org/public_html/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-01-22 09:14:46 --> Array to string conversion
+#0 /home/u595490171/domains/internationalfamilyclub.org/public_html/app/Controllers/Admin.php(581): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Array to string...', '/home/u59549017...', 581, Array)
+#1 /home/u595490171/domains/internationalfamilyclub.org/public_html/system/CodeIgniter.php(825): App\Controllers\Admin->updateNewsEvents()
+#2 /home/u595490171/domains/internationalfamilyclub.org/public_html/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#3 /home/u595490171/domains/internationalfamilyclub.org/public_html/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /home/u595490171/domains/internationalfamilyclub.org/public_html/index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+ERROR - 2022-01-22 10:15:55 --> Email: sendWithSmtp throwed fsockopen(): php_network_getaddresses: getaddrinfo failed: Name or service not known

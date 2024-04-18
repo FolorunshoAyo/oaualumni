@@ -1,0 +1,93 @@
+
+
+/*.pagination li:hover a, .pagination li.active a {
+  border-color: #0b6a4b;
+  background: #0b6a4b;
+  color: #ffffff;
+  border-radius: 0px !important;
+  !* padding: 8px; *!
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 25px;
+}
+
+.pagination li a {
+  display: inline-block;
+  text-align: center;
+  width: 50px;
+  height: 50px;
+  font-size: 18px;
+  line-height: 54px;
+  border-radius: 6px;
+  border: 1px solid #0b6a4b;
+  margin: 0 6px;
+  transition: 0.3s;
+  border-radius: 0px !important;
+  padding: 0px !important;
+  color: black;
+}*/
+.kksxx{
+    background: white !important;
+}
+.m_cont_top{
+  margin-top: 50px;
+  padding-left: 24px
+}
+.dhpnl .portlet{
+  border-radius: 0px !important;
+}
+.dhpnl{
+  padding-top: 23px;
+}
+.red{
+  color:red;
+}
+.skzmsubmbtn{
+  cursor: pointer !important;
+}
+.cierrors p{
+  margin: 0px;
+  color: red;
+}
+.cierror {
+   margin-top: 10px;
+   margin-bottom: 18px;
+  margin-top: 10px;
+  margin-bottom: 18px;
+  position: absolute;
+  text-align: center;
+  right: 0px;
+ }
+
+.cierrors2 p{
+  margin: 0px;
+  color: red !important;
+}
+.cierrors2 {
+   margin-top: 10px;
+   margin-bottom: 18px;
+  margin-top: 10px;
+  margin-bottom: 18px;
+  text-align: center;
+ }
+.previmg{
+   text-align: center;
+}
+.previmg a{
+    font-size: 20px
+}
+.dispnn{
+    display: none;
+}
+.upvideo{
+    display:none;
+}
+.skzMconWhite{
+    padding-right: 30px;
+    padding-left: 30px;
+    background: white;
+}
+/*
+.btn{
+    cursor: pointer !important;
+}*/

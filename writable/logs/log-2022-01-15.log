@@ -1,0 +1,201 @@
+CRITICAL - 2022-01-15 02:27:27 --> Invalid file: users/login.php
+#0 C:\xampp\htdocs\club\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('users/login.php')
+#1 C:\xampp\htdocs\club\system\Common.php(1089): CodeIgniter\View\View->render('users/login', Array, true)
+#2 C:\xampp\htdocs\club\app\Controllers\User.php(286): view('users/login', Array)
+#3 C:\xampp\htdocs\club\system\CodeIgniter.php(825): App\Controllers\User->login()
+#4 C:\xampp\htdocs\club\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+#5 C:\xampp\htdocs\club\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\club\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-01-15 02:32:30 --> Invalid file: content/login.php
+#0 C:\xampp\htdocs\club\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('content/login.p...')
+#1 C:\xampp\htdocs\club\system\Common.php(1089): CodeIgniter\View\View->render('content/login', Array, true)
+#2 C:\xampp\htdocs\club\app\Controllers\User.php(287): view('content/login', Array)
+#3 C:\xampp\htdocs\club\system\CodeIgniter.php(825): App\Controllers\User->login()
+#4 C:\xampp\htdocs\club\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+#5 C:\xampp\htdocs\club\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\club\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-01-15 02:34:40 --> Invalid file: content/login.php
+#0 C:\xampp\htdocs\club\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('content/login.p...')
+#1 C:\xampp\htdocs\club\system\Common.php(1089): CodeIgniter\View\View->render('content/login', Array, true)
+#2 C:\xampp\htdocs\club\app\Controllers\User.php(288): view('content/login', Array)
+#3 C:\xampp\htdocs\club\system\CodeIgniter.php(825): App\Controllers\User->login()
+#4 C:\xampp\htdocs\club\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+#5 C:\xampp\htdocs\club\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\club\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-01-15 03:22:41 --> Invalid file: content/login.php
+#0 C:\xampp\htdocs\club\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('content/login.p...')
+#1 C:\xampp\htdocs\club\system\Common.php(1089): CodeIgniter\View\View->render('content/login', Array, true)
+#2 C:\xampp\htdocs\club\app\Controllers\User.php(288): view('content/login', Array)
+#3 C:\xampp\htdocs\club\system\CodeIgniter.php(825): App\Controllers\User->login()
+#4 C:\xampp\htdocs\club\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+#5 C:\xampp\htdocs\club\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\club\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-01-15 03:23:35 --> Invalid file: user/login.php
+#0 C:\xampp\htdocs\club\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('user/login.php')
+#1 C:\xampp\htdocs\club\system\Common.php(1089): CodeIgniter\View\View->render('user/login', Array, true)
+#2 C:\xampp\htdocs\club\app\Controllers\User.php(288): view('user/login', Array)
+#3 C:\xampp\htdocs\club\system\CodeIgniter.php(825): App\Controllers\User->login()
+#4 C:\xampp\htdocs\club\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+#5 C:\xampp\htdocs\club\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\club\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-01-15 03:31:33 --> Invalid file: css/phone.php
+#0 C:\xampp\htdocs\club\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('css/phone.php')
+#1 C:\xampp\htdocs\club\system\Common.php(1089): CodeIgniter\View\View->render('css/phone', Array, true)
+#2 C:\xampp\htdocs\club\app\Controllers\User.php(108): view('css/phone')
+#3 C:\xampp\htdocs\club\system\CodeIgniter.php(825): App\Controllers\User->register()
+#4 C:\xampp\htdocs\club\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+#5 C:\xampp\htdocs\club\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\club\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-01-15 03:48:21 --> Undefined index: admin_password
+#0 C:\xampp\htdocs\club\app\Controllers\User.php(59): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 59, Array)
+#1 C:\xampp\htdocs\club\system\CodeIgniter.php(825): App\Controllers\User->checkuser()
+#2 C:\xampp\htdocs\club\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+#3 C:\xampp\htdocs\club\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\club\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-01-15 03:48:42 --> Invalid file: errors/my_error.php
+#0 C:\xampp\htdocs\club\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('errors/my_error...')
+#1 C:\xampp\htdocs\club\system\Common.php(1089): CodeIgniter\View\View->render('errors/my_error', Array, true)
+#2 C:\xampp\htdocs\club\app\Helpers\custom_helper.php(63): view('errors/my_error', Array)
+#3 C:\xampp\htdocs\club\app\Views\users\login.php(30): checkFlash()
+#4 C:\xampp\htdocs\club\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\club\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#6 C:\xampp\htdocs\club\system\Common.php(1089): CodeIgniter\View\View->render('users/login', Array, true)
+#7 C:\xampp\htdocs\club\app\Controllers\User.php(26): view('users/login', Array)
+#8 C:\xampp\htdocs\club\system\CodeIgniter.php(825): App\Controllers\User->login()
+#9 C:\xampp\htdocs\club\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+#10 C:\xampp\htdocs\club\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\club\index.php(37): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2022-01-15 04:13:45 --> Invalid file: css/formValidation.php
+#0 C:\xampp\htdocs\club\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('css/formValidat...')
+#1 C:\xampp\htdocs\club\system\Common.php(1089): CodeIgniter\View\View->render('css/formValidat...', Array, true)
+#2 C:\xampp\htdocs\club\app\Controllers\User.php(120): view('css/formValidat...')
+#3 C:\xampp\htdocs\club\system\CodeIgniter.php(825): App\Controllers\User->register()
+#4 C:\xampp\htdocs\club\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+#5 C:\xampp\htdocs\club\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\club\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-01-15 04:14:13 --> Invalid file: js/formValidation.php
+#0 C:\xampp\htdocs\club\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('js/formValidati...')
+#1 C:\xampp\htdocs\club\system\Common.php(1089): CodeIgniter\View\View->render('js/formValidati...', Array, true)
+#2 C:\xampp\htdocs\club\app\Controllers\User.php(126): view('js/formValidati...')
+#3 C:\xampp\htdocs\club\system\CodeIgniter.php(825): App\Controllers\User->register()
+#4 C:\xampp\htdocs\club\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+#5 C:\xampp\htdocs\club\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\club\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-01-15 04:15:12 --> Invalid file: js/formValidation.php
+#0 C:\xampp\htdocs\club\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('js/formValidati...')
+#1 C:\xampp\htdocs\club\system\Common.php(1089): CodeIgniter\View\View->render('js/formValidati...', Array, true)
+#2 C:\xampp\htdocs\club\app\Controllers\User.php(126): view('js/formValidati...')
+#3 C:\xampp\htdocs\club\system\CodeIgniter.php(825): App\Controllers\User->register()
+#4 C:\xampp\htdocs\club\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+#5 C:\xampp\htdocs\club\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\club\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-01-15 04:15:21 --> Invalid file: js/formValidation.php
+#0 C:\xampp\htdocs\club\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('js/formValidati...')
+#1 C:\xampp\htdocs\club\system\Common.php(1089): CodeIgniter\View\View->render('js/formValidati...', Array, true)
+#2 C:\xampp\htdocs\club\app\Controllers\User.php(126): view('js/formValidati...')
+#3 C:\xampp\htdocs\club\system\CodeIgniter.php(825): App\Controllers\User->register()
+#4 C:\xampp\htdocs\club\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+#5 C:\xampp\htdocs\club\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\club\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-01-15 04:15:58 --> Invalid file: js/formValidation.php
+#0 C:\xampp\htdocs\club\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('js/formValidati...')
+#1 C:\xampp\htdocs\club\system\Common.php(1089): CodeIgniter\View\View->render('js/formValidati...', Array, true)
+#2 C:\xampp\htdocs\club\app\Controllers\User.php(126): view('js/formValidati...')
+#3 C:\xampp\htdocs\club\system\CodeIgniter.php(825): App\Controllers\User->register()
+#4 C:\xampp\htdocs\club\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+#5 C:\xampp\htdocs\club\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\club\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-01-15 04:16:03 --> Invalid file: js/formValidation.php
+#0 C:\xampp\htdocs\club\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('js/formValidati...')
+#1 C:\xampp\htdocs\club\system\Common.php(1089): CodeIgniter\View\View->render('js/formValidati...', Array, true)
+#2 C:\xampp\htdocs\club\app\Controllers\User.php(126): view('js/formValidati...')
+#3 C:\xampp\htdocs\club\system\CodeIgniter.php(825): App\Controllers\User->register()
+#4 C:\xampp\htdocs\club\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+#5 C:\xampp\htdocs\club\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\club\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-01-15 04:17:08 --> Invalid file: js/formValidation.php
+#0 C:\xampp\htdocs\club\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('js/formValidati...')
+#1 C:\xampp\htdocs\club\system\Common.php(1089): CodeIgniter\View\View->render('js/formValidati...', Array, true)
+#2 C:\xampp\htdocs\club\app\Controllers\User.php(126): view('js/formValidati...')
+#3 C:\xampp\htdocs\club\system\CodeIgniter.php(825): App\Controllers\User->register()
+#4 C:\xampp\htdocs\club\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+#5 C:\xampp\htdocs\club\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\club\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-01-15 04:17:10 --> Invalid file: js/formValidation.php
+#0 C:\xampp\htdocs\club\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('js/formValidati...')
+#1 C:\xampp\htdocs\club\system\Common.php(1089): CodeIgniter\View\View->render('js/formValidati...', Array, true)
+#2 C:\xampp\htdocs\club\app\Controllers\User.php(126): view('js/formValidati...')
+#3 C:\xampp\htdocs\club\system\CodeIgniter.php(825): App\Controllers\User->register()
+#4 C:\xampp\htdocs\club\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+#5 C:\xampp\htdocs\club\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\club\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-01-15 04:17:14 --> Invalid file: js/formValidation.php
+#0 C:\xampp\htdocs\club\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('js/formValidati...')
+#1 C:\xampp\htdocs\club\system\Common.php(1089): CodeIgniter\View\View->render('js/formValidati...', Array, true)
+#2 C:\xampp\htdocs\club\app\Controllers\User.php(126): view('js/formValidati...')
+#3 C:\xampp\htdocs\club\system\CodeIgniter.php(825): App\Controllers\User->register()
+#4 C:\xampp\htdocs\club\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+#5 C:\xampp\htdocs\club\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\club\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-01-15 04:18:19 --> Invalid file: js/formValidation.php
+#0 C:\xampp\htdocs\club\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('js/formValidati...')
+#1 C:\xampp\htdocs\club\system\Common.php(1089): CodeIgniter\View\View->render('js/formValidati...', Array, true)
+#2 C:\xampp\htdocs\club\app\Controllers\User.php(126): view('js/formValidati...')
+#3 C:\xampp\htdocs\club\system\CodeIgniter.php(825): App\Controllers\User->register()
+#4 C:\xampp\htdocs\club\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+#5 C:\xampp\htdocs\club\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\club\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-01-15 05:19:36 --> Invalid file: emails/signup.php
+#0 C:\xampp\htdocs\club\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('emails/signup.p...')
+#1 C:\xampp\htdocs\club\system\Common.php(1089): CodeIgniter\View\View->render('emails/signup', Array, true)
+#2 C:\xampp\htdocs\club\app\Controllers\User.php(3649): view('emails/signup', Array)
+#3 C:\xampp\htdocs\club\app\Controllers\User.php(257): App\Controllers\User->sendActivateEmail(Array)
+#4 C:\xampp\htdocs\club\system\CodeIgniter.php(825): App\Controllers\User->newuser()
+#5 C:\xampp\htdocs\club\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+#6 C:\xampp\htdocs\club\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\club\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-01-15 05:21:06 --> Use of undefined constant EMAIL - assumed 'EMAIL' (this will throw an Error in a future version of PHP)
+#0 C:\xampp\htdocs\club\app\Controllers\User.php(3651): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Use of undefine...', 'C:\\xampp\\htdocs...', 3651, Array)
+#1 C:\xampp\htdocs\club\app\Controllers\User.php(257): App\Controllers\User->sendActivateEmail(Array)
+#2 C:\xampp\htdocs\club\system\CodeIgniter.php(825): App\Controllers\User->newuser()
+#3 C:\xampp\htdocs\club\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+#4 C:\xampp\htdocs\club\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\club\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+ERROR - 2022-01-15 05:22:11 --> Email: sendWithMail throwed mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set()
+CRITICAL - 2022-01-15 05:22:11 --> Undefined variable: data
+#0 C:\xampp\htdocs\club\app\Controllers\User.php(265): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 265, Array)
+#1 C:\xampp\htdocs\club\system\CodeIgniter.php(825): App\Controllers\User->newuser()
+#2 C:\xampp\htdocs\club\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+#3 C:\xampp\htdocs\club\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\club\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+ERROR - 2022-01-15 05:23:33 --> Email: sendWithMail throwed mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set()
+CRITICAL - 2022-01-15 05:23:33 --> Undefined variable: data
+#0 C:\xampp\htdocs\club\app\Controllers\User.php(265): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 265, Array)
+#1 C:\xampp\htdocs\club\system\CodeIgniter.php(825): App\Controllers\User->newuser()
+#2 C:\xampp\htdocs\club\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+#3 C:\xampp\htdocs\club\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\club\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+ERROR - 2022-01-15 05:27:18 --> Email: sendWithSmtp throwed fsockopen(): php_network_getaddresses: getaddrinfo failed: No such host is known. 
+ERROR - 2022-01-15 05:27:48 --> Email: sendWithSmtp throwed fsockopen(): php_network_getaddresses: getaddrinfo failed: No such host is known. 

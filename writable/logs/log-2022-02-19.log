@@ -1,0 +1,8 @@
+CRITICAL - 2022-02-19 08:24:09 --> addNewCalendar is not a validation rules group.
+#0 /home/u595490171/domains/internationalfamilyclub.org/public_html/system/Validation/Validation.php(451): CodeIgniter\Validation\Exceptions\ValidationException::forGroupNotFound('addNewCalendar')
+#1 /home/u595490171/domains/internationalfamilyclub.org/public_html/app/Controllers/Admin.php(2446): CodeIgniter\Validation\Validation->getRuleGroup('addNewCalendar')
+#2 /home/u595490171/domains/internationalfamilyclub.org/public_html/system/CodeIgniter.php(825): App\Controllers\Admin->addCalendar()
+#3 /home/u595490171/domains/internationalfamilyclub.org/public_html/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#4 /home/u595490171/domains/internationalfamilyclub.org/public_html/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /home/u595490171/domains/internationalfamilyclub.org/public_html/index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}

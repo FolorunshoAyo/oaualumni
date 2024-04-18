@@ -1,0 +1,14 @@
+ERROR - 2022-02-23 03:31:38 --> Table 'u595490171_club.countries' doesn't exist
+CRITICAL - 2022-02-23 03:31:38 --> Table 'u595490171_club.countries' doesn't exist
+#0 /home/u595490171/domains/internationalfamilyclub.org/public_html/system/Database/MySQLi/Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 /home/u595490171/domains/internationalfamilyclub.org/public_html/system/Database/BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /home/u595490171/domains/internationalfamilyclub.org/public_html/system/Database/BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /home/u595490171/domains/internationalfamilyclub.org/public_html/system/Database/BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /home/u595490171/domains/internationalfamilyclub.org/public_html/system/Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/u595490171/domains/internationalfamilyclub.org/public_html/system/BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#6 /home/u595490171/domains/internationalfamilyclub.org/public_html/app/Controllers/User.php(119): CodeIgniter\BaseModel->findAll()
+#7 /home/u595490171/domains/internationalfamilyclub.org/public_html/system/CodeIgniter.php(825): App\Controllers\User->register()
+#8 /home/u595490171/domains/internationalfamilyclub.org/public_html/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+#9 /home/u595490171/domains/internationalfamilyclub.org/public_html/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /home/u595490171/domains/internationalfamilyclub.org/public_html/index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}

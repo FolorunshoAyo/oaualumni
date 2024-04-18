@@ -1,0 +1,79 @@
+ul.navbar-nav > li.nav-item > a.nav-link/
+ul.navbar-nav > li.nav-item.dropdown > a.nav-link & ul.dropdown-menu
+
+
+.fixed-header-bg-white.fixed-top			=		into header id for fixed header background white like [.fixed-header-bg-white.fixed-top{background-color: var(--theme-white-color)})]
+.fixed-header-bg-secondary.fixed-top		=		into header id for fixed header background secondary [.fixed-header-bg-white.fixed-top{background-color: var(--theme-secondary-color)})]
+.primary-nav								=		for .nav-link color primary in normal like [.primary-nav .navbar-nav .nav-link{color: var(--theme-primary-color)}]
+.secondary-nav								=		for .nav-link color secondary in normal like [.secondary-nav .navbar-nav .nav-link{color: var(--theme-secondary-color)}]
+.white-nav									=		for .nav-link color white in normal like [.white-nav .navbar-nav .nav-link{color: var(--theme-white-color)}]
+.hover-primary-nav							=		for .nav-link hover and .active color primary [.hover-primary-nav .navbar-nav .nav-link.active, .hover-primary-nav .navbar-nav .nav-link:hover: ]
+.hover-secondary-nav						=		for .nav-link hover and .active color secondary [.hover-secondary-nav .navbar-nav .nav-link.active, .hover-secondary-nav .navbar-nav .nav-link:hover: ]
+.hover-white-nav							=		for .nav-link hover and .active color white [.hover-white-nav .navbar-nav .nav-link.active, .hover-white-nav .navbar-nav .nav-link:hover: ]
+
+
+.ordinary-font			=	font-family: var(--theme-ordinary-font);
+.highlight-font			=	font-family: var(--theme-highlight-font);
+
+.text-ordinary			=	ordinary color #818181
+.text-primary			=	primary color #17c788
+.text-secondary			=	secondary color #0d1432
+.text-white				=	white color #fff
+.text-gray				=	secondary color #f5f5f5
+.bg-primary 			=	background primary color #17c788
+.bg-secondary			=	background secondary color #0d1432
+.bg-white				=	background secondary color #fff
+.text-gray				=	background gray color #f5f5f5
+
+.overlay-secondary::before
+.overlay-secondary-half::before 
+.overlay-black::before
+.mt-md-50 max 991
+.mb-sm-50 max 767
+.mb-sm-20 max 767
+.mt-sm-50 max 767
+
+Text colors
+Background colors
+Background opacity colors
+Border colors
+Mixed colors
+Flaticon sizes
+Layout positions
+General CSS Start
+Buttons Style
+Top Header CSS
+Header Styles
+Jslider CSS
+Page Banner CSS
+Form Styles
+Contact Information Style
+Post Comments
+Owl Carusel
+Tab Nav
+Pricing Table Style
+Thumbnails Block
+Block List Styles
+agent list view
+Icon list Style
+Testimonials Style
+Tables Style
+fact-counter style
+Progesss Bar
+Sibe Bar Style
+Map Style
+Dashboard Style
+Home 3 page
+About us page
+FAQ page
+Register page
+Timeline page
+Compare page
+Error page
+Comming soon page
+Contact page
+Pagination Style
+Footer Style
+Home 1 subscribe section
+Video Pop Up style
+Responsive Media Query CSS 
