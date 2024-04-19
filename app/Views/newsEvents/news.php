@@ -23,9 +23,9 @@
                 <div class="blog-sidebar mt-md-50">
                     <div class="search_widget">
                         <?php echo form_open('',['method'=>'get'])?>
-                        <div class="form-group">
-                            <?php echo form_input('sn',$filtrs['sn'],['class'=>'form-control','placeholder'=>'Search News'])?>
-                        </div>
+                            <div class="form-group">
+                                <?php echo form_input('sn',$filtrs['sn'],['class'=>'form-control','placeholder'=>'Search News'])?>
+                            </div>
                         <?php echo form_close();?>
                     </div>
                     <!-- <div class="navigation_link_widget mt-5">

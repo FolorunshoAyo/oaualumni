@@ -4340,3 +4340,219 @@ Responsive Media Query CSS
     }
 }
 /* Committee Member List */
+
+/* Read More and Read Less  */
+    .read-more-content {
+        position: relative;      
+        height: 60px;
+        overflow: hidden;
+        transition: height 0.5s ease-out;
+    }
+
+    .read-more-content .overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 40px; /* Adjust the height of the overlay */
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+        pointer-events: none; /* Allow clicks to pass through */
+        transition: opacity 0.5s ease; /* Apply smooth transition */
+    }
+
+    .read-more-link,
+    .read-less-link {
+        color: var(--theme-primary-color);
+        cursor: pointer;
+    }
+/* Read More and Read Less  */
+
+/* Alumni Table Styling */
+
+    .directory-page-content-warp .directory-text-wrap h2 {
+        font-size: 2.5rem;
+        line-height: 1;
+        font-weight: 300;
+        margin-bottom: 70px;
+        color: #3a3b3c
+    }
+
+    .directory-page-content-warp .directory-text-wrap h2 strong {
+        color: var(--theme-primary-color)
+    }
+
+    .directory-page-content-warp .directory-text-wrap .table-search-area form {
+        line-height: 1
+    }
+
+    .directory-page-content-warp .directory-text-wrap .table-search-area form input {
+        border: 1px solid var(--theme-primary-color);
+        padding: 15px 20px 1pc;
+        width: fit-content;
+        color: #3a3b3c
+    }
+
+    .directory-page-content-warp .directory-text-wrap .table-search-area form input:focus {
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        outline: 0
+    }
+
+    .directory-page-content-warp .directory-text-wrap .table-search-area form .nice-select {
+        padding: 0;
+        height: 52px;
+        line-height: 50px;
+        width: 95px;
+        text-align: center!important;
+        float: none;
+        margin-left: -4px
+    }
+
+    .directory-page-content-warp .directory-text-wrap .show-memeber {
+        color: #131c33;
+        margin-top: 20px
+    }
+
+    .directory-page-content-warp .directory-text-wrap .show-memeber span {
+        color: var(--theme-primary-color)
+    }
+
+    .directory-page-content-warp .pagination-wrap {
+        margin-top: 30px
+    }
+
+    .directory-table .table thead {
+        background-color: var(--theme-primary-color);
+        color: #fff
+    }
+
+    .directory-table .table thead th {
+        padding: 15px 20px;
+        font-size: 20px;
+        font-size: 1rem;
+        font-weight: 700
+    }
+
+    .directory-table .table tbody tr td {
+        background-color: #ecf1f5;
+        color: #3a3b3c;
+        font-weight: 500;
+        font-size: 18px;
+        font-size: 0.8rem;
+        line-height: 1;
+        vertical-align: middle;
+        padding: 17px 10px
+    }
+
+    .directory-table .table tbody tr td:nth-child(2n) {
+        background-color: #fff
+    }
+
+    .directory-table .table tbody tr td:first-child {
+        width: 35%;
+        text-align: left
+    }
+
+    .directory-page-content-warp .directory-text-wrap .directory-table th {
+        font-size: 1rem
+    }
+
+    .directory-page-content-warp .directory-text-wrap .directory-table td {
+        font-size: 0.8rem;
+        white-space: normal
+    }
+
+    .directory-page-content-warp .directory-text-wrap .directory-table td img {
+        width: 50px;
+        height: 50px;
+        margin: 0 10px;
+        border-radius: 50px;
+        border: 2px solid var(--theme-primary-color);
+    }
+
+    .directory-page-content-warp .directory-text-wrap .directory-table td:first-child {
+        width: 35%
+    }
+
+    @media only screen and (min-width: 320px) and (max-width:575px) {
+        .directory-page-content-warp .directory-text-wrap h2 {
+            font-size: 21px;
+            font-size: 2.1rem;
+            line-height: 1;
+            margin-bottom: 30px
+        }
+    
+        .directory-page-content-warp .directory-text-wrap .table-search-area form input {
+            display: block;
+            margin: 0 auto 20px
+        }
+    
+        .directory-page-content-warp .directory-text-wrap .table-search-area form .btn-brand {
+            padding: 9pt 15px
+        }
+    
+        .directory-page-content-warp .directory-text-wrap .table-search-area form .nice-select {
+            height: 41px;
+            line-height: 40px
+        }
+    
+        .directory-page-content-warp .directory-text-wrap .directory-table td,.directory-page-content-warp .directory-text-wrap .directory-table th {
+            font-size: 13px;
+            white-space: nowrap
+        }
+    
+        .directory-page-content-warp .directory-text-wrap .directory-table td img,.directory-page-content-warp .directory-text-wrap .directory-table th img {
+            width: 40px;
+            height: 40px
+        }
+    
+        .directory-page-content-warp .directory-text-wrap .directory-table td:first-child,.directory-page-content-warp .directory-text-wrap .directory-table th:first-child {
+            width: auto
+        }
+    }
+
+    @media only screen and (min-width: 576px) {
+        .directory-page-content-warp .directory-text-wrap .table-search-area form .btn-brand {
+            padding: 17px 30px
+        }
+    
+        .directory-page-content-warp .directory-text-wrap .table-search-area form .nice-select {
+            height: 52px;
+            line-height: 52px
+        }
+    
+        .directory-page-content-warp .directory-text-wrap .directory-table td,.directory-page-content-warp .directory-text-wrap .directory-table th {
+            font-size: 15px;
+            font-size: 1rem;
+            white-space: nowrap
+        }
+    
+        .directory-page-content-warp .directory-text-wrap .directory-table td img,.directory-page-content-warp .directory-text-wrap .directory-table th img {
+            width: 40px;
+            height: 40px
+        }
+    
+        .directory-page-content-warp .directory-text-wrap .directory-table td:first-child,.directory-page-content-warp .directory-text-wrap .directory-table th:first-child {
+            width: auto
+        }
+    }
+
+    @media only screen and (min-width: 992px) {
+        .directory-page-content-warp .directory-text-wrap .directory-table th {
+            font-size: 20px;
+            font-size: 1.2rem
+        }
+    
+        .directory-page-content-warp .directory-text-wrap .directory-table td {
+            font-size: 18px;
+            font-size: 1rem;
+            white-space: normal
+        }
+    
+        .directory-page-content-warp .directory-text-wrap .directory-table td img {
+            width: 50px;
+            height: 50px;
+            margin-left: 20px
+        }
+    }
+/* Alumni Table Styling */

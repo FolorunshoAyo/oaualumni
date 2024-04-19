@@ -7,8 +7,8 @@
             <div class="col">
                 <nav class="float-start float-md-end">
                     <ol class="breadcrumb m-0">
-                        <li class="breadcrumb-item"><a href="<?php base_url()?>">Home</a></li>
-                        <li class="breadcrumb-item"><a href="<?php site_url('news')?>">News</a></li>
+                        <li class="breadcrumb-item"><a href="<?php echo base_url()?>">Home</a></li>
+                        <li class="breadcrumb-item"><a href="<?php echo site_url('news')?>">News</a></li>
                         <li class="breadcrumb-item active">
                             <?php
                                 if (count($checkNewEnt) == 1):

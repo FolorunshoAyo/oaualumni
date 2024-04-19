@@ -1,0 +1,54 @@
+CRITICAL - 2024-04-18 03:57:10 --> Creation of dynamic property DateInterval::$w is deprecated
+#0 C:\xampp\htdocs\oaualumni\app\Helpers\custom_helper.php(303): CodeIgniter\Debug\Exceptions->errorHandler(8192, 'Creation of dyn...', 'C:\\xampp\\htdocs...', 303)
+#1 C:\xampp\htdocs\oaualumni\app\Views\users\groups.php(70): timeago('2024-04-08 10:4...')
+#2 C:\xampp\htdocs\oaualumni\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\oaualumni\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#4 C:\xampp\htdocs\oaualumni\system\Common.php(1089): CodeIgniter\View\View->render('users/groups', Array, true)
+#5 C:\xampp\htdocs\oaualumni\app\Controllers\InterestGroups.php(71): view('users/groups', Array)
+#6 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(825): App\Controllers\InterestGroups->index()
+#7 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\InterestGroups))
+#8 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\oaualumni\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2024-04-18 04:42:21 --> Undefined array key "aName"
+#0 C:\xampp\htdocs\oaualumni\app\Views\users\groups.php(69): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 69)
+#1 C:\xampp\htdocs\oaualumni\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\oaualumni\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\oaualumni\system\Common.php(1089): CodeIgniter\View\View->render('users/groups', Array, true)
+#4 C:\xampp\htdocs\oaualumni\app\Controllers\InterestGroups.php(86): view('users/groups', Array)
+#5 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(825): App\Controllers\InterestGroups->index()
+#6 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\InterestGroups))
+#7 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\oaualumni\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-04-18 04:42:29 --> Undefined array key "aName"
+#0 C:\xampp\htdocs\oaualumni\app\Views\users\groups.php(69): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 69)
+#1 C:\xampp\htdocs\oaualumni\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\oaualumni\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\oaualumni\system\Common.php(1089): CodeIgniter\View\View->render('users/groups', Array, true)
+#4 C:\xampp\htdocs\oaualumni\app\Controllers\InterestGroups.php(86): view('users/groups', Array)
+#5 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(825): App\Controllers\InterestGroups->index()
+#6 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\InterestGroups))
+#7 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\oaualumni\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-04-18 04:43:32 --> syntax error, unexpected token "echo"
+#0 C:\xampp\htdocs\oaualumni\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#1 C:\xampp\htdocs\oaualumni\system\Common.php(1089): CodeIgniter\View\View->render('users/groups', Array, true)
+#2 C:\xampp\htdocs\oaualumni\app\Controllers\InterestGroups.php(89): view('users/groups', Array)
+#3 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(825): App\Controllers\InterestGroups->index()
+#4 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\InterestGroups))
+#5 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\oaualumni\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2024-04-18 05:04:57 --> word_limiter(): Argument #1 ($str) must be of type string, null given, called in C:\xampp\htdocs\oaualumni\app\Views\users\groups.php on line 67
+#0 C:\xampp\htdocs\oaualumni\app\Views\users\groups.php(67): word_limiter(NULL, 25)
+#1 C:\xampp\htdocs\oaualumni\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\oaualumni\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\oaualumni\system\Common.php(1089): CodeIgniter\View\View->render('users/groups', Array, true)
+#4 C:\xampp\htdocs\oaualumni\app\Controllers\InterestGroups.php(89): view('users/groups', Array)
+#5 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(825): App\Controllers\InterestGroups->index()
+#6 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\InterestGroups))
+#7 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\oaualumni\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}

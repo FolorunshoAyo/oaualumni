@@ -3,6 +3,7 @@
 
 namespace App\Controllers;
 
+use App\Models\ModAlumni;
 use App\Models\ModContact;
 use App\Models\ModGallery;
 use App\Models\ModGalleryImages;
@@ -97,6 +98,28 @@ class Pages extends BaseController
         echo view('content/subscribed');
         echo view('footer/footer');
         echo view('js/phone');
+        echo view('footer/endfooter');
+
+    }
+
+    public function alumni()
+    {
+        $tableAlumni =  new ModAlumni();
+        $tableAlumni->select('alumni.*')
+            ->orderBy('al_id','desc');
+        $data = [
+            'allAlumni' => $tableAlumni->paginate(20),
+            'pager' => $tableAlumni->pager
+        ];
+
+        $data['title'] = 'All Alumni' . PROJECT;
+        $data['description'] = 'Contact';
+        echo view('header/header',$data);
+        echo view('css/allCSS');
+        echo view('header/navbar');
+        echo view('users/alumni',$data);
+        echo view('content/subscribed');
+        echo view('footer/footer');
         echo view('footer/endfooter');
 
     }

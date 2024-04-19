@@ -22,61 +22,69 @@
 <div class="full-row bg-white">
     <div class="container">
         <div class="row">
-            <div class="col-lg-12">
-                <div class="row pb-4">
-                    <div class="col-md-12">
-                        <form class="selecting-command d-flex flex-wrap" method="get">
-                            <label class="me-10">Shorts By :</label>
-                            <div class="select-arrow me-30">
-                                <select class="form-control form-select bg-gray">
-                                    <option>Newest First</option>
-                                    <option>Oldest First</option>
-                                    <option>Most Popular</option>
-                                </select>
-                            </div>
-                            <?php
-                                $currentPage = $pager->getCurrentPage();
-                                $perPage = $pager->getPerPage();
-                                $totalResults = (int) $totalGroups;
+            <?php if ($groups):?>
+                <div class="col-lg-12">
+                    <div class="row pb-4">
+                        <div class="col-md-12">
+                            <?php echo form_open('',['method'=>'get', 'class'=>'selecting-command d-flex flex-wrap'])?>
+                                <label class="me-10">Shorts By :</label>
+                                <div class="select-arrow">
+                                    <select name="filter" class="form-control form-select bg-gray">
+                                        <option value="" <?php echo $filter === ""? "selected" : "" ?>>Choose Filter</option>
+                                        <option value="newest" <?php echo $filter === "newest"? "selected" : "" ?>>Newest First</option>
+                                        <option value="oldest" <?php echo $filter === "oldest"? "selected" : "" ?>>Oldest First</option>
+                                        <option value="popular" <?php echo $filter === "popular"? "selected" : "" ?>>Most Popular</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-primary me-30">Filter</button>
+                                <?php
+                                    $currentPage = $pager->getCurrentPage();
+                                    $perPage = $pager->getPerPage();
+                                    $totalResults = (int) $totalGroups;
 
-                                $start = ($currentPage - 1) * $perPage + 1;
-                                $end = min($start + $perPage - 1, $totalResults);
-                            ?>
-                            <label><?php echo $start . ' - ' . $end ?> of <?php echo $totalGroups; ?> results</label>
-                        </form>
+                                    $start = ($currentPage - 1) * $perPage + 1;
+                                    $end = min($start + $perPage - 1, $totalResults);
+                                ?>
+                                <label><?php echo $start . ' - ' . $end ?> of <?php echo $totalGroups; ?> results</label>
+                            <?php echo form_close();?>
+                        </div>
                     </div>
-                </div>
-                <div class="row row-cols-1 g-4">
-                    <div class="col">
-                        <div class="featured-thumb list hover-zoomer">
-                            <div class="overlay-black overflow-hidden position-relative image-area"> 
-                                <img src="<?= site_url("/public/assets/club/homex/assets/images/thumbnail/01.jpg") ?>" alt="">
+                    <div class="row row-cols-1 g-4">
+                        <?php foreach($groups as $group):?>
+                            <div class="col">
+                                <div class="featured-thumb list hover-zoomer">
+                                    <div class="overlay-black overflow-hidden position-relative image-area"> 
+                                        <img src="<?= base_url('public/assets/images/interest_groups/'.$group['group_image']) ?>" alt="<?php echo $group['group_name']?>">
+                                    </div>
+                                    <div class="featured-thumb-data shadow-one">
+                                        <div class="p-4">
+                                            <h5 class="text-secondary hover-text-primary mb-2"><a href="<?php echo site_url('interest-groups/read/'.$group['group_id']) ?>"><?php echo $group['group_name']?></a></h5>
+                                            <span class="location"><i class="fas fa-map-marker-alt text-primary"></i> <?php  echo $group['group_location']; ?></span>
+                                        </div>
+                                        <div class="bg-gray quantity p-4">
+                                            <ul>
+                                                <li class="pb-0"><i class="fas fa-users text-primary"></i> <span><?php echo $group['member_count'] ?></span> Members</li>
+                                            </ul>
+                                            <p><?php echo word_limiter($group['short_description'], 25); ?></p>
+                                        </div>
+                                        <div class="p-4 d-inline-block w-100 author">
+                                            <div class="float-start"><i class="fas fa-user text-primary me-1"></i> Created by: <b><?php echo $group['aName'] ?></b></div>
+                                            <div class="float-end"><i class="far fa-calendar-alt text-primary me-1"></i> <?php echo timeago($group['created_at']) ?></div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="featured-thumb-data shadow-one">
-                                <div class="p-4">
-                                    <h5 class="text-secondary hover-text-primary mb-2"><a href="#">Health, Fitness, Weight Loss</a></h5>
-                                    <span class="location"><i class="fas fa-map-marker-alt text-primary"></i> Some Location, Los Angles</span>
-                                </div>
-                                <div class="bg-gray quantity p-4">
-                                    <ul>
-                                        <li class="pb-0"><i class="fas fa-users text-primary"></i> <span>40</span> Members</li>
-                                    </ul>
-                                    <p>A simple description to confuse the enemies</p>
-                                </div>
-                                <div class="p-4 d-inline-block w-100 author">
-                                    <div class="float-start"><i class="fas fa-user text-primary me-1"></i> Created by: <b>Jeson Billiam</b></div>
-                                    <div class="float-end"><i class="far fa-calendar-alt text-primary me-1"></i> 6 Months Ago</div>
-                                </div>
-                            </div>
+                        <?php endforeach;?>  
+                    </div>
+                    <div class="row justify-content-center mt-5">
+                        <div class="col-auto">
+                            <?php echo $pager->links();?>
                         </div>
                     </div>
                 </div>
-                <div class="row justify-content-center mt-5">
-                    <div class="col-auto">
-                        <?php echo $pager->links();?>
-                    </div>
-                </div>
-            </div>
+            <?php else: ?>
+                <?php no_data('alert-info','No Interest Groups has been created'); ?>
+            <?php endif?>
         </div>
     </div>
 </div>

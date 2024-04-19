@@ -8,6 +8,7 @@
                         <h4 class="page-title float-left"> Edit Interest Group (<?= $interestGroup[0]['group_name'] ?>)</h4>
                         <ol class="breadcrumb float-right">
                             <li class="breadcrumb-item"><a href="<?php echo site_url('admin')?>"> Dashboard </a></li>
+                            <li class="breadcrumb-item"><a href="<?php echo site_url('admin/all-interest-groups')?>"> Interest Groups </a></li>
                             <li class="breadcrumb-item active">Edit Interest Group</li>
                         </ol>
 

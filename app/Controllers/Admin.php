@@ -1895,7 +1895,7 @@ class Admin extends BaseController
 
             // Retrieve the count of members for the current group
             $group = $groupModel->where(['group_id' => $group_id])->findAll();
-            $memberModel->select('interest_group_members.*')
+            $memberModel->select('interest_group_members.*, users.*')
             ->join('users','interest_group_members.user_id = users.u_id')
             ->where(['group_id' => $group_id])
             ->orderBy('member_id','desc')

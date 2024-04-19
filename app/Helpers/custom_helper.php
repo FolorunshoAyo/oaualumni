@@ -298,30 +298,23 @@ if (!function_exists('timeago'))
     function timeago($datetime, $full = false) {
         $now = new DateTime;
         $ago = new DateTime($datetime);
-        $diff = $now->diff($ago);
+        $interval = $now->diff($ago);
 
-        $diff->w = floor($diff->d / 7);
-        $diff->d -= $diff->w * 7;
-
-        $string = array(
-            'y' => 'year',
-            'm' => 'month',
-            'w' => 'week',
-            'd' => 'day',
-            'h' => 'hour',
-            'i' => 'minute',
-            's' => 'second',
-        );
-        foreach ($string as $k => &$v) {
-            if ($diff->$k) {
-                $v = $diff->$k . ' ' . $v . ($diff->$k > 1 ? 's' : '');
-            } else {
-                unset($string[$k]);
-            }
+        if ($interval->y > 0) {
+            $result = $interval->y . " year" . ($interval->y > 1 ? "s" : "") . " ago";
+        } elseif ($interval->m > 0) {
+            $result = $interval->m . " month" . ($interval->m > 1 ? "s" : "") . " ago";
+        } elseif ($interval->d > 0) {
+            $result = $interval->d . " day" . ($interval->d > 1 ? "s" : "") . " ago";
+        } elseif ($interval->h > 0) {
+            $result = $interval->h . " hour" . ($interval->h > 1 ? "s" : "") . " ago";
+        } elseif ($interval->i > 0) {
+            $result = $interval->i . " minute" . ($interval->i > 1 ? "s" : "") . " ago";
+        } else {
+            $result = "Just now";
         }
-
-        if (!$full) $string = array_slice($string, 0, 1);
-        return $string ? implode(', ', $string) . ' ago' : 'just now';
+        
+        return $result;
     }
 }
 
@@ -518,6 +511,7 @@ if (!function_exists('filterWhereForModels'))
             if (isset($srch) && !empty($srch)) {
                 $filters['newsevents.ne_title'] = $srch;
             }
+            // These ones are useless.
             if (isset($stn) && !empty($stn)) {
                 $filters['tenders.tn_name'] = $stn;
             }
@@ -527,6 +521,7 @@ if (!function_exists('filterWhereForModels'))
             if (isset($sr) && !empty($sr)) {
                 $filters['resource.r_title'] = $sr;
             }
+            // These ones are useless
         }
         return $filters;
     }

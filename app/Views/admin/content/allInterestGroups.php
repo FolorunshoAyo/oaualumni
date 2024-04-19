@@ -51,7 +51,7 @@
                                         </td>
                                         <td data-title="Order #">
                                             <div style="display: flex; align-items: center; width: fit-content;">
-                                                <img src="<?php echo base_url('public/assets/images/interest_groups/'.$group['group_image']);?>" alt="Group Image" style="width: 50px; height: 50px; margin-inline-end: 5px; border-radius: 50%;">
+                                                <img src="<?php echo base_url('public/assets/images/interest_groups/'.$group['group_image']);?>" alt="<?php echo $group['group_name']?>" style="width: 50px; height: 50px; margin-inline-end: 5px; border-radius: 50%;">
                                                 <div style="display: inline-block; vertical-align: bottom;">
                                                     <h6 style="margin:0;line-height:1;"><?php echo $group['group_name']?></h6>
                                                     <p style="margin:0;">
