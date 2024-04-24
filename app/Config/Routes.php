@@ -88,6 +88,14 @@ $routes->get('admin/view-group-members/(:segment)', 'Admin::viewInterestGroupMem
 $routes->post('admin/update-interest-group', 'Admin::updateInterestGroup');
 $routes->get('admin/delete-interest-group/(:num)', 'Admin::deleteInterestGroup/$1');
 
+$routes->get('admin/new-donation', 'Admin::newDonation');
+$routes->post('admin/add-donation', 'Admin::addDonation');
+$routes->get('admin/all-donation-causes', 'Admin::allDonations');
+$routes->get('admin/edit-donation/(:segment)', 'Admin::editDonation/$1');
+$routes->get('admin/view-contributors/(:segment)', 'Admin::viewAllContributions/$1');
+$routes->post('admin/update-donation', 'Admin::updateDonation');
+$routes->get('admin/delete-donation/(:num)', 'Admin::deleteInterestGroup/$1');
+
 $routes->get('admin/new-album', 'Admin::newAlbum');
 $routes->post('admin/add-album', 'Admin::addAlbum');
 $routes->get('admin/all-albums', 'Admin::allAlbums');

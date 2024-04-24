@@ -16,6 +16,8 @@ use App\Models\ModHowITWorks;
 use App\Models\ModAlumni;
 use App\Models\ModInterestGroupMembers;
 use App\Models\ModInterestGroups;
+use App\Models\ModProjects;
+use App\Models\ModDonations;
 use App\Models\ModUsers;
 use App\Models\ModNewEvents;
 use App\Models\Settings;
@@ -2053,7 +2055,7 @@ class Admin extends BaseController
                     if(count($hasMembers) > 0){
                         $tableInterestGroupMembers->where(['group_id'=>$id])->delete();
                     }
-;
+
                     $isDeleted = $tableInterestGroup->delete($id);
                     //$events = $this->modAdmin->deleteAlbum($id);
                     if ($isDeleted) {
@@ -2075,6 +2077,323 @@ class Admin extends BaseController
             else{
                 customFlash('alert-warning','Something went wrong.');
                 return redirect()->to(site_url('admin/all-interest-groups'));
+            }
+        }
+        else{
+            customFlash('alert-warning','Please login first.');
+            return redirect()->to(site_url('admin/login'));
+        }
+    }
+
+    public function newDonation()
+    {
+        if (isAdmin()){
+            $data['title'] =  'Add New Donation ' .PROJECT;
+            $data['description'] = 'New Donation Description here';
+            echo view('admin/header/header',$data);
+            echo view('admin/css/css');
+            echo view('admin/css/quill');
+            echo view('admin/navbar/navbartop');
+            echo view('admin/navbar/navbar_left');
+            echo view('admin/content/newDonation',$data);
+            echo view('admin/footer/footer');
+            echo view('admin/css/quilljs');
+            echo view('admin/endfooter/endfooter');
+        }
+        else{
+            customFlash('alert-info','Please login first to access the admin panel');
+            return redirect()->to(site_url('admin/login'));
+        }
+    }
+
+    public function addDonation()
+    {
+        if (isAdmin()){
+            $tableProjects =  new ModProjects();
+            $validation = $this->validator;
+            $request = $this->request;
+
+            if (!$this->validate($validation->getRuleGroup('donations')))
+            {
+                $this->newDonation();
+            }
+            else
+            {
+                $newProject = [
+                    'project_name'=>$request->getPost('name'),
+                    'description'=> $request->getPost('desc'),
+                    'short_description'=>$request->getPost('short_desc'),
+                    'target_amount'=>$request->getPost('target_amount'),
+                    'admin_id'=> getAdminId(),
+                ];
+
+                $messageImage = $request->getFile('image');
+                if (!empty($messageImage) && $messageImage->getSize() > 0)
+                {
+                    $newInterestGroup['group_image'] = $messageImage->getRandomName();
+                    $messageImage->move('./public/assets/images/project',$newInterestGroup['group_image']);
+                }
+                else
+                {
+                    customFlash('alert-danger','Please select your image and try again.');
+                    return redirect()->to(site_url('admin/new-donation'));
+                }
+
+                $checkMessage = $tableProjects->where(['project_name'=>$newInterestGroup['project_name']])->findAll();
+                if (count($checkMessage) == 1) {
+                    customFlash('alert-info','Donation already exist.');
+                    return redirect()->to(site_url('admin/new-donation'));
+                }else{
+                    $isInserted = $tableProjects->insert($newProject);
+                    if ($isInserted) {
+                        customFlash('alert-success','You have successfully inserted.');
+                        return redirect()->to(site_url('admin/new-donation'));
+                    }
+                    else{
+                        customFlash('alert-info','OOps..! something went wrong please try again.');
+                        return redirect()->to(site_url('admin/new-donation'));
+                    }
+                }
+
+            }
+        }
+        else{
+            customFlash('alert-info','Please login first to access the admin panel');
+            return redirect()->to(site_url('admin/login'));
+        }
+    }
+
+    public function allDonations()
+    {
+        if (isAdmin()){
+            $tableProjects =  new ModProjects();
+            $tableProjects->select('projects.*')
+                ->orderBy('project_id','desc');
+            $allProjects = $tableProjects->paginate(20);
+            $donationsModel = new ModDonations();
+
+            foreach ($allProjects as &$project) {
+                // Retrieve the count of members for the current group
+                $contributions = $donationsModel->where(['project_id' => $project['project_id']])->countAllResults();
+    
+                // Add the count of members to the current group data
+                $project['contributions'] = $contributions;
+            }
+
+            $data = [
+                'allProjects' => $allProjects,
+                'pager' => $tableProjects->pager
+            ];
+
+            $data['title'] =  'All Donation Causes' .PROJECT;
+            $data['description'] = 'All Donations Causes';
+
+            echo view('admin/header/header',$data);
+            echo view('admin/css/css');
+            echo view('admin/css/datePicker');
+            echo view('css/bootstrapSelect');
+            echo view('admin/navbar/navbartop');
+            echo view('admin/navbar/navbar_left');
+            echo view('admin/content/allDonations',$data);
+            echo view('admin/footer/footer');
+            echo view('admin/js/datePicker');
+            echo view('js/bootstrapSelect');
+            echo view('admin/endfooter/endfooter');
+
+        }
+        else{
+            customFlash('alert-danger','Please login first to access the admin panel');
+            return redirect()->to(site_url('admin/login'));
+        }
+
+    }
+
+    public function viewAllContributions($project_id)
+    {
+        if (isAdmin()){
+            $projectModel = new ModProjects();
+            $donationsModel = new ModDonations();
+
+            // Retrieve the count of members for the current group
+            $group = $projectModel->where(['project_id' => $project_id])->findAll();
+            $donationsModel->select('donations.*, users.*')
+            ->join('users','donations.user_id = users.u_id')
+            ->where(['project_id' => $project_id])
+            ->orderBy('donation_id','desc')
+            ->findAll();
+            
+            $data = [
+                'group' => $group,
+                'allContributors' => $donationsModel->paginate(20),
+                'pager' => $donationsModel->pager
+            ];
+
+            $data['title'] =  'Contributors (' . $group[0]['project_name'] . ')' . PROJECT;
+            $data['description'] = 'All Contributors to the cause';
+
+            echo view('admin/header/header',$data);
+            echo view('admin/css/css');
+            echo view('admin/css/datePicker');
+            echo view('css/bootstrapSelect');
+            echo view('admin/navbar/navbartop');
+            echo view('admin/navbar/navbar_left');
+            echo view('admin/content/allDonations',$data);
+            echo view('admin/footer/footer');
+            echo view('admin/js/datePicker');
+            echo view('js/bootstrapSelect');
+            echo view('admin/endfooter/endfooter');
+
+        }
+        else{
+            customFlash('alert-danger','Please login first to access the admin panel');
+            return redirect()->to(site_url('admin/login'));
+        }
+
+    }
+
+    public function editDonation($id)
+    {
+        if (isAdmin()){
+            if (!empty($id) && isset($id)) {
+                $tableProjects =  new ModProjects();
+                $isProject = $tableProjects->where(['project_id'=>$id])->findAll();
+                if (count($isProject) === 1) {
+                    $data['interestGroup'] = $isProject;
+                    $data['title'] =  'Edit Donation Cause ' .PROJECT;
+                    $data['description'] = 'Edit Donation Cause here';
+                    echo view('admin/header/header',$data);
+                    echo view('admin/css/css');
+                    echo view('admin/css/quill');
+                    echo view('admin/navbar/navbartop');
+                    echo view('admin/navbar/navbar_left');
+                    echo view('admin/content/editDonation',$data);
+                    echo view('admin/footer/footer');
+                    echo view('admin/css/quilljs');
+                    echo view('admin/endfooter/endfooter');
+
+                }else{
+                    customFlash('alert-info','This Donation Cause is not available; please try again.');
+                    return redirect()->to(site_url('admin/all-donation-causes'));
+                }
+            }
+            else{
+                customFlash('alert-info','Something went wrong, and please try again later.');
+                return redirect()->to(site_url('admin/all-donation-causes'));
+            }
+        }
+        else{
+            customFlash('alert-info','Please login first to access the admin panel');
+            return redirect()->to(site_url('admin/login'));
+        }
+
+    }
+
+    public function updateDonation()
+    {
+        if (isAdmin()){
+            $tableProjects =  new ModProjects();
+            $validation = $this->validator;
+            $request = $this->request;
+            $addStatus = $validation->getRuleGroup('donations');
+            
+            if (!$this->validate($addStatus))
+            {
+                customFlash('alert-info','Please check the required fields and try again');
+                return redirect()->to(site_url('admin/all-how-it-works'));
+            }
+            else
+            {
+                $oldImage = $request->getPost('dimgo');
+                $hmSectionId = $request->getPost('xeew');
+
+                $editProject = [
+                    'project_name'=>$request->getPost('name'),
+                    'description'=> $request->getPost('desc'),
+                    'short_description'=>$request->getPost('short_desc'),
+                    'target_amount'=>$request->getPost('target_amount'),
+                    'status'=>$request->getPost('status'),
+                    'admin_id'=> getAdminId(),
+                ];
+
+                if (!empty($hmSectionId) && isset($hmSectionId)) {
+
+                    $messageImage = $request->getFile('image');
+                    if (!empty($messageImage) && $messageImage->getSize() > 0)
+                    {
+
+                        $editProject['project_image'] = $messageImage->getRandomName();
+                        $messageImage->move('./public/assets/images/project',$editProject['group_image']);
+                    }//checking image if selected.
+
+                    $isUpdated = $tableProjects->update($hmSectionId,$editProject);
+                    if ($isUpdated) {
+                        if (isset($editProject['project_image']) && !empty($editProject['project_image'])) {
+                            $imagePath = realpath(APPPATH . '../public/assets/images/interest_groups/');
+                            if (file_exists($imagePath.'/'.$oldImage))
+                            {
+                                unlink($imagePath.'/'.$oldImage);
+                            }
+                        }
+                        //dd();
+                        customFlash('alert-success','You have successfully updated.');
+                        return redirect()->to(site_url('admin/all-donation-causes'));
+                    }
+                    else{
+                        customFlash('alert-success','Oops..! something went wrong; please try again.');
+                        return redirect()->to(site_url('admin/all-donation-causes'));
+                    }
+
+                }
+                else{
+                    customFlash('alert-info','Something went wrong please try again');
+                    return redirect()->to(site_url('admin/all-donation-causes'));
+
+                }
+
+            }
+        }
+        else{
+            customFlash('alert-info','Please login first to access the admin panel');
+            return redirect()->to(site_url('admin/login'));
+        }
+    }
+
+    public function deleteDonation($id)
+    {
+        if (isAdmin()){
+            if (!empty($id) && isset($id)) {
+                $tableProjects = new ModProjects();
+                $tableDonations = new ModDonations();
+                $isProject = $tableProjects->where(['project_id'=>$id])->findAll();
+                //$isnews = $this->modAdmin->checkAlbumById($id);
+                if (count($isProject) === 1) {
+                    $hasContributors = $tableDonations->where(['project_id'=>$id])->findAll();
+
+                    if(count($hasContributors) > 0){
+                        $tableDonations->where(['project_id'=>$id])->delete();
+                    }
+
+                    $isDeleted = $tableProjects->delete($id);
+                    //$events = $this->modAdmin->deleteAlbum($id);
+                    if ($isDeleted) {
+                        customFlash('alert-success','This Interest Group and it\'s associated contributors has been deleted.');
+                        return redirect()->to(site_url('admin/all-donation-causes'));
+                    }
+                    else{
+                        customFlash('alert-warning','You can\'t delete the interest group right now; please try again.');
+                        return redirect()->to(site_url('admin/all-donation-causes'));
+                    }
+
+
+                }
+                else{
+                    customFlash('alert-warning','The interest group is not available; please try again.');
+                    return redirect()->to(site_url('admin/all-donation-causes'));
+                }
+            }
+            else{
+                customFlash('alert-warning','Something went wrong.');
+                return redirect()->to(site_url('admin/all-donation-causes'));
             }
         }
         else{

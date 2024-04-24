@@ -38,16 +38,22 @@
                     <li><a href="<?php echo site_url('admin/all-how-it-works')?>">Executives</a></li>
                 </ul>
             </li>
+            <li><a href="#"><span class="icon color9"><i class="fa fa-user"></i></span>Our Alumni<span class="caret"></span></a>
+                <ul>
+                    <li><a href="<?php echo site_url('admin/new-alumni')?>">Add Alumni</a></li>
+                    <li><a href="<?php echo site_url('admin/all-alumni')?>">Alumni</a></li>
+                </ul>
+            </li>
             <li><a href="#"><span class="icon color9"><i class="fa fa-user"></i></span>Our Interest Groups<span class="caret"></span></a>
                 <ul>
                     <li><a href="<?php echo site_url('admin/new-interest-group')?>">Add Interest Group</a></li>
                     <li><a href="<?php echo site_url('admin/all-interest-groups')?>">Interest Groups</a></li>
                 </ul>
             </li>
-            <li><a href="#"><span class="icon color9"><i class="fa fa-user"></i></span>Our Alumni<span class="caret"></span></a>
+            <li><a href="#"><span class="icon color9"><i class="fa fa-user"></i></span>Donation Causes<span class="caret"></span></a>
                 <ul>
-                    <li><a href="<?php echo site_url('admin/new-alumni')?>">Add Alumni</a></li>
-                    <li><a href="<?php echo site_url('admin/all-alumni')?>">Alumni</a></li>
+                    <li><a href="<?php echo site_url('admin/new-donation')?>">Add Donation</a></li>
+                    <li><a href="<?php echo site_url('admin/all-donation-causes')?>">All Donations</a></li>
                 </ul>
             </li>
             <li><a href="#"><span class="icon color9"><i class="fa fa-user"></i></span>Albums & Gallery<span class="caret"></span></a>

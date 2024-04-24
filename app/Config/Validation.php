@@ -169,6 +169,13 @@ class Validation
         'short_desc'=> 'required',
         'location'=> 'required',
     ];
+    public $donations = [
+        'name'=> 'required',
+        'desc'=> 'required',
+        'short_desc'=> 'required',
+        'desc'=> 'required',
+        'target_amount'=> 'required',
+    ];
     public $sliders= [
         'title'=> 'required',
         'text'=> 'required'

@@ -1,9 +1,8 @@
 <?php
 namespace App\Controllers;
 
-use App\Models\ModAdmin;
-use App\Models\ModInterestGroupMembers;
-use App\Models\ModInterestGroups;
+use App\Models\ModProjects;
+use App\Models\ModDonations;
 
 class InterestGroups extends BaseController
 {
@@ -17,6 +16,7 @@ class InterestGroups extends BaseController
         $this->request = \Config\Services::request();
         $this->session = \Config\Services::session();
     }
+
     protected $helpers = ['url', 'custom_helper','form','text'];
     
     public function index(){
@@ -27,44 +27,44 @@ class InterestGroups extends BaseController
         $data['title'] = 'Interest Groups' . PROJECT;
         $data['description'] = 'Interest Groups Description here';
 
-        $tableInterestGroups = new ModInterestGroups();
+        $tableProjects = new ModProjects();
 
         if($filter == "newest"){
-            $tableInterestGroups->select('interest_groups.*, admin.aName')
-            ->join('admin', 'interest_groups.admin_id = admin.aId')
-            ->orderBy('group_id', 'desc');
+            $tableProjects->select('projects.*, admin.aName')
+            ->join('admin', 'projects.admin_id = admin.aId')
+            ->orderBy('project_id', 'desc');
         }elseif($filter == "oldest"){
-            $tableInterestGroups->select('interest_groups.*, admin.aName')
-            ->join('admin', 'interest_groups.admin_id = admin.aId')
-            ->orderBy('group_id', 'asc');
+            $tableProjects->select('projects.*, admin.aName')
+            ->join('admin', 'projects.admin_id = admin.aId')
+            ->orderBy('project_id', 'asc');
         }elseif($filter == "popular"){
-            $tableInterestGroups->select('interest_groups.*, admin.aName, COUNT(igm.member_id) AS num_members')
-            ->join('interest_group_members igm', 'interest_groups.group_id = igm.group_id', 'left')
-            ->join('admin', 'interest_groups.admin_id = admin.aId', 'left')
+            $tableProjects->select('projects.*, admin.aName, COUNT(don.donation_id) AS num_contributors')
+            ->join('donations don', 'projects.project_id = don.project_id', 'left')
+            ->join('admin', 'projects.admin_id = admin.aId', 'left')
             ->orderBy('num_members', 'desc');
         }else{
-            $tableInterestGroups->select('interest_groups.*, admin.aName')
-            ->join('admin', 'interest_groups.admin_id = admin.aId');
+            $tableProjects->select('projects.*, admin.aName')
+            ->join('admin', 'projects.admin_id = admin.aId');
         }
 
-        $groups = $tableInterestGroups->paginate(5);
-        $totalGroups = $tableInterestGroups->countAllResults();
-        $memberModel = new ModInterestGroupMembers();
+        $projects = $tableProjects->paginate(5);
+        $totalProjects = $tableProjects->countAllResults();
+        $donationsModel = new ModDonations();
 
-        foreach ($groups as &$group) {
-            $memberCount = $memberModel->where(['group_id' => $group['group_id']])->countAllResults();
-            $group['member_count'] = $memberCount;
+        foreach ($projects as &$project) {
+            $memberCount = $donationsModel->where(['project_id' => $project['project_id']])->countAllResults();
+            $project['member_count'] = $memberCount;
         }
 
         $data['filter'] = $filter;
-        $data['groups'] = $groups;
-        $data['totalGroups'] = $totalGroups;
-        $data['pager'] = $tableInterestGroups->pager;
+        $data['projects'] = $projects;
+        $data['totalProjects'] = $totalProjects;
+        $data['pager'] = $tableProjects->pager;
 
         echo view('header/header',$data);
         echo view('css/allCSS');
         echo view('header/navbar');
-        echo view('users/groups',$data);
+        echo view('users/donations',$data);
         echo view('content/subscribed');
         echo view('footer/footer');
         echo view('footer/endfooter');
@@ -73,9 +73,9 @@ class InterestGroups extends BaseController
     public function read($id)
     {
         if (!empty($id) && isset($id)) {
-            $tableInterestGroup  = new ModInterestGroups();
-            $memberModel  = new ModInterestGroupMembers();
-
+            $tableInterestGroup  = new ModProjects();
+            $memberModel  = new ModDonations();
+            
             $checkInterestGroup = $tableInterestGroup->select()
                 ->where([
                     'group_id'=>$id,

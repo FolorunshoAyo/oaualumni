@@ -104,14 +104,32 @@ class Pages extends BaseController
 
     public function alumni()
     {
+        $search_query = $this->request->getGet('q');
+
         $tableAlumni =  new ModAlumni();
-        $tableAlumni->select('alumni.*')
+
+        if(isset($search_query) && !empty($search_query)){
+            $tableAlumni->select('alumni.*')
+            ->like('al_name',$search_query)
+            ->or_like('batch_year', $search_query)
+            ->or_like('major', $search_query)
+            ->or_like('occupation', $search_query)
+            ->or_like('company', $search_query)
+            ->or_like('location', $search_query)
+            ->or_like('bio', $search_query)
             ->orderBy('al_id','desc');
+        }else{
+            $tableAlumni->select('alumni.*')
+            ->orderBy('al_id','desc');
+        }
+       
         $data = [
             'allAlumni' => $tableAlumni->paginate(20),
             'pager' => $tableAlumni->pager
         ];
 
+        $totalAlumni = $tableAlumni->countAllResults();
+        $data['totalAlumni'] = $totalAlumni;
         $data['title'] = 'All Alumni' . PROJECT;
         $data['description'] = 'Contact';
         echo view('header/header',$data);
