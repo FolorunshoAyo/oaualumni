@@ -38,7 +38,7 @@
                         <div class="blog-info">
                             <h4 class="my-4 text-secondary d-flex align-items-center justify-content-between flex-wrap">
                                 <?php echo $checkProject[0]['project_name']; ?>
-                                <a href="#" class="btn btn-primary" style="color: #fff !important;">Make Donation</a>
+                                <!-- <a href="#" class="btn btn-primary" style="color: #fff !important;">Make Donation</a> -->
                             </h4>
                             <?php
                                 echo $checkProject[0]['description'];

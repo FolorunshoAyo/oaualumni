@@ -38,7 +38,7 @@
                         <div class="blog-info">
                             <h4 class="my-4 text-secondary d-flex align-items-center justify-content-between flex-wrap">
                                 <?php echo $checkInterestGroup[0]['group_name']; ?>
-                                <a href="#" class="btn btn-primary" style="color: #fff !important;">Join group</a>
+                                <!-- <a href="#" class="btn btn-primary" style="color: #fff !important;">Join group</a> -->
                             </h4>
                             <?php
                                 echo $checkInterestGroup[0]['description'];
