@@ -105,6 +105,7 @@
                         <?php endif?>
                     </div>
                 </div>
+                <?php echo $pager->links(); ?>
             </div> <!-- end row -->
 
 

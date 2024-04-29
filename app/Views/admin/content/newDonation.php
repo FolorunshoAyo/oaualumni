@@ -5,10 +5,10 @@
             <div class="row">
                 <div class="col-12">
                     <div class="page-title-box">
-                        <h4 class="page-title float-left"> Our Interest Group</h4>
+                        <h4 class="page-title float-left">Donations</h4>
                         <ol class="breadcrumb float-right">
                             <li class="breadcrumb-item"><a href="<?php echo site_url('admin')?>"> Dashboard </a></li>
-                            <li class="breadcrumb-item active">Create a New Interest Group</li>
+                            <li class="breadcrumb-item active">Create a New Donation</li>
                         </ol>
 
                         <div class="clearfix"></div>
@@ -22,13 +22,13 @@
                         <?php echo getListErrors(); ?>
                     </div>
                     <div class="form-group">
-                        <span>Group Name</span><span class="red">*</span>
+                        <span>Name</span><span class="red">*</span>
                         <?php
                         $form =  array(
                             'id'=>'ctadx',
                         );
-                        echo form_open_multipart('admin/add-interest-group',$form);
-                        echo form_input('name','',array('class'=>'form-control','placeholder'=>'Please Add Name'));
+                        echo form_open_multipart('admin/add-donation',$form);
+                        echo form_input('name','',array('class'=>'form-control','placeholder'=>'Please Add Project Name'));
                         ?>
 
                     </div>
@@ -42,12 +42,11 @@
 
                     </div>
                     <div class="form-group">
-                        <span>Description/Content</span><span class="red">*</span>
+                        <span>Target Amount (in $USD)</span><span class="red">*</span>
                         <?php
-                        echo form_textarea('desc','',
-                            array('id'=>'elm1','placeholder'=>'Enter group description','class'=>'form-control')
-                        );
+                        echo form_input('target_amount','',array('class'=>'form-control','placeholder'=>'Enter a target amount in dollars'), 'number');
                         ?>
+
                     </div>
                     <div class="form-group">
                         <span>Location</span><span class="red">*</span>
@@ -55,6 +54,14 @@
                         echo form_input('location','',array('class'=>'form-control','placeholder'=>'Please Add Location'));
                         ?>
 
+                    </div>
+                    <div class="form-group">
+                        <span>Description/Content</span><span class="red">*</span>
+                        <?php
+                        echo form_textarea('desc','',
+                            array('id'=>'elm1','placeholder'=>'Enter group description','class'=>'form-control')
+                        );
+                        ?>
                     </div>
                     <div class="portlet">
                         <div class="portlet-heading portlet-default">
@@ -84,7 +91,7 @@
                     <div class="portlet">
                         <div class="portlet-heading portlet-default">
                             <h3 class="portlet-title text-dark">
-                                Publish Interest Group
+                                Publish Donation
                             </h3>
                             <div class="portlet-widgets">
                                 <a data-toggle="collapse" data-parent="#accordion1" href="#bg-default"><i class="mdi mdi-minus"></i></a>

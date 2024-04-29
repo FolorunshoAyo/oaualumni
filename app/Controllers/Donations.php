@@ -4,7 +4,7 @@ namespace App\Controllers;
 use App\Models\ModProjects;
 use App\Models\ModDonations;
 
-class InterestGroups extends BaseController
+class Donations extends BaseController
 {
     protected $validator;
     protected $request;
@@ -24,8 +24,8 @@ class InterestGroups extends BaseController
 
         $filter = $this->request->getGet('filter');
 
-        $data['title'] = 'Interest Groups' . PROJECT;
-        $data['description'] = 'Interest Groups Description here';
+        $data['title'] = 'Donations' . PROJECT;
+        $data['description'] = 'Donation Description here';
 
         $tableProjects = new ModProjects();
 
@@ -52,8 +52,8 @@ class InterestGroups extends BaseController
         $donationsModel = new ModDonations();
 
         foreach ($projects as &$project) {
-            $memberCount = $donationsModel->where(['project_id' => $project['project_id']])->countAllResults();
-            $project['member_count'] = $memberCount;
+            $contributorsCount = $donationsModel->where(['project_id' => $project['project_id']])->countAllResults();
+            $project['contributors_count'] = $contributorsCount;
         }
 
         $data['filter'] = $filter;
@@ -73,31 +73,57 @@ class InterestGroups extends BaseController
     public function read($id)
     {
         if (!empty($id) && isset($id)) {
-            $tableInterestGroup  = new ModProjects();
-            $memberModel  = new ModDonations();
+            $tableProjects  = new ModProjects();
+            $donationsModel  = new ModDonations();
             
-            $checkInterestGroup = $tableInterestGroup->select()
+            $checkProject = $tableProjects->select()
                 ->where([
-                    'group_id'=>$id,
+                    'project_id'=>$id,
                 ])
                 ->findAll();
 
-            $members = $memberModel->select()
+            $checkOtherProject = $tableProjects->select()
+            ->where('project_id !=', $id)
+            ->orderBy('RAND()')
+            ->limit(5)
+            ->findAll();
+
+            $donations = $donationsModel->select("donations.*, users.u_dp, users.u_first_name, users.u_last_name, users.u_email, users.u_mobile")
+                ->join('users', 'donations.user_id = users.u_id')
                 ->where([
-                    'group_id'=>$id,
+                    'project_id'=>$id,
                 ])
                 ->findAll();
 
-            if (count($checkInterestGroup) == 1) {
-                $data['checkInterestGroup'] = $checkInterestGroup;
-                $data['title'] =  $checkInterestGroup[0]['group_name'] . '  ' . PROJECT;
-                $data['description'] = $checkInterestGroup[0]['group_name'] . '  ' . PROJECT;
-                $data['members'] = $members;
+            foreach ($checkOtherProject as &$project) {
+                $contributorsCountCount = $donationsModel->where(['project_id' => $project['project_id']])->countAllResults();
+                $project['contributors'] = $contributorsCountCount;
+            }
+
+            if (count($checkProject) == 1) {
+                $data['checkProject'] = $checkProject;
+                $data['title'] =  $checkProject[0]['project_name'] . '  ' . PROJECT;
+                $data['description'] = $checkProject[0]['project_name'] . '  ' . PROJECT;
+                $data['contributors'] = array();
+                $data['otherProjects'] = $checkOtherProject;
+
+                foreach ($donations as $donation) {
+                    $item = array(
+                        'donation_id' => $donation['donation_id'],
+                        'u_dp' => $donation['u_dp'],
+                        'first_name' => $donation['user_id']? $donation['u_first_name'] : $donation['first_name'],
+                        'last_name' => $donation['user_id']? $donation['u_last_name'] : $donation['last_name'],
+                        'email' => $donation['user_id']? $donation['u_email'] : $donation['email'],
+                        'phone' => $donation['user_id']? $donation['u_mobile'] : $donation['phone'],
+                        'amount' => $donation['amount']
+                    );
+                    $data['contributors'][] = $item;
+                }
 
                 echo view('header/header',$data);
                 echo view('css/allCSS');
                 echo view('header/navbar');
-                echo view('users/readgroup',$data);
+                echo view('users/readdonation',$data);
                 echo view('content/subscribed');
                 echo view('footer/footer');
                 echo view('footer/endfooter');

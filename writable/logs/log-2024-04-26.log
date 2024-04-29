@@ -1,0 +1,77 @@
+CRITICAL - 2024-04-26 08:59:47 --> Undefined array key "project_name"
+#0 C:\xampp\htdocs\oaualumni\app\Controllers\Admin.php(2143): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 2143)
+#1 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(825): App\Controllers\Admin->addDonation()
+#2 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#3 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\oaualumni\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+ERROR - 2024-04-26 09:10:00 --> Duplicate entry '0' for key 'PRIMARY'
+CRITICAL - 2024-04-26 09:10:00 --> Duplicate entry '0' for key 'PRIMARY'
+#0 C:\xampp\htdocs\oaualumni\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `pr...', 0)
+#1 C:\xampp\htdocs\oaualumni\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `pr...')
+#2 C:\xampp\htdocs\oaualumni\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `pr...')
+#3 C:\xampp\htdocs\oaualumni\system\Database\BaseBuilder.php(1771): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pr...', Array, false)
+#4 C:\xampp\htdocs\oaualumni\system\Model.php(239): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\oaualumni\system\BaseModel.php(738): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\oaualumni\system\Model.php(625): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\oaualumni\app\Controllers\Admin.php(2148): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(825): App\Controllers\Admin->addDonation()
+#9 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#10 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\oaualumni\index.php(37): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-04-26 09:27:14 --> Undefined array key "group_name"
+#0 C:\xampp\htdocs\oaualumni\app\Views\admin\content\allDonations.php(53): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 53)
+#1 C:\xampp\htdocs\oaualumni\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\oaualumni\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\oaualumni\system\Common.php(1089): CodeIgniter\View\View->render('admin/content/a...', Array, true)
+#4 C:\xampp\htdocs\oaualumni\app\Controllers\Admin.php(2198): view('admin/content/a...', Array)
+#5 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(825): App\Controllers\Admin->allDonations()
+#6 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\oaualumni\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-04-26 09:27:51 --> Undefined variable $group
+#0 C:\xampp\htdocs\oaualumni\app\Views\admin\content\allDonations.php(84): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 84)
+#1 C:\xampp\htdocs\oaualumni\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\oaualumni\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\oaualumni\system\Common.php(1089): CodeIgniter\View\View->render('admin/content/a...', Array, true)
+#4 C:\xampp\htdocs\oaualumni\app\Controllers\Admin.php(2198): view('admin/content/a...', Array)
+#5 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(825): App\Controllers\Admin->allDonations()
+#6 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\oaualumni\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-04-26 09:28:04 --> Undefined array key "contributors"
+#0 C:\xampp\htdocs\oaualumni\app\Views\admin\content\allDonations.php(91): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 91)
+#1 C:\xampp\htdocs\oaualumni\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\oaualumni\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\oaualumni\system\Common.php(1089): CodeIgniter\View\View->render('admin/content/a...', Array, true)
+#4 C:\xampp\htdocs\oaualumni\app\Controllers\Admin.php(2198): view('admin/content/a...', Array)
+#5 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(825): App\Controllers\Admin->allDonations()
+#6 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\oaualumni\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-04-26 09:59:58 --> Undefined array key "group_name"
+#0 C:\xampp\htdocs\oaualumni\app\Views\users\donations.php(58): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 58)
+#1 C:\xampp\htdocs\oaualumni\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\oaualumni\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\oaualumni\system\Common.php(1089): CodeIgniter\View\View->render('users/donations', Array, true)
+#4 C:\xampp\htdocs\oaualumni\app\Controllers\Donations.php(67): view('users/donations', Array)
+#5 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(825): App\Controllers\Donations->index()
+#6 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Donations))
+#7 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\oaualumni\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-04-26 10:00:24 --> Undefined variable $group
+#0 C:\xampp\htdocs\oaualumni\app\Views\users\donations.php(59): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 59)
+#1 C:\xampp\htdocs\oaualumni\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\oaualumni\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\oaualumni\system\Common.php(1089): CodeIgniter\View\View->render('users/donations', Array, true)
+#4 C:\xampp\htdocs\oaualumni\app\Controllers\Donations.php(67): view('users/donations', Array)
+#5 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(825): App\Controllers\Donations->index()
+#6 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Donations))
+#7 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\oaualumni\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}

@@ -50,7 +50,7 @@
                                         </td>
                                         <td data-title="Order #">
                                             <div style="display: flex; align-items: center; width: fit-content;">
-                                                <img src="<?php echo base_url('public/assets/images/project/'.$project['project_image']);?>" alt="<?php echo $project['group_name']?>" style="width: 50px; height: 50px; margin-inline-end: 5px; border-radius: 50%;">
+                                                <img src="<?php echo base_url('public/assets/images/project/'.$project['project_image']);?>" alt="<?php echo $project['project_name']?>" style="width: 50px; height: 50px; margin-inline-end: 5px; border-radius: 50%;">
                                                 <div style="display: inline-block; vertical-align: bottom;">
                                                     <h6 style="margin:0;line-height:1;"><?php echo $project['project_name']?></h6>
                                                     <p style="margin:0;">
@@ -81,14 +81,14 @@
                                             <?php endif;?>
                                         </td>
                                         <td data-title="Order #">
-                                            <?php echo $group['created_at']; ?>
+                                            <?php echo $project['created_at']; ?>
                                         </td>
 
                                         <td data-title="Order #">
                                             <a  href="<?php echo site_url('admin/edit-donation/'.$project['project_id']); ?>" class="btn btn-primary skzslimnew">
                                                 Edit
                                             </a><br><br>
-                                            <?php if($group['contributors'] > 0): ?>
+                                            <?php if($project['contributors'] > 0): ?>
                                             <a  href="<?php echo site_url('admin/view-contributors/'.$project['project_id']); ?>" class="btn btn-primary skzslimnew">
                                                 View Contributors
                                             </a>

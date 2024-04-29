@@ -173,8 +173,8 @@ class Validation
         'name'=> 'required',
         'desc'=> 'required',
         'short_desc'=> 'required',
-        'desc'=> 'required',
         'target_amount'=> 'required',
+        'location'=> 'required',
     ];
     public $sliders= [
         'title'=> 'required',

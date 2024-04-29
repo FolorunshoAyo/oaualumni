@@ -14,8 +14,8 @@ class ModProjects extends Model
     protected $useSoftDeletes = false;
 
     protected $allowedFields = [
-        'project_name', 'description', 'target_amount', 'current_amount', 
-        'admin_id'
+        'project_name', 'description', 'short_description', 'project_image', 'project_location',
+        'target_amount', 'current_amount', 'admin_id', 'status'
     ];
 
     protected $useTimestamps = false;

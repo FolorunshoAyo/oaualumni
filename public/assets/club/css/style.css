@@ -4556,3 +4556,22 @@ Responsive Media Query CSS
         }
     }
 /* Alumni Table Styling */
+/* progress styling */
+    .progress{
+        border-radius: 0;
+        height:35px;
+        position: relative;
+        line-height: 35px;
+        box-shadow: none;
+    }
+    .progress-bar .percent-value{
+        display: block;
+        height: 100%;
+        color: #060606;
+        font-size: 15px;
+        font-weight: bold;
+        position: absolute;
+        right: 50%;
+        width: 35px;
+    }
+/* progress styling */

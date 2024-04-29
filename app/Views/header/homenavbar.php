@@ -96,7 +96,7 @@
                                                         <a class="dropdown-item" href="<?php echo site_url('interest-groups'); ?>">Interest Groups</a>
                                                     </li>
                                                     <li>
-                                                        <a class="dropdown-item" href="<?php echo site_url('alumni'); ?>">Donations</a>
+                                                        <a class="dropdown-item" href="<?php echo site_url('donations'); ?>">Donations</a>
                                                     </li>
                                                 </ul>
                                             </li>

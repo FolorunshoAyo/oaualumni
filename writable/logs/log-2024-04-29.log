@@ -1,0 +1,45 @@
+CRITICAL - 2024-04-29 08:16:10 --> Undefined array key "group_image"
+#0 C:\xampp\htdocs\oaualumni\app\Views\admin\content\editDonation.php(96): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 96)
+#1 C:\xampp\htdocs\oaualumni\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\oaualumni\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\oaualumni\system\Common.php(1089): CodeIgniter\View\View->render('admin/content/e...', Array, true)
+#4 C:\xampp\htdocs\oaualumni\app\Controllers\Admin.php(2270): view('admin/content/e...', Array)
+#5 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(825): App\Controllers\Admin->editDonation('1')
+#6 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\oaualumni\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-04-29 08:23:30 --> Cannot use object of type App\Models\ModProjects as array
+#0 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(825): App\Controllers\Admin->updateDonation()
+#1 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#2 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\oaualumni\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-04-29 10:50:24 --> Call to undefined method App\Models\ModProjects::where_not_in
+#0 C:\xampp\htdocs\oaualumni\app\Controllers\Donations.php(86): CodeIgniter\Model->__call('where_not_in', Array)
+#1 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(825): App\Controllers\Donations->read('1')
+#2 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Donations))
+#3 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\oaualumni\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-04-29 10:52:12 --> Call to undefined method App\Models\ModProjects::where_not_in
+#0 C:\xampp\htdocs\oaualumni\app\Controllers\Donations.php(86): CodeIgniter\Model->__call('where_not_in', Array)
+#1 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(825): App\Controllers\Donations->read('1')
+#2 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Donations))
+#3 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\oaualumni\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-04-29 10:54:20 --> Call to undefined method App\Models\ModProjects::order_by
+#0 C:\xampp\htdocs\oaualumni\app\Controllers\Donations.php(87): CodeIgniter\Model->__call('order_by', Array)
+#1 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(825): App\Controllers\Donations->read('1')
+#2 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Donations))
+#3 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\oaualumni\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-04-29 10:54:22 --> Call to undefined method App\Models\ModProjects::order_by
+#0 C:\xampp\htdocs\oaualumni\app\Controllers\Donations.php(87): CodeIgniter\Model->__call('order_by', Array)
+#1 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(825): App\Controllers\Donations->read('1')
+#2 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Donations))
+#3 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\oaualumni\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}

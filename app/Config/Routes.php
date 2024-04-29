@@ -43,8 +43,9 @@ $routes->get('/executives', 'Pages::executives');
 $routes->get('/alumni', 'Pages::alumni');
 $routes->get('/interest-groups', 'InterestGroups::index');
 $routes->get('/interest-groups/read/(:segment)', 'InterestGroups::read/$1');
-$routes->get('/interest-groups', 'InterestGroups::index');
-$routes->get('/interest-groups/read/(:segment)', 'InterestGroups::read/$1');
+$routes->get('/donations', 'Donations::index');
+$routes->get('/donation/read/(:segment)', 'Donations::read/$1');
+
 
 $routes->get('admin/new-news-and-event', 'Admin::newNewsEvents');
 $routes->post('admin/add-news-and-event', 'Admin::addNewsEvents');

@@ -2124,14 +2124,15 @@ class Admin extends BaseController
                     'description'=> $request->getPost('desc'),
                     'short_description'=>$request->getPost('short_desc'),
                     'target_amount'=>$request->getPost('target_amount'),
+                    'project_location'=>$request->getPost('location'),
                     'admin_id'=> getAdminId(),
                 ];
 
                 $messageImage = $request->getFile('image');
                 if (!empty($messageImage) && $messageImage->getSize() > 0)
                 {
-                    $newInterestGroup['group_image'] = $messageImage->getRandomName();
-                    $messageImage->move('./public/assets/images/project',$newInterestGroup['group_image']);
+                    $newProject['project_image'] = $messageImage->getRandomName();
+                    $messageImage->move('./public/assets/images/project',$newProject['project_image']);
                 }
                 else
                 {
@@ -2139,7 +2140,7 @@ class Admin extends BaseController
                     return redirect()->to(site_url('admin/new-donation'));
                 }
 
-                $checkMessage = $tableProjects->where(['project_name'=>$newInterestGroup['project_name']])->findAll();
+                $checkMessage = $tableProjects->where(['project_name'=>$newProject['project_name']])->findAll();
                 if (count($checkMessage) == 1) {
                     customFlash('alert-info','Donation already exist.');
                     return redirect()->to(site_url('admin/new-donation'));
@@ -2177,7 +2178,7 @@ class Admin extends BaseController
                 $contributions = $donationsModel->where(['project_id' => $project['project_id']])->countAllResults();
     
                 // Add the count of members to the current group data
-                $project['contributions'] = $contributions;
+                $project['contributors'] = $contributions;
             }
 
             $data = [
@@ -2215,20 +2216,36 @@ class Admin extends BaseController
             $donationsModel = new ModDonations();
 
             // Retrieve the count of members for the current group
-            $group = $projectModel->where(['project_id' => $project_id])->findAll();
-            $donationsModel->select('donations.*, users.*')
+            $project = $projectModel->where(['project_id' => $project_id])->findAll();
+            $donations = $donationsModel->select('donations.*, users.u_dp, users.u_email, users.u_mobile, users.u_last_name, users.u_first_name')
             ->join('users','donations.user_id = users.u_id')
             ->where(['project_id' => $project_id])
             ->orderBy('donation_id','desc')
-            ->findAll();
+            ->findAll()
+            ->paginate(20);
+
+            $data['contributors'] = array();
+
+            foreach ($donations as $donation) {
+                $item = array(
+                    'donation_id' => $donation['donation_id'],
+                    'u_dp' => $donation['u_dp'],
+                    'first_name' => $donation['user_id']? $donation['u_first_name'] : $donation['first_name'],
+                    'last_name' => $donation['user_id']? $donation['u_last_name'] : $donation['last_name'],
+                    'email' => $donation['user_id']? $donation['u_email'] : $donation['email'],
+                    'phone' => $donation['user_id']? $donation['u_mobile'] : $donation['phone'],
+                    'amount' => $donation['amount']
+                );
+                $data['contributors'][] = $item;
+            }
             
             $data = [
-                'group' => $group,
-                'allContributors' => $donationsModel->paginate(20),
+                'project' => $project,
+                'allContributors' => $data['contributors'],
                 'pager' => $donationsModel->pager
             ];
 
-            $data['title'] =  'Contributors (' . $group[0]['project_name'] . ')' . PROJECT;
+            $data['title'] =  'Contributors (' . $project[0]['project_name'] . ')' . PROJECT;
             $data['description'] = 'All Contributors to the cause';
 
             echo view('admin/header/header',$data);
@@ -2237,7 +2254,7 @@ class Admin extends BaseController
             echo view('css/bootstrapSelect');
             echo view('admin/navbar/navbartop');
             echo view('admin/navbar/navbar_left');
-            echo view('admin/content/allDonations',$data);
+            echo view('admin/content/allDonationContributors',$data);
             echo view('admin/footer/footer');
             echo view('admin/js/datePicker');
             echo view('js/bootstrapSelect');
@@ -2258,7 +2275,7 @@ class Admin extends BaseController
                 $tableProjects =  new ModProjects();
                 $isProject = $tableProjects->where(['project_id'=>$id])->findAll();
                 if (count($isProject) === 1) {
-                    $data['interestGroup'] = $isProject;
+                    $data['project'] = $isProject;
                     $data['title'] =  'Edit Donation Cause ' .PROJECT;
                     $data['description'] = 'Edit Donation Cause here';
                     echo view('admin/header/header',$data);
@@ -2306,11 +2323,21 @@ class Admin extends BaseController
                 $oldImage = $request->getPost('dimgo');
                 $hmSectionId = $request->getPost('xeew');
 
+                $isProject = $tableProjects->where(['project_id' => $hmSectionId])->findAll();
+
+                if($isProject){
+                    if($isProject[0]['status'] === "2"){
+                        customFlash('alert-success','Oops..! Unable to update this donation because it has been completed.');
+                        return redirect()->to(site_url('admin/all-donation-causes'));
+                    }
+                }
+
                 $editProject = [
                     'project_name'=>$request->getPost('name'),
                     'description'=> $request->getPost('desc'),
                     'short_description'=>$request->getPost('short_desc'),
                     'target_amount'=>$request->getPost('target_amount'),
+                    'project_location'=>$request->getPost('location'),
                     'status'=>$request->getPost('status'),
                     'admin_id'=> getAdminId(),
                 ];
@@ -2325,24 +2352,33 @@ class Admin extends BaseController
                         $messageImage->move('./public/assets/images/project',$editProject['group_image']);
                     }//checking image if selected.
 
-                    $isUpdated = $tableProjects->update($hmSectionId,$editProject);
-                    if ($isUpdated) {
-                        if (isset($editProject['project_image']) && !empty($editProject['project_image'])) {
-                            $imagePath = realpath(APPPATH . '../public/assets/images/interest_groups/');
-                            if (file_exists($imagePath.'/'.$oldImage))
-                            {
-                                unlink($imagePath.'/'.$oldImage);
+                    if($isProject){
+                        if($isProject[0]['current_amount'] > $request->getPost('target_amount')){
+                            customFlash('alert-success','The set target amount cannot be less than the donated amount');
+                            return redirect()->to(site_url('admin/all-donation-causes'));
+                        }else{
+                            $isUpdated = $tableProjects->update($hmSectionId,$editProject);
+                            if ($isUpdated) {
+                                if (isset($editProject['project_image']) && !empty($editProject['project_image'])) {
+                                    $imagePath = realpath(APPPATH . '../public/assets/images/interest_groups/');
+                                    if (file_exists($imagePath.'/'.$oldImage))
+                                    {
+                                        unlink($imagePath.'/'.$oldImage);
+                                    }
+                                }
+                                //dd();
+                                customFlash('alert-success','You have successfully updated.');
+                                return redirect()->to(site_url('admin/all-donation-causes'));
                             }
-                        }
-                        //dd();
-                        customFlash('alert-success','You have successfully updated.');
+                            else{
+                                customFlash('alert-success','Oops..! something went wrong; please try again.');
+                                return redirect()->to(site_url('admin/all-donation-causes'));
+                            } 
+                        }  
+                    }else{
+                        customFlash('alert-info','Something went wrong please try again');
                         return redirect()->to(site_url('admin/all-donation-causes'));
                     }
-                    else{
-                        customFlash('alert-success','Oops..! something went wrong; please try again.');
-                        return redirect()->to(site_url('admin/all-donation-causes'));
-                    }
-
                 }
                 else{
                     customFlash('alert-info','Something went wrong please try again');
