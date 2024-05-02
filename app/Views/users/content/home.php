@@ -39,7 +39,7 @@
                                     Calendar
                                 </a>
                                 <div class="collapse show px-4" id="collapseOne">
-                                    <?php if (isset($data)&& count($data) > 0): ?>
+                                    <?php if (isset($calendarData)&& count($calendarData) > 0): ?>
                                         <div id="calendar"></div>
                                     <?php endif; ?>
                                 </div>
@@ -60,7 +60,7 @@
                                 <div class="collapse show px-4 pb-4" id="collapseFive">
                                     <div class="row row-cols-1 g-4">
                                         <?php if (count($usersHome)): ?>
-``                                        <?php foreach ($usersHome as $myhome): ?>
+                                            <?php foreach ($usersHome as $myhome): ?>
                                                 <div class="col">
                                                     <div class="recent-properties">
 

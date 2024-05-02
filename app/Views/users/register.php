@@ -19,7 +19,7 @@
 
 
 <div class="container">
-    <div class="row">
+    <div class="row mb-2">
         <div class="col-md-12">
             <br><br><br>
             <div class="mb-5 text-center">
@@ -41,7 +41,7 @@
             </div>
         </div>
     </div>
-    <br><br><br>
+
     <div class="row brdresi">
         <div class="col-md-12 col-lg-12 col-sm-12  col-xs-12">
             <div class="sinerror">
@@ -79,6 +79,7 @@
                         </div>
                     </div>
                 </div>
+                <br>
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
@@ -104,6 +105,7 @@
                         </div>
                     </div>
                 </div>
+                <br>
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
@@ -129,6 +131,7 @@
                         </div>
                     </div>
                 </div>
+                <br>
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
@@ -159,16 +162,26 @@
                         </div>
                     </div>
                 </div>
+                <br>
                 <div class="row">
+                    <div class="col-md-6">
+                        <label>Mobile Contact <span class="red">*</span></label>
+                        <div class="form-group">
+                            <input type="hidden" name="realPhone" class="form-control" id="skzPhone1" placeholder="Enter Your Phone/Mobile Number">
+                            <input type="text" class="form-control" id="phone1" placeholder="Enter Your Phone/Mobile Number">
+                            <span id="result"></span>
+                        </div>
+                    </div>
                     <div class="col-md-6">
                         <label>Emergency Contact <span class="red">*</span></label>
                         <div class="form-group">
-                            <input type="hidden" name="realPhone" class="form-control" id="skzPhone" placeholder="Enter Your Phone/Mobile Number" value="<?php echo set_value('EmergencyContact');?>">
-                            <input type="text" name="EmergencyContact" class="form-control" id="phone" placeholder="Enter Your Phone/Mobile Number" value="<?php echo set_value('EmergencyContact');?>">
+                            <input type="hidden" name="emergencyPhone" class="form-control" id="skzPhone2" placeholder="Enter Your Phone/Mobile Number">
+                            <input type="text" class="form-control" id="phone2" placeholder="Enter Your Phone/Mobile Number">
                             <span id="result"></span>
                         </div>
                     </div>
                 </div>
+                <br>
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group eyConPassSkz">
@@ -193,6 +206,7 @@
                         </div>
                     </div>
                 </div>
+                <br>
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">

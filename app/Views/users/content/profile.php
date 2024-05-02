@@ -42,6 +42,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <br>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -67,6 +68,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <br>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -93,12 +95,12 @@
                                     </div>
                                 </div>
                             </div>
+                            <br>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>
                                             Profile Picture
-                                            <span class="red">*</span>
                                         </label>
                                         <input type="file" name="dp" value="" class="form-control">
                                     </div>
@@ -145,12 +147,21 @@
                                     </div>
                                 </div>
                             </div>
+                            <br>
                             <div class="row">
+                                <div class="col-md-6">
+                                    <label>Mobile Contact <span class="red">*</span></label>
+                                    <div class="form-group">
+                                        <input type="hidden" name="realPhone" class="form-control" id="skzPhone1" placeholder="Enter Your Phone/Mobile Number" value="<?php echo  $userData[0]['u_mobile'];?>">
+                                        <input type="text" class="form-control" id="phone1" placeholder="Enter Your Phone/Mobile Number" value="<?php echo  $userData[0]['u_mobile'];?>">
+                                        <span id="result"></span>
+                                    </div>
+                                </div>
                                 <div class="col-md-6">
                                     <label>Emergency Contact <span class="red">*</span></label>
                                     <div class="form-group">
-                                        <input type="hidden" name="realPhone" class="form-control" id="skzPhone" placeholder="Enter Your Phone/Mobile Number" value="<?php echo  $userData[0]['u_emergency_phone'];?>">
-                                        <input type="text" name="EmergencyContact" class="form-control" id="phone" placeholder="Enter Your Phone/Mobile Number" value="<?php echo  $userData[0]['u_emergency_phone'];?>">
+                                        <input type="hidden" name="emergencyPhone" class="form-control" id="skzPhone2" placeholder="Enter Your Phone/Mobile Number" value="<?php echo  $userData[0]['u_emergency_phone'];?>">
+                                        <input type="text" class="form-control" id="phone2" placeholder="Enter Your Phone/Mobile Number" value="<?php echo  $userData[0]['u_emergency_phone'];?>">
                                         <span id="result"></span>
                                     </div>
                                 </div>
@@ -159,7 +170,7 @@
                                 <div class="col-md-12">
                                     <!--<button type="submit" class="thmebutton" id="btn-user-register">Submit</button>-->
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-primary mt-15">Register</button>
+                                        <button type="submit" class="btn btn-primary mt-15">Update Profile</button>
                                     </div>
                                 </div>
                             </div>

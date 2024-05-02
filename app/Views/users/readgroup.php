@@ -25,6 +25,12 @@
 
 <div class="full-row bg-white">
     <div class="container">
+        <?php echo checkFlash(); ?>
+        <?php 
+            if(!userLoggedIn()){
+                no_data('alert-info','You need to login to join a group.'); 
+            } 
+        ?>
         <div class="row">
             <div class="col-lg-8">
                 <div class="blog-details bg-white text-ordinary mb-30">
@@ -46,9 +52,15 @@
                         </div>
                     </div>
                 </div>
-                <div>
-                    <a href="#" class="btn btn-primary">Join Group</a>
-                </div>
+                <?php if(userLoggedIn()): ?>
+                    <div>
+                        <?php if($isMember): ?>
+                            <button class="btn btn-primary disabled">You are a member of this group</button>
+                        <?php else: ?>
+                            <button class="btn btn-primary joinGroupBtn">Join Group</button>
+                        <?php endif; ?>  
+                    </div>
+                <?php endif; ?>
             </div>
             <div class="col-lg-4">
                 <div class="blog-sidebar mt-md-50">
@@ -58,7 +70,7 @@
                             <?php if ($members): ?>
                             <ul>
                                 <?php foreach($members as $member):?>
-                                    <li><?php echo $member['u_first_name'] . " " . $member['u_last_name'] ?></li>
+                                    <li><?php echo $member['u_first_name'] . " " . $member['u_last_name'] . " (Joined " . timeago($member['joined_at']) . ")"?></li>
                                 <?php endforeach;?>  
                             </ul>
                             <?php else: ?>
@@ -92,26 +104,56 @@
                                     }
                                 }
                             </script>
-                         <?php endif; ?>
-                        <div class="mt-2">
-                            <a href="#" class="btn btn-primary">Join Group</a>
+                        <?php endif; ?>
+                        <?php if(userLoggedIn()): ?>
+                            <div class="mt-2">
+                                <?php if($isMember): ?>
+                                    <button class="btn btn-primary disabled">You are a member of this group</button>
+                                <?php else: ?>
+                                    <button class="btn btn-primary joinGroupBtn">Join Group</button>
+                                <?php endif; ?>  
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                </div>
+                <?php if (count($otherGroups) > 0): ?>
+                    <div class="blog-sidebar mt-md-50">
+                        <div class="navigation_link_widget mt-5">
+                            <h4 class="double-down-line-left text-secondary position-relative pb-4 mb-4">Other Interest Groups</h4>
+                            <ul>
+                                <?php foreach($otherGroups as $group): ?>
+                                    <li><?php $group['group_name']  . ' (' . $group['members'] . 'members)' ?></li>
+                                <?php endforeach ?>
+                            </ul>
                         </div>
                     </div>
-                </div>
-                <div class="blog-sidebar mt-md-50">
-                    <div class="navigation_link_widget mt-5">
-                        <h4 class="double-down-line-left text-secondary position-relative pb-4 mb-4">Other Interest Groups</h4>
-                        <ul>
-                            <li>Housing Properties (5 members)</li>
-                            <li>Appartment (2 members)</li>
-                            <li>Luxury Condos (5 members)</li>
-                            <li>Construction (3 members)</li>
-                            <li>Green Villas (1 member)</li>
-                            <li>Commertial (6 members)</li>
-                        </ul>
-                    </div>
-                </div>
+                <?php endif; ?>
             </div>
         </div>
     </div>
+</div>
+
+<div class="modal fade" id="confirmationModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Confirmation</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      
+      <!-- Modal body -->
+      <div class="modal-body">
+        Are you sure you want to proceed to join <b><?php echo $checkInterestGroup[0]['group_name'] ?></b>?
+      </div>
+      
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <a href="<?php echo site_url('/interest-group/join/'.$checkInterestGroup[0]['group_id']) ?>" type="button" class="btn btn-success">Yes</a>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
+      </div>
+      
+    </div>
+  </div>
 </div>

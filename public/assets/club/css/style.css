@@ -3590,7 +3590,7 @@ Responsive Media Query CSS
         top: -1px;
         right: 0;
         left: 0;
-        z-index: 99999;
+        z-index: 999;
         animation-duration: 1s;
         animation-name: menu-sticky;
         animation-timing-function: ease-in-out;
@@ -4575,3 +4575,32 @@ Responsive Media Query CSS
         width: 35px;
     }
 /* progress styling */
+
+/* Donation WIzard */
+.amount-options {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .amount-option {
+    display: inline-block;
+  }
+  
+  .amount-option input[type="radio"] {
+    display: none;
+  }
+  
+  .amount-option .pill {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #f0f0f0;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  
+  .amount-option input[type="radio"]:checked + .pill {
+    background-color: var(--theme-primary-color);
+    color: #fff;
+  }
+/* Donation WIzard */

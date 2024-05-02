@@ -155,17 +155,23 @@ class User extends BaseController
             $builder = $db->table('events');
             $calendarQuery = $builder->select('*')
                 ->where('ev_status',1)
+                ->where('ev_delete', null)
                 ->join('newsevents','newsevents.ne_id=events.events_id')
                 ->limit(10)->get();
-            $data = $calendarQuery->getResult();
-            if (count($data) > 0) {
-                foreach ($data as $key => $value) {
-                    $data['data'][$key]['title'] = $value->title;
-                    $data['data'][$key]['start'] = $value->start_date;
-                    $data['data'][$key]['end'] = $value->end_date;
-                    $data['data'][$key]['backgroundColor'] = "#DA9F37";
+            $calendarData = $calendarQuery->getResult();
+            $data = array();
+
+            if (count($calendarData) > 0) {
+                foreach ($calendarData as $key => $value) {
+                    $data['calendarData'][$key]['title'] = $value->title;
+                    $data['calendarData'][$key]['start'] = $value->start_date;
+                    $data['calendarData'][$key]['end'] = $value->end_date;
+                    $data['calendarData'][$key]['backgroundColor'] = "#DA9F37";
                 }
+            }else{
+                $data['calendarData'] = array();
             }
+
             $data['countUsers']  = $tableUsers->where('u_status',1)->findAll();
             $data['countGallery']  = $tableGallery->where('gl_status',1)->findAll();
             $data['countEvents']  = $tableEvents->where('ev_status',1)->findAll();
@@ -210,7 +216,8 @@ class User extends BaseController
             $newUser['u_hobbies'] = $request->getPost('hobbies');
             $newUser['country_id'] = $request->getPost('country');
             $newUser['u_spouse'] = $request->getPost('spouse');
-            $newUser['u_emergency_phone'] = $request->getPost('realPhone');
+            $newUser['u_mobile'] = $request->getPost('realPhone');
+            $newUser['u_emergency_phone'] = $request->getPost('emergencyPhone');
 
             $newUser['u_email'] = $request->getPost('email');
             $newUser['password'] = $request->getPost('password');
@@ -480,11 +487,16 @@ class User extends BaseController
                 $newUser['u_occupation'] = $request->getPost('occupation');
                 $newUser['u_address'] = $request->getPost('address');
                 $newUser['u_hobbies'] = $request->getPost('hobbies');
+                $newUser['u_mobile'] = $request->getPost('realPhone');
+                $newUser['u_emergency_phone'] = $request->getPost('emergencyPhone');
+                $newUser['country_id'] = $request->getPost('country');
+                $newUser['u_spouse'] = $request->getPost('spouse');
+
                 $old_pic = $request->getPost('xceep');
 
                 $user = $tableUser->where('u_email',getUserSession('u_email'))->findAll();
 
-                if (count($user) ==1 ) {
+                if (count($user) == 1) {
                     $profilePic = $this->request->getFile('dp');
                     if (!empty($profilePic) && $profilePic->getSize() > 0) {
                         $profileFileName = $profilePic->getRandomName();
@@ -503,8 +515,8 @@ class User extends BaseController
                                 unlink('./public/assets/images/users/'.$old_pic);
                             }
                         }
-                        $session->set($newUser);
-                        customFlash('alert-success','Your profile is updated');
+                        // $session->set($newUser);
+                        customFlash('alert-success','Your profile was updated successfully');
                         return redirect()->to(site_url('user/profile'));
                     }
                     else{
@@ -2961,17 +2973,23 @@ class User extends BaseController
             $builder = $db->table('events');
             $calendarQuery = $builder->select('*')
                 ->where('ev_status',1)
+                ->where('ev_delete',null)
                 ->join('newsevents','newsevents.ne_id=events.events_id')
-                ->limit(10)->get();
-            $data = $calendarQuery->getResult();
-            if (count($data) > 0) {
-                foreach ($data as $key => $value) {
-                    $data['data'][$key]['title'] = $value->title;
-                    $data['data'][$key]['start'] = $value->start_date;
-                    $data['data'][$key]['end'] = $value->end_date;
-                    $data['data'][$key]['backgroundColor'] = "#DA9F37";
+                ->get();
+            $calendarData = $calendarQuery->getResult();
+
+            $data = array();
+            if (count($calendarData) > 0) {
+                foreach ($calendarData as $key => $value) {
+                    $data['calendarData'][$key]['title'] = $value->title;
+                    $data['calendarData'][$key]['start'] = $value->start_date;
+                    $data['calendarData'][$key]['end'] = $value->end_date;
+                    $data['calendarData'][$key]['backgroundColor'] = "#DA9F37";
                 }
+            }else{
+                $data['calendarData'] = array();
             }
+
             $data['title'] = 'Profile' . PROJECT;
             echo view('users/headnav/header',$data);
             echo view('users/css/allCSS');
@@ -3248,7 +3266,7 @@ class User extends BaseController
 
         $wist = $request->getGet('wist');
 
-        $filters = false;
+        $filters = array();
         if (isset($user) && !empty($user))
         {
             $filters['user'] = $user ;

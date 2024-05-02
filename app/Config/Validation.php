@@ -40,6 +40,7 @@ class Validation
         'email'=> 'trim|required|valid_email',
         'password'=> 'trim|required',
         'realPhone'=> 'trim|required',
+        'emergencyPhone'=> 'trim|required',
         'spouse'=> 'trim|required',
         'country'=> 'trim|required',
 
@@ -62,6 +63,7 @@ class Validation
         'hobbies'=> 'trim|required',
         'email'=> 'trim|required|valid_email',
         'realPhone'=> 'trim|required',
+        'emergencyPhone'=> 'trim|required',
         'spouse'=> 'trim|required',
         'country'=> 'trim|required',
 

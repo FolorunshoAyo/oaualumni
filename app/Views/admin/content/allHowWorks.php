@@ -93,6 +93,7 @@
                             <?php no_data('alert-info','No Alumni has been created')?>
                         <?php endif?>
                     </div>
+                    <?php echo $pager->links(); ?>
                 </div>
             </div> <!-- end row -->
 

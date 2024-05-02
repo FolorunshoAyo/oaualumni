@@ -1,6 +1,7 @@
 <?php
 namespace App\Controllers;
 
+use App\Models\ModUsers;
 use App\Models\ModProjects;
 use App\Models\ModDonations;
 
@@ -107,6 +108,11 @@ class Donations extends BaseController
                 $data['contributors'] = array();
                 $data['otherProjects'] = $checkOtherProject;
 
+                if(userLoggedIn()){
+                    $tableUser =  new ModUsers();
+                    $data['userData'] = $tableUser->where('u_id',getUserId())->findAll();
+                }
+
                 foreach ($donations as $donation) {
                     $item = array(
                         'donation_id' => $donation['donation_id'],
@@ -126,6 +132,7 @@ class Donations extends BaseController
                 echo view('users/readdonation',$data);
                 echo view('content/subscribed');
                 echo view('footer/footer');
+                echo view('js/donation');
                 echo view('footer/endfooter');
             }
             else{

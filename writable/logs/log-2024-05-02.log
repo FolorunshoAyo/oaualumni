@@ -1,0 +1,204 @@
+CRITICAL - 2024-05-02 05:31:26 --> Undefined variable $project
+#0 C:\xampp\htdocs\oaualumni\app\Views\users\readdonation.php(128): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 128)
+#1 C:\xampp\htdocs\oaualumni\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\oaualumni\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\oaualumni\system\Common.php(1089): CodeIgniter\View\View->render('users/readdonat...', Array, true)
+#4 C:\xampp\htdocs\oaualumni\app\Controllers\Donations.php(126): view('users/readdonat...', Array)
+#5 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(825): App\Controllers\Donations->read('1')
+#6 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Donations))
+#7 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\oaualumni\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-05-02 06:33:00 --> count(): Argument #1 ($value) must be of type Countable|array, null given
+#0 C:\xampp\htdocs\oaualumni\system\View\View.php(210): include()
+#1 C:\xampp\htdocs\oaualumni\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 C:\xampp\htdocs\oaualumni\system\Common.php(1089): CodeIgniter\View\View->render('js/eventsCalend...', Array, true)
+#3 C:\xampp\htdocs\oaualumni\app\Controllers\User.php(186): view('js/eventsCalend...', Array)
+#4 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(825): App\Controllers\User->index()
+#5 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+#6 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\oaualumni\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2024-05-02 06:33:18 --> Automatic conversion of false to array is deprecated
+#0 C:\xampp\htdocs\oaualumni\app\Controllers\User.php(3257): CodeIgniter\Debug\Exceptions->errorHandler(8192, 'Automatic conve...', 'C:\\xampp\\htdocs...', 3257)
+#1 C:\xampp\htdocs\oaualumni\app\Controllers\User.php(3652): App\Controllers\User->filterWhereForview()
+#2 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(825): App\Controllers\User->search()
+#3 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+#4 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\oaualumni\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2024-05-02 06:33:21 --> count(): Argument #1 ($value) must be of type Countable|array, null given
+#0 C:\xampp\htdocs\oaualumni\system\View\View.php(210): include()
+#1 C:\xampp\htdocs\oaualumni\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 C:\xampp\htdocs\oaualumni\system\Common.php(1089): CodeIgniter\View\View->render('js/eventsCalend...', Array, true)
+#3 C:\xampp\htdocs\oaualumni\app\Controllers\User.php(186): view('js/eventsCalend...', Array)
+#4 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(825): App\Controllers\User->index()
+#5 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+#6 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\oaualumni\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2024-05-02 06:34:13 --> count(): Argument #1 ($value) must be of type Countable|array, null given
+#0 C:\xampp\htdocs\oaualumni\system\View\View.php(210): include()
+#1 C:\xampp\htdocs\oaualumni\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 C:\xampp\htdocs\oaualumni\system\Common.php(1089): CodeIgniter\View\View->render('js/eventsCalend...', Array, true)
+#3 C:\xampp\htdocs\oaualumni\app\Controllers\User.php(186): view('js/eventsCalend...', Array)
+#4 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(825): App\Controllers\User->index()
+#5 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+#6 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\oaualumni\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2024-05-02 06:36:13 --> count(): Argument #1 ($value) must be of type Countable|array, null given
+#0 C:\xampp\htdocs\oaualumni\system\View\View.php(210): include()
+#1 C:\xampp\htdocs\oaualumni\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 C:\xampp\htdocs\oaualumni\system\Common.php(1089): CodeIgniter\View\View->render('js/eventsCalend...', Array, true)
+#3 C:\xampp\htdocs\oaualumni\app\Controllers\User.php(186): view('js/eventsCalend...', Array)
+#4 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(825): App\Controllers\User->index()
+#5 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+#6 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\oaualumni\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2024-05-02 07:20:37 --> count(): Argument #1 ($value) must be of type Countable|array, null given
+#0 C:\xampp\htdocs\oaualumni\system\View\View.php(210): include()
+#1 C:\xampp\htdocs\oaualumni\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 C:\xampp\htdocs\oaualumni\system\Common.php(1089): CodeIgniter\View\View->render('js/eventsCalend...', Array, true)
+#3 C:\xampp\htdocs\oaualumni\app\Controllers\User.php(186): view('js/eventsCalend...', Array)
+#4 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(825): App\Controllers\User->index()
+#5 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+#6 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\oaualumni\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2024-05-02 07:24:03 --> Automatic conversion of false to array is deprecated
+#0 C:\xampp\htdocs\oaualumni\app\Controllers\User.php(3262): CodeIgniter\Debug\Exceptions->errorHandler(8192, 'Automatic conve...', 'C:\\xampp\\htdocs...', 3262)
+#1 C:\xampp\htdocs\oaualumni\app\Controllers\User.php(3657): App\Controllers\User->filterWhereForview()
+#2 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(825): App\Controllers\User->search()
+#3 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+#4 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\oaualumni\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2024-05-02 07:29:40 --> count(): Argument #1 ($value) must be of type Countable|array, null given
+#0 C:\xampp\htdocs\oaualumni\system\View\View.php(210): include()
+#1 C:\xampp\htdocs\oaualumni\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 C:\xampp\htdocs\oaualumni\system\Common.php(1089): CodeIgniter\View\View->render('js/eventsCalend...', Array, true)
+#3 C:\xampp\htdocs\oaualumni\app\Controllers\User.php(2987): view('js/eventsCalend...', Array)
+#4 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(825): App\Controllers\User->calendar()
+#5 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+#6 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\oaualumni\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2024-05-02 07:37:49 --> Undefined variable $project
+#0 C:\xampp\htdocs\oaualumni\app\Views\users\readdonation.php(46): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 46)
+#1 C:\xampp\htdocs\oaualumni\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\oaualumni\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\oaualumni\system\Common.php(1089): CodeIgniter\View\View->render('users/readdonat...', Array, true)
+#4 C:\xampp\htdocs\oaualumni\app\Controllers\Donations.php(134): view('users/readdonat...', Array)
+#5 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(825): App\Controllers\Donations->read('1')
+#6 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Donations))
+#7 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\oaualumni\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-05-02 07:38:10 --> count(): Argument #1 ($value) must be of type Countable|array, int given
+#0 C:\xampp\htdocs\oaualumni\system\View\View.php(210): include()
+#1 C:\xampp\htdocs\oaualumni\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 C:\xampp\htdocs\oaualumni\system\Common.php(1089): CodeIgniter\View\View->render('users/readdonat...', Array, true)
+#3 C:\xampp\htdocs\oaualumni\app\Controllers\Donations.php(134): view('users/readdonat...', Array)
+#4 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(825): App\Controllers\Donations->read('1')
+#5 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Donations))
+#6 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\oaualumni\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2024-05-02 07:38:43 --> count(): Argument #1 ($value) must be of type Countable|array, int given
+#0 C:\xampp\htdocs\oaualumni\system\View\View.php(210): include()
+#1 C:\xampp\htdocs\oaualumni\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 C:\xampp\htdocs\oaualumni\system\Common.php(1089): CodeIgniter\View\View->render('users/readdonat...', Array, true)
+#3 C:\xampp\htdocs\oaualumni\app\Controllers\Donations.php(134): view('users/readdonat...', Array)
+#4 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(825): App\Controllers\Donations->read('1')
+#5 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Donations))
+#6 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\oaualumni\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2024-05-02 09:23:12 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(8192, 'trim(): Passing...', 'C:\\xampp\\htdocs...', 279)
+#1 C:\xampp\htdocs\oaualumni\system\Validation\Validation.php(279): trim(NULL)
+#2 C:\xampp\htdocs\oaualumni\system\Validation\Validation.php(157): CodeIgniter\Validation\Validation->processRules('emergencyPhone', 'emergencyPhone', NULL, Array, Array)
+#3 C:\xampp\htdocs\oaualumni\system\Controller.php(160): CodeIgniter\Validation\Validation->run()
+#4 C:\xampp\htdocs\oaualumni\app\Controllers\User.php(479): CodeIgniter\Controller->validate(Array)
+#5 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(825): App\Controllers\User->updateprofile()
+#6 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+#7 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\oaualumni\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-05-02 17:37:13 --> Maximum execution time of 120 seconds exceeded
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+ERROR - 2024-05-02 17:49:59 --> Unknown column 'updated_at' in 'field list'
+CRITICAL - 2024-05-02 17:49:59 --> Unknown column 'updated_at' in 'field list'
+#0 C:\xampp\htdocs\oaualumni\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `in...', 0)
+#1 C:\xampp\htdocs\oaualumni\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `in...')
+#2 C:\xampp\htdocs\oaualumni\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `in...')
+#3 C:\xampp\htdocs\oaualumni\system\Database\BaseBuilder.php(1771): CodeIgniter\Database\BaseConnection->query('INSERT INTO `in...', Array, false)
+#4 C:\xampp\htdocs\oaualumni\system\Model.php(239): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\oaualumni\system\BaseModel.php(738): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\oaualumni\system\Model.php(625): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\oaualumni\app\Controllers\InterestGroups.php(135): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(825): App\Controllers\InterestGroups->joingroup('1')
+#9 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\InterestGroups))
+#10 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\oaualumni\index.php(37): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-05-02 17:55:33 --> Undefined array key "u_first_name"
+#0 C:\xampp\htdocs\oaualumni\app\Views\users\readgroup.php(69): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 69)
+#1 C:\xampp\htdocs\oaualumni\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\oaualumni\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\oaualumni\system\Common.php(1089): CodeIgniter\View\View->render('users/readgroup', Array, true)
+#4 C:\xampp\htdocs\oaualumni\app\Controllers\InterestGroups.php(100): view('users/readgroup', Array)
+#5 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(825): App\Controllers\InterestGroups->read('1')
+#6 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\InterestGroups))
+#7 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\oaualumni\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-05-02 18:04:37 --> Undefined array key "u_dp"
+#0 C:\xampp\htdocs\oaualumni\app\Views\admin\content\allInterestGroupMembers.php(52): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 52)
+#1 C:\xampp\htdocs\oaualumni\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\oaualumni\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\oaualumni\system\Common.php(1089): CodeIgniter\View\View->render('admin/content/a...', Array, true)
+#4 C:\xampp\htdocs\oaualumni\app\Controllers\Admin.php(1921): view('admin/content/a...', Array)
+#5 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(825): App\Controllers\Admin->viewInterestGroupMembers('1')
+#6 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\oaualumni\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-05-02 18:14:51 --> Call to a member function paginate() on array
+#0 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(825): App\Controllers\Admin->viewInterestGroupMembers('1')
+#1 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#2 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\oaualumni\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-05-02 18:21:50 --> Undefined array key "created_at"
+#0 C:\xampp\htdocs\oaualumni\app\Views\admin\content\allInterestGroupMembers.php(71): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 71)
+#1 C:\xampp\htdocs\oaualumni\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\oaualumni\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\oaualumni\system\Common.php(1089): CodeIgniter\View\View->render('admin/content/a...', Array, true)
+#4 C:\xampp\htdocs\oaualumni\app\Controllers\Admin.php(1920): view('admin/content/a...', Array)
+#5 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(825): App\Controllers\Admin->viewInterestGroupMembers('1')
+#6 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\oaualumni\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-05-02 18:51:17 --> syntax error, unexpected single-quoted string "));", expecting ")"
+#0 C:\xampp\htdocs\oaualumni\system\Autoloader\Autoloader.php(241): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs...')
+#1 C:\xampp\htdocs\oaualumni\system\Autoloader\Autoloader.php(219): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#3 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(790): class_exists('\\App\\Controller...', true)
+#4 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->startController()
+#5 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\oaualumni\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2024-05-02 18:51:21 --> syntax error, unexpected single-quoted string "));", expecting ")"
+#0 C:\xampp\htdocs\oaualumni\system\Autoloader\Autoloader.php(241): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs...')
+#1 C:\xampp\htdocs\oaualumni\system\Autoloader\Autoloader.php(219): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#3 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(790): class_exists('\\App\\Controller...', true)
+#4 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->startController()
+#5 C:\xampp\htdocs\oaualumni\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\oaualumni\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}

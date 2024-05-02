@@ -43,6 +43,7 @@ $routes->get('/executives', 'Pages::executives');
 $routes->get('/alumni', 'Pages::alumni');
 $routes->get('/interest-groups', 'InterestGroups::index');
 $routes->get('/interest-groups/read/(:segment)', 'InterestGroups::read/$1');
+$routes->get('/interest-group/join/(:segment)', 'InterestGroups::joingroup/$1');
 $routes->get('/donations', 'Donations::index');
 $routes->get('/donation/read/(:segment)', 'Donations::read/$1');
 
@@ -86,6 +87,7 @@ $routes->post('admin/add-interest-group', 'Admin::addInterestGroup');
 $routes->get('admin/all-interest-groups', 'Admin::allInterestGroups');
 $routes->get('admin/edit-interest-group/(:segment)', 'Admin::editInterestGroup/$1');
 $routes->get('admin/view-group-members/(:segment)', 'Admin::viewInterestGroupMembers/$1');
+$routes->get('admin/delete-interest-group-member/(:segment)/member/(:segment)', 'Admin::deleteInterestGroupMember/$1/$2');
 $routes->post('admin/update-interest-group', 'Admin::updateInterestGroup');
 $routes->get('admin/delete-interest-group/(:num)', 'Admin::deleteInterestGroup/$1');
 

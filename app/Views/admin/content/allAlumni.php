@@ -113,6 +113,7 @@
                             <?php no_data('alert-info','What We Do section is  not available')?>
                         <?php endif?>
                     </div>
+                    <?php echo $pager->links(); ?>
                 </div>
             </div> <!-- end row -->
 

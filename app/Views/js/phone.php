@@ -4,51 +4,57 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-        $('.js-example-basic-multiple').select2();
-    });
-    var input = document.querySelector("#phone");
-    var output = document.querySelector("#skzPhone");
-   // var skzNumber = document.querySelector("#output");
-    var iti = window.intlTelInput(input, {
-        // allowDropdown: false,
-        // autoHideDialCode: false,
-        // autoPlaceholder: "off",
-        // dropdownContainer: document.body,
-        // excludeCountries: ["us"],
-        // formatOnDisplay: false,
-        // geoIpLookup: function(callback) {
-        //   $.get("http://ipinfo.io", function() {}, "jsonp").always(function(resp) {
-        //     var countryCode = (resp && resp.country) ? resp.country : "";
-        //     callback(countryCode);
-        //   });
-        // },
-        // hiddenInput: "full_number",
-        // initialCountry: "auto",
-        // localizedCountries: { 'de': 'Deutschland' },
-         nationalMode: true,
-        // onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],
-        // placeholderNumberType: "MOBILE",
-         preferredCountries: ['us', 'cn'],
-        // separateDialCode: true,
+    $('.js-example-basic-multiple').select2();
+
+    // Initialize first input
+    var input1 = document.querySelector("#phone1");
+    var output1 = document.querySelector("#skzPhone1");
+    var iti1 = window.intlTelInput(input1, {
+        nationalMode: true,
+        preferredCountries: ['us', 'cn'],
         utilsScript: "<?php echo base_url('public/assets/phone/build/js/utils.js')?>",
     });
 
-    var handleChange = function() {
+    // Initialize second input
+    var input2 = document.querySelector("#phone2");
+    var output2 = document.querySelector("#skzPhone2");
+    var iti2 = window.intlTelInput(input2, {
+        nationalMode: true,
+        preferredCountries: ['us', 'cn'],
+        utilsScript: "<?php echo base_url('public/assets/phone/build/js/utils.js')?>",
+    });
+
+    // Function to handle input change
+    var handleChange = function(input, output) {
+        var iti = (input === input1) ? iti1 : iti2;
         var text = (iti.isValidNumber()) ? "International: " + iti.getNumber() : "Please enter a number below";
-        var textNode = document.createTextNode(text);
         output.innerHTML = "";
-        input.innerHTML = "";
-        //output.appendChild(textNode);
         if (iti.isValidNumber()) {
-            $('#skzPhone').val(iti.getNumber())
+            output.value = iti.getNumber();
+        } else {
+            output.value = "0";
         }
-        else{
-            $('#skzPhone').val(0);
-        }
-        //input.val(textNode);
-        //$('#phone').val(iti.getNumber());
     };
 
-    input.addEventListener('change', handleChange);
-    input.addEventListener('keyup', handleChange);
+    // Bind change event to first input
+    input1.addEventListener('change', function() {
+        handleChange(input1, output1);
+    });
+
+    // Bind keyup event to first input
+    input1.addEventListener('keyup', function() {
+        handleChange(input1, output1);
+    });
+
+    // Bind change event to second input
+    input2.addEventListener('change', function() {
+        handleChange(input2, output2);
+    });
+
+    // Bind keyup event to second input
+    input2.addEventListener('keyup', function() {
+        handleChange(input2, output2);
+    });
+});
+
 </script>

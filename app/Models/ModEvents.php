@@ -52,7 +52,7 @@ class ModEvents extends Model
         return $this->select('events.*')
             //->where('gl_deleted IS NULL')
             ->orderBy('ev_id','desc')
-            ->where('ev_date', null);
+            ->where('ev_status', 1);
     }
 
 }//class here

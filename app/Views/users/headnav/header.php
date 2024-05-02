@@ -14,4 +14,4 @@
     <meta name="author" content="Unicoder">
 
     <!-- Title -->
-    <title>Club</title>
+    <title><?php echo $title ?></title>

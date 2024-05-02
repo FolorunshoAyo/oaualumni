@@ -19,7 +19,7 @@ class ModInterestGroupMembers extends Model
 
     protected $useTimestamps = true;
     protected $createdField  = 'joined_at';
-    // protected $updatedField  = '';
+    protected $updatedField  = 'updated_at';
     protected $deletedField  = 'deleted_at';
 
     protected $validationMessages = [];

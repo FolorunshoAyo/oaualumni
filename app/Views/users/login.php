@@ -27,7 +27,7 @@
                     <?php
                     echo validation_errors();
                     ?>
-                    <?php echo checkFlash();?>
+                    <?php echo checkFlash(); ?>
                 </div>
             </div>
         </div>
@@ -57,7 +57,7 @@
                     <a href="<?php echo site_url('login')?>" class="down-active text-secondary me-3">Login</a>
                     <a href="<?php echo site_url('register')?>" class="text-secondary">Register</a>
                     <?php echo form_open('user/checkuser','class="frgpaswd"'); ?>
-                        <div class="mb-3 user">
+                        <div class="my-3 user">
                             <label class="form-label" for="exampleInputEmail1">Email Address</label>
                             <input type="text" class="form-control" id="email" placeholder="" name="email" value=""  autofocus="">
                         </div>

@@ -1,9 +1,9 @@
 <?php
 namespace App\Controllers;
 
-use App\Models\ModAdmin;
-use App\Models\ModInterestGroupMembers;
+use App\Models\ModUsers;
 use App\Models\ModInterestGroups;
+use App\Models\ModInterestGroupMembers;
 
 class InterestGroups extends BaseController
 {
@@ -75,6 +75,7 @@ class InterestGroups extends BaseController
         if (!empty($id) && isset($id)) {
             $tableInterestGroup  = new ModInterestGroups();
             $memberModel  = new ModInterestGroupMembers();
+            $isMember = false;
 
             $checkInterestGroup = $tableInterestGroup->select()
                 ->where([
@@ -82,17 +83,44 @@ class InterestGroups extends BaseController
                 ])
                 ->findAll();
 
-            $members = $memberModel->select()
-                ->where([
-                    'group_id'=>$id,
-                ])
-                ->findAll();
+            $members = $memberModel->select('interest_group_members.*, users.u_first_name, users.u_last_name')
+            ->join('users','interest_group_members.user_id = users.u_id')
+            ->where(['group_id' => $id])
+            ->orderBy('member_id','desc')
+            ->findAll();
+
+            $checkOtherGroups = $tableInterestGroup->select()
+            ->where('group_id !=', $id)
+            ->orderBy('RAND()')
+            ->limit(5)
+            ->findAll();
+
+            if(userLoggedIn()){
+                // Check if user is part of group
+                $checkMembership = $memberModel->select()
+                ->where('group_id', $id)
+                ->where('user_id', getUserId())
+                ->countAllResults();
+
+                if($checkMembership == 1){
+                    $isMember = true;
+                }else{
+                    $isMember = false;
+                }
+            }
+
+            foreach ($checkOtherGroups as &$group) {
+                $membersCountCount = $memberModel->where(['group_id' => $group['group_id']])->countAllResults();
+                $project['members'] = $membersCountCount;
+            }
 
             if (count($checkInterestGroup) == 1) {
                 $data['checkInterestGroup'] = $checkInterestGroup;
                 $data['title'] =  $checkInterestGroup[0]['group_name'] . '  ' . PROJECT;
                 $data['description'] = $checkInterestGroup[0]['group_name'] . '  ' . PROJECT;
                 $data['members'] = $members;
+                $data['otherGroups'] = $checkOtherGroups;
+                $data['isMember'] =  $isMember;
 
                 echo view('header/header',$data);
                 echo view('css/allCSS');
@@ -100,18 +128,52 @@ class InterestGroups extends BaseController
                 echo view('users/readgroup',$data);
                 echo view('content/subscribed');
                 echo view('footer/footer');
+                if(!$isMember){
+                    echo "<script>
+                    $('.joinGroupBtn').click(function() {
+                        $('#confirmationModal').modal('show');
+                    });
+                    </script>";
+                }
                 echo view('footer/endfooter');
             }
             else{
-                customFlash('alert-info','News not exist.');
-                return redirect()->to(site_url('news'));
+                customFlash('alert-info','Interest Group Does not exist.');
+                return redirect()->to(site_url('interest-groups'));
             }
 
         }
         else{
             customFlash('alert-info','Something went wrong, please check your required things and try again.');
-            return redirect()->to(site_url('news'));
+            return redirect()->to(site_url('interest-groups'));
         }
 
+    }
+
+    public function joingroup($id){
+        if (userLoggedIn()) {
+            $groupModel = new ModInterestGroups();
+            $memberModel = new ModInterestGroupMembers();
+            $group_name = $groupModel->where(['group_id' => $id])->findAll()[0]['group_name'];
+            
+
+            $newInterestGroupMember = [
+                'user_id'=> getUserId(),
+                'group_id'=> $id,
+            ];
+
+            $isInserted = $memberModel->insert($newInterestGroupMember);
+            if ($isInserted) {
+                customFlash('alert-success','You have successfully joined ' . $group_name);
+                return redirect()->to(site_url('interest-groups/read/' . $id));
+            }
+            else{
+                customFlash('alert-info','OOps..! something went wrong please try again.');
+                return redirect()->to(site_url('interest-groups/read/' . $id));
+            }
+        }else{
+            customFlash('alert-info','Kindly login before joining a group.');
+            return redirect()->to(site_url('interest-groups/read/' . $id));
+        }
     }
 }//class here

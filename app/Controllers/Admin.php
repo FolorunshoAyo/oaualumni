@@ -1898,10 +1898,9 @@ class Admin extends BaseController
             // Retrieve the count of members for the current group
             $group = $groupModel->where(['group_id' => $group_id])->findAll();
             $memberModel->select('interest_group_members.*, users.*')
-            ->join('users','interest_group_members.user_id = users.u_id')
+            ->join('users','interest_group_members.user_id = users.u_id', 'left')
             ->where(['group_id' => $group_id])
-            ->orderBy('member_id','desc')
-            ->findAll();
+            ->orderBy('member_id','desc');
             
             $data = [
                 'group' => $group,
@@ -1930,6 +1929,53 @@ class Admin extends BaseController
             return redirect()->to(site_url('admin/login'));
         }
 
+    }
+
+    public function deleteInterestGroupMember($group_id, $member_id){
+        if (isAdmin()){
+            if ((!empty($group_id) && isset($group_id)) && (!empty($member_id) && isset($member_id))) {
+                $tableInterestGroup = new ModInterestGroups();
+                $tableInterestGroupMembers = new ModInterestGroupMembers();
+                $isInterestGroup = $tableInterestGroup->where(['group_id'=>$group_id])->findAll();
+                //$isnews = $this->modAdmin->checkAlbumById($id);
+                if (count($isInterestGroup) === 1) {
+                    $hasMember = $tableInterestGroupMembers
+                    ->where(['group_id'=>$group_id])
+                    ->where(['user_id'=>$member_id])
+                    ->findAll();
+
+                    if(count($hasMember) == 1){
+                        $isDeleted = $tableInterestGroupMembers
+                        ->where(['group_id'=>$group_id])
+                        ->where(['user_id'=>$member_id])
+                        ->delete();
+                    }
+
+                    if ($isDeleted) {
+                        customFlash('alert-success','This member has been deleted from this group associated.');
+                        return redirect()->to(site_url('admin/view-group-members/' . $group_id));
+                    }
+                    else{
+                        customFlash('alert-warning','You can\'t delete the interest group member right now; please try again.');
+                        return redirect()->to(site_url('admin/view-group-members/' . $group_id));
+                    }
+
+
+                }
+                else{
+                    customFlash('alert-warning','The interest group is not available; please try again.');
+                    return redirect()->to(site_url('admin/all-interest-groups'));
+                }
+            }
+            else{
+                customFlash('alert-warning','Something went wrong.');
+                return redirect()->to(site_url('admin/all-interest-groups'));
+            }
+        }
+        else{
+            customFlash('alert-warning','Please login first.');
+            return redirect()->to(site_url('admin/login'));
+        }
     }
 
     public function editInterestGroup($id)

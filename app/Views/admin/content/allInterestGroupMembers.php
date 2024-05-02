@@ -35,7 +35,7 @@
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>Phone</th>
-                                    <th>Date</th>
+                                    <th>Joined</th>
                                     <th>Remove</th>
                                 </tr>
                                 </thead>
@@ -50,7 +50,7 @@
                                         <td data-title="Order #">
                                             <div style="display: flex; align-items: center; width: fit-content;">
                                                 <?php if($member['u_dp']): ?>
-                                                    <img src="<?php echo base_url('public/assets/images/interest_groups/'.$group['group_image']);?>" alt="Group Image" style="width: 50px; height: 50px; margin-inline-end: 5px; border-radius: 50%;">
+                                                    <img src="<?php echo base_url('public/assets/images/users/'.$member['u_dp']);?>" alt="Group Image" style="width: 50px; height: 50px; margin-inline-end: 5px; border-radius: 50%;">
                                                 <?php endif; ?>
                                                 <div style="display: inline-block; vertical-align: bottom;">
                                                     <h6 style="margin:0;line-height:1;"><?php echo $member['u_last_name'] . " " . $member['u_first_name'] ?></h6>
@@ -68,7 +68,7 @@
                                             ?>
                                         </td>
                                         <td data-title="Order #">
-                                            <?php echo $member['created_at']?>
+                                            <?php echo $member['joined_at']?>
                                         </td>
                                         <td data-title="Order #">
                                             <a  href="<?php echo site_url('admin/delete-interest-group-member/'. $member['group_id'] . '/member/' . $member['user_id']); ?>" class="btn btn-danger albumDrop">
@@ -83,6 +83,7 @@
                             <?php no_data('alert-info','This interest group does not have any members') ?>
                         <?php endif?>
                     </div>
+                    <?php echo $pager->links(); ?>
                 </div>
             </div> <!-- end row -->
 
