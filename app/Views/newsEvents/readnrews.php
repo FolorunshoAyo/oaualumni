@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row row-cols-md-2 row-cols-1 g-3">
             <div class="col">
-                <h3 class="page-name text-secondary m-0">Blog Details</h3>
+                <h3 class="page-name text-secondary m-0">Event/News Details</h3>
             </div>
             <div class="col">
                 <nav class="float-start float-md-end">
@@ -27,7 +27,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-4 order-lg-2">
-                <div class="blog-sidebar mt-md-50">
+                <div class="blog-sidebar mt-md-50 mb-4">
                     <div class="search_widget">
                         <?php echo form_open('',['method'=>'get'])?>
                         <div class="form-group">

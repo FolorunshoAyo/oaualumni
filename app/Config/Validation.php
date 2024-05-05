@@ -76,9 +76,18 @@ class Validation
         'address'=> 'trim|required',
         'hobbies'=> 'trim|required'
     ];
-    public $newsEvent = [
+    public $news = [
+        'title'=> 'required',
+        'short_desc'=> 'required',
+        'description'=> 'required',
+        'category'=> 'required'
+    ];
+
+    public $events = [
         'title'=> 'required',
         'description'=> 'required',
+        'short_desc'=> 'required',
+        'location'=> 'required',
         'category'=> 'required'
     ];
 

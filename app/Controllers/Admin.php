@@ -438,23 +438,48 @@ class Admin extends BaseController
             return redirect()->to(site_url('admin/login'));
         }
     }
+
     /*newsEvents starts here*/
     public function newNewsEvents()
     {
         if (isAdmin()){
+            $request = \Config\Services::request();
+            if (!empty($_GET)) {
+                $category =   $request->getGet('cat');
 
-            $data['title'] =  'New News / Event ' .PROJECT;
-            $data['description'] = 'New News / Event Description here';
-            echo view('admin/header/header',$data);
-            echo view('admin/css/css');
-            echo view('admin/css/quill');
-            echo view('admin/navbar/navbartop');
-            echo view('admin/navbar/navbar_left');
-            echo view('admin/content/newNewsEvents',$data);
-            echo view('admin/footer/footer');
-            echo view('admin/css/quilljs');
-            echo view('admin/endfooter/endfooter');
+                if (isset($category) && !empty($category)) {
+                    if($category === "events" || $category === "news"){
+                        $data['title'] =  'New News / Event ' .PROJECT;
+                        $data['description'] = 'New News / Event Description here';
+                        $data['category'] = $category;
 
+                        echo view('admin/header/header',$data);
+                        echo view('admin/css/css');
+                        echo view('admin/css/quill');
+                        echo view('admin/navbar/navbartop');
+                        echo view('admin/navbar/navbar_left');
+                        echo view('admin/content/newNewsEvents',$data);
+                        echo view('admin/footer/footer');
+                        echo "<script>
+                        $(`select[name = 'category']`).on('change', function(){
+                            const selected_value = $(this).val();
+                            window.location.href = 'new-news-and-event?cat=' + selected_value;
+                        })
+                        </script>";
+                        echo view('admin/css/quilljs');
+                        echo view('admin/endfooter/endfooter');
+                    }else{
+                        customFlash('alert-info','OOps..! something went wrong please try again.');
+                        return redirect()->to(site_url('admin/all-news-and-events'));
+                    }
+                }else{
+                    customFlash('alert-info','OOps..! something went wrong please try again.');
+                    return redirect()->to(site_url('admin/all-news-and-events'));
+                }
+            }else{
+                customFlash('alert-info','OOps..! something went wrong please try again.');
+                return redirect()->to(site_url('admin/all-news-and-events'));
+            }
         }
         else{
             customFlash('alert-info','Please login first to access the admin panel');
@@ -470,14 +495,36 @@ class Admin extends BaseController
             $validation = $this->validator;
             $request = $this->request;
             $session =  $this->session;
-            if (!$this->validate($validation->getRuleGroup('newsEvent')))
+
+            $cat = $request->getPost('catetypee');
+
+            if(isset($cat) && !empty($cat)){
+                if($cat !== "events" && $cat !== "news"){
+                    dd("Category Not empty");
+                    customFlash('alert-info','OOps..! something went wrong please try again.');
+                    return redirect()->to(site_url('admin/new-news-and-event?cat=news'));
+                }
+            }else{
+                customFlash('alert-info','OOps..! something went wrong please try again.');
+                return redirect()->to(site_url('admin/new-news-and-event?cat=news'));
+            }
+
+            if (!$this->validate($validation->getRuleGroup($cat)))
             {
-                $this->newNewsEvents();
+                return redirect()->to(site_url('admin/new-news-and-event?cat=' . $cat));
             }
             else
             {
-                $newNewsEvent = [
+                $newNewsEvent = $cat === "news"? [
                     'ne_title'=>$request->getPost('title'),
+                    'ne_short_description'=> $request->getPost('short_desc'),
+                    'ne_description'=> base64_encode($request->getPost('description')),
+                    'ne_category'=>$request->getPost('category'),
+                    'admin_id'=> getAdminId()
+                ] : [
+                    'ne_title'=>$request->getPost('title'),
+                    'ne_short_description'=> $request->getPost('short_desc'),
+                    'ne_location'=> $request->getPost('location'),
                     'ne_description'=> base64_encode($request->getPost('description')),
                     'ne_category'=>$request->getPost('category'),
                     'admin_id'=> getAdminId()
@@ -492,7 +539,7 @@ class Admin extends BaseController
                 else
                 {
                     customFlash('alert-danger','Please select your image and try again.');
-                    return redirect()->to(site_url('admin/new-news-and-event'));
+                    return redirect()->to(site_url('admin/new-news-and-event?cat=' . $cat));
                 }
                 //dd($newNewsEvent);
                 $checkNewsEvent = $tableNewEvents->
@@ -500,19 +547,19 @@ class Admin extends BaseController
                     ->findAll();
                 if (count($checkNewsEvent) > 0) {
                     customFlash('alert-success',$newNewsEvent['ne_title'].'already exist.');
-                    return redirect()->to(site_url('admin/new-news-and-event'));
+                    return redirect()->to(site_url('admin/new-news-and-event?cat=' . $cat));
 
                 }
                 else{
                     $NewsEvents = $tableNewEvents->insert($newNewsEvent);
                     if ($NewsEvents) {
                         customFlash('alert-success','You have successfully inserted');
-                        return redirect()->to(site_url('admin/new-news-and-event'));
+                        return redirect()->to(site_url('admin/new-news-and-event?cat=' . $cat));
 
                     }
                     else{
                         customFlash('alert-info','OOps..! something went wrong please try again.');
-                        return redirect()->to(site_url('admin/new-news-and-event'));
+                        return redirect()->to(site_url('admin/new-news-and-event?cat=' . $cat));
                     }
                 }
 
@@ -574,30 +621,58 @@ class Admin extends BaseController
     public function editNewsEvents($id)
     {
         if (isAdmin()){
-            if (!empty($id) && isset($id)) {
-                $tableNewsEvent = new ModNewEvents();
-                $isEvents = $tableNewsEvent->where('ne_id',$id)->findAll();
-                if (count($isEvents) === 1) {
-                    $data['events'] = $isEvents  ;
-                    $data['title'] =  'Edit News/Events ' .PROJECT;
-                    $data['description'] = 'Edit News/Events Description here';
-                    echo view('admin/header/header',$data);
-                    echo view('admin/css/css');
-                    echo view('admin/css/quill');
-                    echo view('admin/navbar/navbartop');
-                    echo view('admin/navbar/navbar_left');
-                    echo view('admin/content/editNewsEvents',$data);
-                    echo view('admin/footer/footer');
-                    echo view('admin/css/quilljs');
-                    echo view('admin/endfooter/endfooter');
-                }
-                else{
-                    customFlash('alert-danger','The News/event is not available please try again.');
-                    return redirect()->to(site_url('admin/edit-news-and-events/'.$id));
+            $request = \Config\Services::request();
+            if (!empty($_GET)) {
+                $category = $request->getGet('cat');
+
+                if (isset($category) && !empty($category)) {
+                    if($category === "events" || $category === "news"){
+                        if (!empty($id) && isset($id)) {
+
+                            $tableNewsEvent = new ModNewEvents();
+                            $isEvents = $tableNewsEvent->where('ne_id',$id)->findAll();
+                            if (count($isEvents) === 1) {
+                                $data['events'] = $isEvents  ;
+                                $data['title'] =  'Edit News/Events ' .PROJECT;
+                                $data['description'] = 'Edit News/Events Description here';
+                                $data['category'] = $category;
+
+                                echo view('admin/header/header',$data);
+                                echo view('admin/css/css');
+                                echo view('admin/css/quill');
+                                echo view('admin/navbar/navbartop');
+                                echo view('admin/navbar/navbar_left');
+                                echo view('admin/content/editNewsEvents',$data);
+                                echo view('admin/footer/footer');
+                                echo "<script>
+                                $(`select[name = 'category']`).on('change', function(){
+                                    const selected_value = $(this).val();
+                                    window.location.href = '" . site_url('admin/') . "edit-news-and-events/$id?cat=' + selected_value;
+                                })
+                                </script>";
+                                echo view('admin/css/quilljs');
+                                echo view('admin/endfooter/endfooter');
+                            }
+                            else{
+                                customFlash('alert-danger','The News/event is not available please try again.');
+                                return redirect()->to(site_url('admin/edit-news-and-events/'.$id));
+                            }
+                        }
+                        else{
+                            customFlash('alert-danger','Some thing went wrong.');
+                            return redirect()->to(site_url('admin/all-news-and-events'));
+                        }
+                    }else{
+                        customFlash('alert-info','OOps..! something went wrong please try again.');
+                        return redirect()->to(site_url('admin/all-news-and-events'));
+                    }
+                }else{
+                    customFlash('alert-info','OOps..! something went wrong please try again.');
+                    return redirect()->to(site_url('admin/all-news-and-events'));
                 }
             }
             else{
-                customFlash('alert-danger','Some thing went wrong.');
+                customFlash('alert-info','OOps..! something went wrong please try again.');
                 return redirect()->to(site_url('admin/all-news-and-events'));
             }
         }
@@ -615,8 +690,23 @@ class Admin extends BaseController
             $validation = $this->validator;
             $request = $this->request;
             $session =  $this->session;
-            $addStatus = $validation->getRuleGroup('newsEvent');
+
+            $cat = $request->getPost('catetypee');
+
+            if(isset($cat) && !empty($cat)){
+                if($cat !== "events" && $cat !== "news"){
+                    dd("Category Not empty");
+                    customFlash('alert-info','OOps..! something went wrong please try again.');
+                    return redirect()->to(site_url('admin/new-news-and-event?cat=news'));
+                }
+            }else{
+                customFlash('alert-info','OOps..! something went wrong please try again.');
+                return redirect()->to(site_url('admin/new-news-and-event?cat=news'));
+            }
+
+            $addStatus = $validation->getRuleGroup($cat);
             $addStatus['status'] = 'required|integer';
+
             if (!$this->validate($addStatus))
             {
                 customFlash('alert-info','Please check the required fields and try again');
@@ -628,12 +718,20 @@ class Admin extends BaseController
                 $oldImage = $request->getPost('dimgo');
                 $eventId = $request->getPost('xeew');
 
-                $editNewEvent = [
+                $editNewEvent = $cat === "news"? [
                     'ne_title'=>$request->getPost('title'),
-                    'ne_description'=>base64_encode($request->getPost('description')),
+                    'ne_short_description'=> $request->getPost('short_desc'),
+                    'ne_description'=> base64_encode($request->getPost('description')),
                     'ne_category'=>$request->getPost('category'),
                     'ne_status'=>$request->getPost('status'),
-                    'admin_id'=>getAdminId(),
+                    'admin_id'=> getAdminId()
+                ] : [
+                    'ne_title'=>$request->getPost('title'),
+                    'ne_short_description'=> $request->getPost('short_desc'),
+                    'ne_location'=> $request->getPost('location'),
+                    'ne_description'=> base64_encode($request->getPost('description')),
+                    'ne_category'=>$request->getPost('category'),
+                    'admin_id'=> getAdminId()
                 ];
 
                 if (!empty($eventId) && isset($eventId)) {
@@ -3464,13 +3562,13 @@ class Admin extends BaseController
             $data['description'] = 'New Calendar Description here';
             echo view('admin/header/header',$data);
             echo view('admin/css/css');
-            echo view('admin/css/datePicker');
+            echo view('admin/css/dateTimePicker');
             echo view('css/bootstrapSelect');
             echo view('admin/navbar/navbartop');
             echo view('admin/navbar/navbar_left');
             echo view('admin/content/newCalendar',$data);
             echo view('admin/footer/footer');
-            echo view('admin/js/datePicker');
+            echo view('admin/js/dateTimePicker');
             echo view('js/bootstrapSelect');
             echo view('admin/endfooter/endfooter');
 

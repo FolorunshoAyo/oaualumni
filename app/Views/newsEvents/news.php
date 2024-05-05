@@ -219,9 +219,7 @@
                 <div class="row row-cols-md-2 row-cols-1 g-4">
                     <?php if ($news): ?>
                         <?php echo "There is news." ?>
-                        <?php
-                        foreach ($news as $mynews):
-                            ?>
+                        <?php foreach ($news as $mynews): ?>
                             <div class="col">
                                 <div class="hover-zoomer thumb-two shadow-one">
                                     <div class="overlay-black overflow-hidden position-relative">

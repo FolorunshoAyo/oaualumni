@@ -20,8 +20,8 @@
                 <?php  echo checkFlash();?>
                 <div class="cierrors">
                     <?php
-                    $validation = \Config\Services::validation();
-                    echo $validation->listErrors();
+                        $validation = \Config\Services::validation();
+                        echo $validation->listErrors();
                     ?>
                 </div>
 
@@ -37,6 +37,26 @@
                     <input type="hidden" value="<?php echo $events[0]['ne_id'] ?>" name="xeew">
                     <input type="hidden" value="<?php echo $events[0]['ne_dp'] ?>" name="dimgo">
                 </div>
+                <div class="form-group">
+                    <span>Meta Description</span><span class="red">*</span>
+                    <?php
+                    echo form_textarea('short_desc',$events[0]['ne_short_description'],
+                        array('placeholder'=>'Enter a brief description to show on listings page (255 characters max)','class'=>'form-control', 'maxlength' => '255', 'rows' => '2')
+                    );
+                    ?>
+
+                </div>
+                <?php if($category === "events"): ?>
+                <div class="form-group">
+                    <span>Location</span><span class="red">*</span>
+                    <?php
+                    echo form_input('location',$events[0]['ne_location'],array('class'=>'form-control','placeholder'=>'Please Add Location'));
+                    ?>
+                    <input type="hidden" value="events" name="catetypee">
+                </div>
+                <?php else: ?>
+                    <input type="hidden" value="news" name="catetypee">
+                <?php endif; ?>
                 <div class="form-group">
                     <span>News or Even Body</span><span class="red">*</span>
                     <?php
@@ -70,7 +90,7 @@
                                 $newsOREvent['events'] = 'Events';
                                 ?>
                                 <label>Select Category:</label> <span class="red">*</span>
-                                <?php  echo  form_dropdown('category',$newsOREvent,$events[0]['ne_category'],array('class'=>'form-control'));
+                                <?php  echo  form_dropdown('category',$newsOREvent,$category,array('class'=>'form-control'));
                                 ?>
                             </div>
                             <div class="form-group">

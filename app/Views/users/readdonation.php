@@ -219,7 +219,7 @@
         <button type="button" id="prevButton" class="btn btn-primary" style="display: none;">Previous</button>
         <button type="button" id="nextButton" class="btn btn-primary">Next</button>
         <button type="button" id="payNowButton" class="btn btn-primary" style="display: none;">
-            Pay Now                                    
+            Pay With Paypal                                   
         </button>
       </div>
       </div>

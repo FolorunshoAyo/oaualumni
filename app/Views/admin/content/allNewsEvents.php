@@ -106,11 +106,10 @@
                 <div class="form-group">
                     <?php echo checkFlash(); ?>
                 </div>
-                <div class="panel panel-default">
+                <?php if ($allEvents): ?>
+                    <div class="panel panel-default">
 
-                    <div class="panel-body table-responsive">
-                        <?php if ($allEvents):
-                            ?>
+                        <div class="panel-body table-responsive">
                             <table class="table table-hover dataTable">
                                 <thead>
                                 <tr>
@@ -139,7 +138,7 @@
                                             <?php echo word_limiter(base64_decode($event['ne_description']),30)?>
                                         </td>
 
-                                       <td data-title="Order #">
+                                        <td data-title="Order #">
                                             <?php echo strtoupper($event['ne_category'])?>
                                         </td>
 
@@ -158,7 +157,7 @@
                                             <?php echo $event['ne_date']?>
                                         </td>
                                         <td data-title="Order #">
-                                            <a  href="<?php echo site_url('admin/edit-news-and-events/'.$event['ne_id']); ?>" class="btn btn-primary skzslimnew">
+                                            <a  href="<?php echo site_url('admin/edit-news-and-events/'.$event['ne_id']) . "?cat=" . $event['ne_category']; ?>" class="btn btn-primary skzslimnew">
                                                 Edit
                                             </a>
                                         </td>
@@ -174,11 +173,13 @@
                                 </tr>
                                 </tbody>
                             </table>
-                        <?php endif; ?>
-                    </div>
+                        </div>
 
-                </div>
-                <?php echo $pager->links(); ?>
+                    </div>
+                    <?php echo $pager->links(); ?>
+                <?php else: ?>
+                    <?php no_data('alert-info','No News/Events has been created')?>
+                <?php endif; ?>
             </div>
             <!-- End Panel -->
 

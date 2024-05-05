@@ -1,5 +1,6 @@
 <!--<script src="https://code.jquery.com/jquery-1.12.4.js"></script>-->
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
 <script>
 	/*$( function() {
 		$( ".datepicker" ).datepicker({ dateFormat: 'yy-mm-dd' });
@@ -25,26 +26,30 @@
 		});
 	});
 
-	//$(document).ready(function(){
-	/*$(".datepicker" ).datetimepicker({
-		dateFormat: 'yy-mm-dd',
-		timeFormat: 'HH:mm:ss',
-		onShow: function () {
-			this.setOptions({
-				maxDate:$('.datepicker').val()?$('.datepicker').val():false,
-				maxTime:$('.datepicker').val()?$('.datepicker').val():false
-			});
-		}
-	}).attr('readonly', 'readonly');*/
-	/*$( ".datepicker" ).datetimepicker({
-		dateFormat: 'yy-mm-dd',
-		timeFormat: 'HH:mm:ss',
-		onShow: function () {
-			this.setOptions({
-				minDate:$('.datepicker').val()?$('.datepicker').val():false,
-				minTime:$('.datepicker').val()?$('.datepicker').val():false
-			});
-		}
-	}).attr('readonly', 'readonly');*/
+	$(document).ready(function(){
+		$(".datetimepicker").datetimepicker({
+			format:'y-m-d H:i',
+			formatTime:'H:i',
+			formatDate:'y-m-d',
+
+			// onShow: function () {
+			// 	this.setOptions({
+			// 		maxDate:$('.datepicker').val()?$('.datepicker').val():false,
+			// 		maxTime:$('.datepicker').val()?$('.datepicker').val():false
+			// 	});
+			// }
+		});
+
+		$( ".datetimepicker-readonly" ).datetimepicker({
+			dateFormat: 'yy-mm-dd',
+			timeFormat: 'HH:mm:ss',
+			onShow: function () {
+				this.setOptions({
+					minDate:$('.datepicker').val()?$('.datepicker').val():false,
+					minTime:$('.datepicker').val()?$('.datepicker').val():false
+				});
+			}
+		}).attr('readonly', 'readonly');
+	});
 	//var date = $('#datepicker').datepicker({ dateFormat: 'dd-mm-yy' }).val();
 </script>

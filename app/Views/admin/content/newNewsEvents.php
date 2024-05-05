@@ -39,7 +39,27 @@
 
                 </div>
                 <div class="form-group">
-                    <span>News or Even Body</span><span class="red">*</span>
+                    <span>Meta Description</span><span class="red">*</span>
+                    <?php
+                    echo form_textarea('short_desc','',
+                        array('placeholder'=>'Enter a brief description to show on listings page (255 characters max)','class'=>'form-control', 'maxlength' => '255', 'rows' => '2')
+                    );
+                    ?>
+
+                </div>
+                <?php if($category === "events"): ?>
+                <div class="form-group">
+                    <span>Location</span><span class="red">*</span>
+                    <?php
+                    echo form_input('location','',array('class'=>'form-control','placeholder'=>'Please Add Location'));
+                    ?>
+                    <input type="hidden" value="events" name="catetypee">
+                </div>
+                <?php else: ?>
+                    <input type="hidden" value="news" name="catetypee">
+                <?php endif; ?>
+                <div class="form-group">
+                    <span>News or Event Body</span><span class="red">*</span>
                     <?php
                     echo form_textarea('description','',
                         array('id'=>'elm1','placeholder'=>'Enter your news or events','class'=>'form-control')
@@ -73,7 +93,7 @@
                                 $newsOREvent['events'] = 'Events';
                                 ?>
                                 <label>Select Category:</label> <span class="red">*</span>
-                                <?php  echo  form_dropdown('category',$newsOREvent,'',array('class'=>'form-control'));
+                                <?php  echo  form_dropdown('category',$newsOREvent,$category,array('class'=>'form-control'));
                                 ?>
                             </div>
                             <div class="form-group">

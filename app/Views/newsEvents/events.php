@@ -28,7 +28,7 @@
                         </div>
                         <?php echo form_close();?>
                         <div class="" style="margin-top: 20px;">
-                            <?php if (isset($data) && count($data) > 0 ) :?>
+                            <?php if (isset($calendarData) && count($calendarData) > 0 ) :?>
                                     <div id="calendar"></div>
                             <?php endif; ?>
                         </div>
@@ -237,13 +237,13 @@
                                     </div>
                                     <div class="p-4">
                                         <h6 class="text-secondary hover-text-primary mb-4">
-                                            <a href="<?php echo site_url('');  ?>">
+                                            <a href="<?php echo site_url('events/read/' . $mynews['ne_id']);  ?>">
                                                 <?php echo $mynews['ne_title'];?>
                                             </a>
                                         </h6>
-                                        <?php echo word_limiter(base64_decode($mynews['ne_description']), 30);?>
+                                        <?php echo $mynews['ne_short_description'];?>
                                         <div>
-                                            <a class="mt-3 text-primary hover-text-secondary" href="#">Read More</a>
+                                            <a class="mt-3 text-primary hover-text-secondary" href="<?php echo site_url('events/read/' . $mynews['ne_id']);  ?>">Read More</a>
                                         </div>
                                     </div>
                                 </div>

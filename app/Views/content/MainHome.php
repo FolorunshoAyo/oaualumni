@@ -255,7 +255,7 @@
                                         <?php echo $myevent['ne_title'];?>
                                     </a>
                                 </h6>
-                                <?php echo word_limiter(base64_decode($myevent['ne_description']), 30);?>
+                                <p><?php echo $myevent['ne_short_description'] ?></p>
                                 <a class="mt-3 text-primary hover-text-secondary" href="<?php echo site_url('news/readnrews/'.$myevent['ne_id'])?>">Read More</a>
                             </div>
                         </div>

@@ -84,11 +84,12 @@ class NewsEvents extends BaseController
         $builder = $db->table('events');
         $calendarQuery = $builder->select('*')
             ->where('ev_status',1)
+            ->where('ev_delete',null)
             ->join('newsevents','newsevents.ne_id=events.events_id')
             ->limit(10)->get();
         $calendarData = $calendarQuery->getResult();
         $data = array();
-        if (count($data) > 0) {
+        if (count($calendarData) > 0) {
             foreach ($calendarData as $key => $value) {
                 $data['calendarData'][$key]['title'] = $value->title;
                 $data['calendarData'][$key]['start'] = $value->start_date;
@@ -139,4 +140,94 @@ class NewsEvents extends BaseController
         echo view('footer/endfooter');
     }
 
+    public function readevent($id){
+        if (!empty($id) && isset($id)) {
+            $tableNewEvent  = new ModNewEvents();
+            $checkNewEnt = $tableNewEvent->select()
+                ->where([
+                    'ne_id'=>$id,
+                ])
+                ->findAll();
+
+            if (count($checkNewEnt) == 1) {
+                $data['checkNewEnt'] = $checkNewEnt;
+                $data['filtrs'] = filterForView();
+                $data['title'] =  $checkNewEnt[0]['ne_title'] . '  ' . PROJECT;
+                $data['description'] = $checkNewEnt[0]['ne_title'] . '  ' . PROJECT;
+                echo view('header/header',$data);
+                echo view('css/allCSS');
+                echo view('header/navbar');
+                echo view('newsEvents/readnrews',$data);
+                echo view('content/subscribed');
+                echo view('footer/footer');
+                echo view('footer/endfooter');
+            }
+            else{
+                customFlash('alert-info','Event does not exist.');
+                return redirect()->to(site_url('news'));
+            }
+
+        }
+        else{
+            customFlash('alert-info','Something went wrong, please check your required things and try again.');
+            return redirect()->to(site_url('news'));
+        }
+    }
+
+    public function fetchevents()
+    {
+        // This function returns all events and online meetings... for quickevents calendar
+        /* Result should be something like - "{
+        "title": "International Music Awards Ceremony",
+        "image": "event_1.jpg",
+        "day": "3",
+        "month": "5",
+        "year": "2024",
+        "duration": 2,
+        "time": "9:00 - 16:30",
+        "color": "1",
+        "location": "Viderer , 43st Wardour Street, London UK",
+        "description": "<a href=\"http://google.com\">Lorem ipsum</a> dolor sit amet, consectetur adipiscing elit. Nullam non ornare eros. Ut pharetra ornare lorem, sit amet bibendum quam imperdiet ut. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non ornare eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non ornare eros. Ut pharetra ornare lorem, sit amet bibendum quam imperdiet ut. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non ornare eros."
+        }"*/
+
+        $db      = \Config\Database::connect();
+        $builder = $db->table('events');
+        $calendarQuery = $builder->select('*')
+            ->where('ev_status',1)
+            ->where('ev_delete',null)
+            ->join('newsevents','newsevents.ne_id=events.events_id')
+            ->limit(10)->get();
+        $calendarData = $calendarQuery->getResult();
+        $data = array();
+        if (count($calendarData) > 0) {
+            foreach ($calendarData as $key => $value) {
+                $startTimestamp = strtotime($value->start_date); 
+                $endTimestamp = strtotime($value->end_date);
+
+                $day = date('j', $startTimestamp);
+                $month = date('n', $startTimestamp);
+                $year = date('Y', $startTimestamp);
+
+                $duration = ceil(($endTimestamp - $startTimestamp) / (60 * 60 * 24));
+
+                $startTime = date('H:i', $startTimestamp);
+                $endTime = date('H:i', $endTimestamp);
+
+                $data['calendarData'][$key]['color'] = rand(1, 5);
+                $data['calendarData'][$key]['day'] = $day;
+                $data['calendarData'][$key]['description'] = base64_decode($value->ne_description);
+                $data['calendarData'][$key]['duration'] = $duration;
+                $data['calendarData'][$key]['image'] = base_url('public/assets/images/newsEvents/'.$value->ne_dp);
+                $data['calendarData'][$key]['location'] = $value->ne_category;
+                $data['calendarData'][$key]['month'] = $month;
+                $data['calendarData'][$key]['time'] = "$startTime - $endTime";
+                $data['calendarData'][$key]['title'] = $value->title;
+                $data['calendarData'][$key]['year'] = $year;
+            }
+        }else{
+            $data['calendarData'] = array();
+        }
+
+        echo json_encode($data['calendarData']);
+    }
 }//class starts here

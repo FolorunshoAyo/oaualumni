@@ -22,7 +22,7 @@
             </li>
             <li><a href="#"><span class="icon color9"><i class="fa fa-user"></i></span>News/Events<span class="caret"></span></a>
                 <ul>
-                    <li><a href="<?php echo site_url('admin/new-news-and-event')?>">Add News/Events</a></li>
+                    <li><a href="<?php echo site_url('admin/new-news-and-event?cat=news')?>">Add News/Events</a></li>
                     <li><a href="<?php echo site_url('admin/all-news-and-events')?>">All News/Events</a></li>
                 </ul>
             </li>

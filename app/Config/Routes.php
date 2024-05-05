@@ -57,10 +57,11 @@ $routes->post('admin/update-news-and-event', 'Admin::updateNewsEvents');
 
 $routes->get('/news', 'NewsEvents::index');
 $routes->get('news/readnrews/(:segment)', 'NewsEvents::readnrews/$1');
-$routes->get('events/read/(:segment)', 'NewsEvents::readView/$1');
+$routes->get('events/read/(:segment)', 'NewsEvents::readevent/$1');
 //$route['events/read/(:num)'] = 'newsEvents/readView/$1';
 $routes->get('/events', 'NewsEvents::events');
-$routes->get('events/read/(:segment)', 'NewsEvents::read/$1');
+$routes->get('/fetch-events', 'NewsEvents::fetchevents');
+// $routes->get('events/read/(:segment)', 'NewsEvents::read/$1');
 
 
 $routes->get('admin/new-about-section', 'Admin::newHomeSection');

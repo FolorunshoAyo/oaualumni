@@ -12,8 +12,8 @@ class ModNewEvents  extends Model
     protected $useSoftDeletes = true;
 
     protected $allowedFields = [
-        'ne_title', 'ne_description','ne_date',
-        'ne_status','ne_category', 'admin_id','ne_dp',
+        'ne_title', 'ne_short_description', 'ne_description','ne_date',
+        'ne_status','ne_category', 'admin_id','ne_dp', 'ne_location',
         'ne_update','ne_deleted'
     ];
 
