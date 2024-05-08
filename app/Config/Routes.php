@@ -98,7 +98,14 @@ $routes->get('admin/all-donation-causes', 'Admin::allDonations');
 $routes->get('admin/edit-donation/(:segment)', 'Admin::editDonation/$1');
 $routes->get('admin/view-contributors/(:segment)', 'Admin::viewAllContributions/$1');
 $routes->post('admin/update-donation', 'Admin::updateDonation');
-$routes->get('admin/delete-donation/(:num)', 'Admin::deleteInterestGroup/$1');
+$routes->get('admin/delete-donation/(:num)', 'Admin::deleteDonation/$1');
+
+$routes->get('admin/new-zoom-meeting', 'Admin::newZoomMeeting');
+$routes->post('admin/add-zoom-meeting', 'Admin::addZoomMeeting');
+$routes->get('admin/all-zoom-meetings', 'Admin::allZoomMeetings');
+$routes->get('admin/edit-zoom-meeting/(:segment)', 'Admin::editZoomMeeting/$1');
+$routes->post('admin/update-zoom-meeting', 'Admin::updateZoomMeeting');
+$routes->get('admin/delete-zoom-meeting/(:num)', 'Admin::deleteZoomMeeting/$1');
 
 $routes->get('admin/new-album', 'Admin::newAlbum');
 $routes->post('admin/add-album', 'Admin::addAlbum');

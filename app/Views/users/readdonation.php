@@ -196,18 +196,18 @@
             <div class="col-6">
                 <p><b>First Name:</b> <br> 
                     <span id="summaryFirstName">
-                        <?php echo $userData[0]['u_first_name'] ?>
+                        <?php echo $userLoggedIn? $userData[0]['u_first_name'] : ""?>
                     </span>
                 </p>
             </div>
             <div class="col-6">
-                <p><b>Last Name:</b> <br> <span id="summaryLastName"><?php echo $userData[0]['u_last_name'] ?> </span></p>
+                <p><b>Last Name:</b> <br> <span id="summaryLastName"><?php echo $userLoggedIn? $userData[0]['u_last_name'] : "" ?> </span></p>
             </div>
             <div class="col-6">
-                <p><b>Email:</b> <br> <span id="summaryEmail"><?php echo $userData[0]['u_email'] ?></span></p>
+                <p><b>Email:</b> <br> <span id="summaryEmail"><?php echo $userLoggedIn? $userData[0]['u_email'] : "" ?></span></p>
             </div>
             <div class="col-6">
-                <p><b>Phone:</b> <br> <span id="summaryPhone"><?php echo $userData[0]['u_mobile'] ?></span></p>
+                <p><b>Phone:</b> <br> <span id="summaryPhone"><?php echo $userLoggedIn? $userData[0]['u_mobile'] : "" ?></span></p>
             </div>
             <div class="col-12">
                 <p><b>Amount:</b> <br> <span id="summaryAmount"></span></p>

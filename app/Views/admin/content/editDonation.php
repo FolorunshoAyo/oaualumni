@@ -117,7 +117,7 @@
                             }
                             ?>
                             <label>Set Status:</label> </label><span class="red">*</span>
-                            <?php  echo  form_dropdown('status',$status,$project[0]['status'], array('class'=>'form-control' . $project[0]['status'] === '2'? ' disabled' : ''));
+                            <?php  echo form_dropdown('status',$status,$project[0]['status'], array('class'=>'form-control' . $project[0]['status'] === '2'? ' disabled' : ''));
                             ?>
                         <?php else: ?>
                             The set featured checkbox is not available please try again.

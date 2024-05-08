@@ -76,6 +76,7 @@ class Donations extends BaseController
         if (!empty($id) && isset($id)) {
             $tableProjects  = new ModProjects();
             $donationsModel  = new ModDonations();
+            $data['userLoggedIn'] = userLoggedIn();
             
             $checkProject = $tableProjects->select()
                 ->where([
@@ -108,7 +109,7 @@ class Donations extends BaseController
                 $data['contributors'] = array();
                 $data['otherProjects'] = $checkOtherProject;
 
-                if(userLoggedIn()){
+                if($data['userLoggedIn']){
                     $tableUser =  new ModUsers();
                     $data['userData'] = $tableUser->where('u_id',getUserId())->findAll();
                 }

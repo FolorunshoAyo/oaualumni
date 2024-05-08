@@ -20,6 +20,7 @@ use App\Models\ModProjects;
 use App\Models\ModDonations;
 use App\Models\ModUsers;
 use App\Models\ModNewEvents;
+use App\Models\ModOnlineMeeting;
 use App\Models\Settings;
 use App\Models\Sliders;
 use CodeIgniter\Database\MySQLi\Utils;
@@ -40,7 +41,8 @@ class Admin extends BaseController
         $this->session = \Config\Services::session();
     }
 
-    protected $helpers = ['url', 'custom_helper','form','text'];
+    protected $helpers = ['url', 'custom_helper', 'zoom_helper', 'form','text'];
+
     /*club code starts here*/
     public function users()
     {
@@ -2460,7 +2462,7 @@ class Admin extends BaseController
             if (!$this->validate($addStatus))
             {
                 customFlash('alert-info','Please check the required fields and try again');
-                return redirect()->to(site_url('admin/all-how-it-works'));
+                return redirect()->to(site_url('admin/all-donation-causes'));
             }
             else
             {
@@ -2583,6 +2585,315 @@ class Admin extends BaseController
     }
 
     /*Alumnis ends here*/
+
+    /* Meetings Start Here */
+
+    public function newZoomMeeting(){
+        if (isAdmin()){
+            $data['title'] =  'Add New Zoom Meeting ' .PROJECT;
+            $data['description'] = 'New Zoom Meeting here';
+            $data['timezones'] = timezone_identifiers_list();
+
+            echo view('admin/header/header',$data);
+            echo view('admin/css/css');
+            echo view('admin/css/dateTimePicker');
+            echo view('admin/navbar/navbartop');
+            echo view('admin/navbar/navbar_left');
+            echo view('admin/content/newZoomMeeting',$data);
+            echo view('admin/footer/footer');
+            echo view('admin/js/dateTimePicker');
+            echo view('admin/endfooter/endfooter');
+        }
+        else{
+            customFlash('alert-info','Please login first to access the admin panel');
+            return redirect()->to(site_url('admin/login'));
+        }
+    }
+
+    public function addZoomMeeting()
+    {
+        if (isAdmin()){
+            $tableOnlineMeeting =  new ModOnlineMeeting();
+            $validation = $this->validator;
+            $request = $this->request;
+
+            if (!$this->validate($validation->getRuleGroup('zoomMeeting')))
+            {
+                $this->newZoomMeeting();
+            }
+            else
+            {
+                // dd($request->getPost('stdate'));
+                $dateTime = new \DateTime($request->getPost('stdate'));
+                $isoDatetime = $dateTime->format('Y-m-d\TH:i:s\Z');
+
+                $newOnlineMeeting = [
+                    'name'=>$request->getPost('name'),
+                    'short_description'=>$request->getPost('short_desc'),
+                    'duration'=> $request->getPost('duration'),
+                    'timezone'=>$request->getPost('timezone'),
+                    'start_time'=>$request->getPost('stdate'),
+                    'host_video'=> $request->getPost('host_video') === null? false : true,
+                    'participant_video'=> $request->getPost('participant_video') === null? false : true,
+                    'join_before_host'=> $request->getPost('join_before_host') === null? false : true,
+                    'auto_recording'=> $request->getPost('auto_recording'),
+                    'admin_id'=> getAdminId(),
+                    'password'=> $request->getPost('password'),
+                ];
+
+                $newZoomMeetingData = [
+                    'topic' => $request->getPost('name'),
+                    'type' => 2, // 2 for scheduled meeting
+                    'start_time' => $isoDatetime,
+                    'duration' => $request->getPost('duration'), // Meeting duration in minutes
+                    'timezone' => timezone_identifiers_list()[$request->getPost('timezone')], // Specify the timezone
+                    'password' => $request->getPost('password'), // No password for the meeting
+                    'settings' => array(
+                        'host_video' => $request->getPost('host_video') === null? false : true,
+                        'participant_video' => $request->getPost('participant_video') === null? false : true,
+                        'join_before_host' => $request->getPost('join_before_host') === null? false : true,
+                        'auto_recording' => $request->getPost('auto_recording'), // 'local' for local recording, 'cloud' for cloud recording, 'none' for no recording
+                    ),
+                ];
+
+                // dd($newOnlineMeeting, $newZoomMeetingData);
+
+                $checkMessage = $tableOnlineMeeting->where(['name'=>$newOnlineMeeting['name']])->findAll();
+                if (count($checkMessage) == 1) {
+                    customFlash('alert-info','Zoom Meeting already exist.');
+                    return redirect()->to(site_url('admin/new-zoom-meeting'));
+                }else{
+                    // Check meeting before saving
+                    $meeting_details = createMeeting($newZoomMeetingData);
+
+                    if($meeting_details){
+                        $newOnlineMeeting['meeting_id'] = $meeting_details['meeting_id'];
+                        $newOnlineMeeting['meeting_url'] = $meeting_details['meeting_url'];
+
+                        $isInserted = $tableOnlineMeeting->insert($newOnlineMeeting);
+                        if ($isInserted) {
+                            customFlash('alert-success','Meeting created successfully.');
+                            return redirect()->to(site_url('admin/all-zoom-meetings'));
+                        }
+                        else{
+                            customFlash('alert-info','OOps..! something went wrong please try again.');
+                            return redirect()->to(site_url('admin/new-zoom-meeting'));
+                        }
+                    }else{
+                        customFlash('alert-info','OOps..! something went wrong please try again.');
+                        return redirect()->to(site_url('admin/new-zoom-meeting'));
+                    }
+                }
+
+            }
+        }
+        else{
+            customFlash('alert-info','Please login first to access the admin panel');
+            return redirect()->to(site_url('admin/login'));
+        }
+    }
+
+    public function editZoomMeeting($id)
+    {
+        if (isAdmin()){
+            if (!empty($id) && isset($id)) {
+                $tableOnlineMeeting =  new ModOnlineMeeting();
+                $isOnlineMeeting = $tableOnlineMeeting->where(['id'=>$id])->findAll();
+                if (count($isOnlineMeeting) === 1) {
+                    $data['meeting'] = $isOnlineMeeting;
+                    $data['title'] =  'Edit Zoom Meeting ' .PROJECT;
+                    $data['description'] = 'Edit Zoom Meeting here';
+                    $data['timezones'] = timezone_identifiers_list();
+
+                    echo view('admin/header/header',$data);
+                    echo view('admin/css/css');
+                    echo view('admin/navbar/navbartop');
+                    echo view('admin/navbar/navbar_left');
+                    echo view('admin/content/editZoomMeeting',$data);
+                    echo view('admin/footer/footer');
+                    echo view('admin/endfooter/endfooter');
+
+                }else{
+                    customFlash('alert-info','This Zoom Meeting is not available; please try again.');
+                    return redirect()->to(site_url('admin/all-zoom-meetings'));
+                }
+            }
+            else{
+                customFlash('alert-info','Something went wrong, and please try again later.');
+                return redirect()->to(site_url('admin/all-zoom-meetings'));
+            }
+        }
+        else{
+            customFlash('alert-info','Please login first to access the admin panel');
+            return redirect()->to(site_url('admin/login'));
+        }
+    }
+
+    public function updateZoomMeeting()
+    {
+        if (isAdmin()){
+            $tableOnlineMeeting =  new ModOnlineMeeting();
+            $validation = $this->validator;
+            $request = $this->request;
+            $addStatus = $validation->getRuleGroup('zoomMeeting');
+            
+            if (!$this->validate($addStatus))
+            {
+                customFlash('alert-info','Please check the required fields and try again');
+                return redirect()->to(site_url('admin/all-zoom-meetings'));
+            }
+            else
+            {
+                $hmSectionId = $request->getPost('xeew');
+                $meeting_id = $request->getPost('mmew');
+
+                $dateTime = new \DateTime($request->getPost('stdate'));
+                $isoDatetime = $dateTime->format('Y-m-d\TH:i:s\Z');
+                
+                $editOnlineMeeting = [
+                    'name'=>$request->getPost('name'),
+                    'short_description'=>$request->getPost('short_desc'),
+                    'duration'=> $request->getPost('duration'),
+                    'timezone'=>$request->getPost('timezone'),
+                    'start_time'=>$request->getPost('stdate'),
+                    'host_video'=> $request->getPost('host_video') === null? false : true,
+                    'participant_video'=> $request->getPost('participant_video') === null? false : true,
+                    'join_before_host'=> $request->getPost('join_before_host') === null? false : true,
+                    'auto_recording'=> $request->getPost('auto_recording'),
+                    'admin_id'=> getAdminId(),
+                    'password'=> $request->getPost('password'),
+                ];
+
+                $editZoomMeetingData = [
+                    'topic' => $request->getPost('name'),
+                    'type' => 2, // 2 for scheduled meeting
+                    'start_time' => $isoDatetime,
+                    'duration' => $request->getPost('duration'), // Meeting duration in minutes
+                    'timezone' => timezone_identifiers_list()[$request->getPost('timezone')], // Specify the timezone
+                    'password' => $request->getPost('password'), // No password for the meeting
+                    'settings' => array(
+                        'host_video' => $request->getPost('host_video') === null? false : true,
+                        'participant_video' => $request->getPost('participant_video') === null? false : true,
+                        'join_before_host' => $request->getPost('join_before_host') === null? false : true,
+                        'auto_recording' => $request->getPost('auto_recording'), // 'local' for local recording, 'cloud' for cloud recording, 'none' for no recording
+                    ),
+                ];
+
+                // dd($editOnlineMeeting, $editZoomMeetingData, $meeting_id);
+
+                if (!empty($hmSectionId) && isset($hmSectionId)) {
+                    // Check meeting before saving
+                    $status = updateMeeting($meeting_id, $editZoomMeetingData);
+
+                    if($status){
+                        $isUpdated = $tableOnlineMeeting->update($hmSectionId,$editOnlineMeeting);
+                        if ($isUpdated) {
+                            customFlash('alert-success','You have successfully updated.');
+                            return redirect()->to(site_url('admin/all-zoom-meetings'));
+                        }
+                        else{
+                            customFlash('alert-success','Oops..! something went wrong; please try again.');
+                            return redirect()->to(site_url('admin/all-zoom-meetings'));
+                        }
+                    }else{
+                        customFlash('alert-info','OOps..! something went wrong please try again.');
+                        return redirect()->to(site_url('admin/all-zoom-meetings'));
+                    }
+
+                }else{
+                    customFlash('alert-info','Something went wrong please try again');
+                    return redirect()->to(site_url('admin/all-zoom-meetings'));
+
+                }
+
+            }
+        }
+        else{
+            customFlash('alert-info','Please login first to access the admin panel');
+            return redirect()->to(site_url('admin/login'));
+        }
+    }
+
+    public function deleteZoomMeeting($id)
+    {
+        if (isAdmin()){
+            if (!empty($id) && isset($id)) {
+                $tableOnlineMeeting = new ModOnlineMeeting();
+                $isOnlineMeeting = $tableOnlineMeeting->where(['id'=>$id])->findAll();
+                if (count($isOnlineMeeting) === 1) {
+                    $meeting_id = $isOnlineMeeting[0]['meeting_id'];
+                    // Check meeting before saving
+                    $status = deleteMeeting($meeting_id);
+
+                    if($status){
+                        $isDeleted = $tableOnlineMeeting->delete($id);
+                        if ($isDeleted) {
+                            customFlash('alert-success','Your zoom meeting has been deleted.');
+                            return redirect()->to(site_url('admin/all-zoom-meetings'));
+                        }
+                        else{
+                            customFlash('alert-warning','You can\'t delete the zoom meeting right now; please try again.');
+                            return redirect()->to(site_url('admin/all-zoom-meetings'));
+                        }
+                    }else{
+
+                    }
+
+                }
+                else{
+                    customFlash('alert-warning','The country is not available; please try again.');
+                    return redirect()->to(site_url('admin/countries'));
+                }
+            }
+            else{
+                customFlash('alert-warning','Some thing went wrong.');
+                return redirect()->to(site_url('admin/countries'));
+            }
+        }
+        else{
+            customFlash('alert-warning','Please login first.');
+            return redirect()->to(site_url('admin/login'));
+        }
+    }
+
+    public function allZoomMeetings()
+    {
+        if (isAdmin()){
+            $tableOnlineMeeting =  new ModOnlineMeeting();
+            $tableOnlineMeeting->select('online_meeting.*')
+                ->orderBy('id','desc');
+            $allOnlineMeetings = $tableOnlineMeeting->paginate(20);
+
+            $data = [
+                'allOnlineMeetings' => $allOnlineMeetings,
+                'adminDetails' => getAdminData(getAdminId()),
+                'pager' => $tableOnlineMeeting->pager
+            ];
+
+            $data['title'] =  'All Zoom Meetings' .PROJECT;
+            $data['description'] = 'All Zoom Meetings';
+
+            echo view('admin/header/header',$data);
+            echo view('admin/css/css');
+            echo view('admin/css/datePicker');
+            echo view('css/bootstrapSelect');
+            echo view('admin/navbar/navbartop');
+            echo view('admin/navbar/navbar_left');
+            echo view('admin/content/allZoomMeetings',$data);
+            echo view('admin/footer/footer');
+            echo view('admin/js/datePicker');
+            echo view('js/bootstrapSelect');
+            echo view('admin/endfooter/endfooter');
+
+        }
+        else{
+            customFlash('alert-danger','Please login first to access the admin panel');
+            return redirect()->to(site_url('admin/login'));
+        }
+
+    }
+
+    /* Zoom Meetings End Here */
 
     /*Gallery starts here*/
     public function newAlbum()
@@ -3562,13 +3873,13 @@ class Admin extends BaseController
             $data['description'] = 'New Calendar Description here';
             echo view('admin/header/header',$data);
             echo view('admin/css/css');
-            echo view('admin/css/dateTimePicker');
+            // echo view('admin/css/dateTimePicker');
             echo view('css/bootstrapSelect');
             echo view('admin/navbar/navbartop');
             echo view('admin/navbar/navbar_left');
             echo view('admin/content/newCalendar',$data);
             echo view('admin/footer/footer');
-            echo view('admin/js/dateTimePicker');
+            // echo view('admin/js/dateTimePicker');
             echo view('js/bootstrapSelect');
             echo view('admin/endfooter/endfooter');
 
@@ -3602,17 +3913,18 @@ class Admin extends BaseController
                     return redirect()->to(site_url('admin/new-calendar'));
                 }
                 else{
+                    // dd($data);
                     //var_dump($data);
                     //dd();
                     $isAlbum = $tableEventsCalendar->insert($data);
                     //$addlanguage = $this->modAdmin->addAlbum($data);
                     if ($isAlbum) {
                         customFlash('alert-success','You have successfully inserted the calendar');
-                        return redirect()->to(site_url('admin/new-calendar'));
+                        return redirect()->to(site_url('admin/all-calendar'));
                     }
                     else{
                         customFlash('alert-warning','Something went wrong please try again');
-                        return redirect()->to(site_url('admin/new-calendar'));
+                        return redirect()->to(site_url('admin/all-calendar'));
                     }
 
                 }
@@ -3947,7 +4259,7 @@ class Admin extends BaseController
                     }
                     else{
                         customFlash('alert-warning','You can\'t delete the country right now; please try again.');
-                        return redirect()->to(site_url('admin/countriess'));
+                        return redirect()->to(site_url('admin/countries'));
                     }
 
 

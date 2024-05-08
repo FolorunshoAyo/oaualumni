@@ -119,6 +119,7 @@
 <script src="<?php echo base_url('public/assets/club/js/draggable-0.1.js')?>"></script>
 <script src="<?php echo base_url('public/assets/club/js/jquery.slider.js')?>"></script>
 <script src="<?php echo base_url('public/assets/club/js/wow.js')?>"></script>
+<script src="<?php echo base_url('public/assets/club/js/jquery.countdown.min.js')?>"></script>
 <script src="<?php echo base_url('public/assets/club/js/owl.carousel.min.js')?>"></script>
 <script src="<?php echo base_url('public/assets/club/js/YouTubePopUp.jquery.js')?>"></script>
 <script src="<?php echo base_url('public/assets/club/js/validate.js')?>"></script>

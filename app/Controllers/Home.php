@@ -59,9 +59,21 @@ class Home extends BaseController
         echo view('css/owl');
         echo view('header/homenavbar');
         echo view('header/Homebanner',$data);
+        echo view('content/upcomingEvents');
         echo view('content/MainHome',$data);
         echo view('content/subscribed');
         echo view('footer/footer');
+        echo "<script>
+        var upcomingEvents = $('.upcoming-event-content');
+        upcomingEvents.owlCarousel({
+            nav: !0,
+            loop: !0,
+            items: 1,
+            dots: !1,
+            autoPlay: !1,
+            navText: ['<i class=\'fas fa-chevron-left\'></i>', '<i class=\'fas fa-chevron-right\'></i>']
+        })
+        </script>";
         echo view('js/eventsCalendar',$data);
         echo view('footer/endfooter');
     }

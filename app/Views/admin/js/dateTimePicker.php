@@ -28,16 +28,14 @@
 
 	$(document).ready(function(){
 		$(".datetimepicker").datetimepicker({
-			format:'y-m-d H:i',
-			formatTime:'H:i',
+			format:'y-m-d H:i:a',
+			formatTime:'H:i:a',
 			formatDate:'y-m-d',
-
-			// onShow: function () {
-			// 	this.setOptions({
-			// 		maxDate:$('.datepicker').val()?$('.datepicker').val():false,
-			// 		maxTime:$('.datepicker').val()?$('.datepicker').val():false
-			// 	});
-			// }
+			onGenerate: function(dateText, inst) {
+				var isoDatetime = dateText + 'T' + inst.settings.hour + ':' + inst.settings.minute + ':00Z';
+				$('.datetimepicker').val(isoDatetime);
+				console.log(isoDatetime);
+        	}
 		});
 
 		$( ".datetimepicker-readonly" ).datetimepicker({

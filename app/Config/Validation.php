@@ -187,6 +187,15 @@ class Validation
         'target_amount'=> 'required',
         'location'=> 'required',
     ];
+    public $zoomMeeting = [
+        'name'=> 'required',
+        'duration'=> 'required',
+        'short_desc'=> 'required',
+        'timezone'=> 'required',
+        'password'=> 'required',
+        'stdate'=> 'required',
+        'auto_recording' => 'required'
+    ];
     public $sliders= [
         'title'=> 'required',
         'text'=> 'required'

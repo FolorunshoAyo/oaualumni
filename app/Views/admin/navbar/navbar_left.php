@@ -26,6 +26,12 @@
                     <li><a href="<?php echo site_url('admin/all-news-and-events')?>">All News/Events</a></li>
                 </ul>
             </li>
+            <li><a href="#"><span class="icon color9"><i class="fa fa-user"></i></span>Zoom Meetings<span class="caret"></span></a>
+                <ul>
+                    <li><a href="<?php echo site_url('admin/new-zoom-meeting')?>">Add Zoom Meeting</a></li>
+                    <li><a href="<?php echo site_url('admin/all-zoom-meetings')?>">All Zoom Meetings</a></li>
+                </ul>
+            </li>
             <li><a href="#"><span class="icon color9"><i class="fa fa-user"></i></span>Calendar<span class="caret"></span></a>
                 <ul>
                     <li><a href="<?php echo site_url('admin/new-calendar')?>">Add Calendar</a></li>

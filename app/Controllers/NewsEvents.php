@@ -196,7 +196,7 @@ class NewsEvents extends BaseController
             ->where('ev_status',1)
             ->where('ev_delete',null)
             ->join('newsevents','newsevents.ne_id=events.events_id')
-            ->limit(10)->get();
+            ->get();
         $calendarData = $calendarQuery->getResult();
         $data = array();
         if (count($calendarData) > 0) {
@@ -221,11 +221,56 @@ class NewsEvents extends BaseController
                 $data['calendarData'][$key]['location'] = $value->ne_category;
                 $data['calendarData'][$key]['month'] = $month;
                 $data['calendarData'][$key]['time'] = "$startTime - $endTime";
-                $data['calendarData'][$key]['title'] = $value->title;
+                $data['calendarData'][$key]['title'] = $value->ne_title;
                 $data['calendarData'][$key]['year'] = $year;
             }
         }else{
             $data['calendarData'] = array();
+        }
+
+        // Fetch Online Meeting Events for calendar
+        $online_meetings_builder = $db->table('online_meeting');
+        $onlineMeetingsQuery = $online_meetings_builder->select("*")
+        ->where('deleted_at',null)
+        ->get();
+        $onlineMeetingsData = $onlineMeetingsQuery->getResult();
+
+        if(count($onlineMeetingsData) > 0){
+            foreach ($onlineMeetingsData as $online_meeting) {
+                $meetingData = array();
+
+                $startDatetime = $online_meeting->start_time; 
+                $durationMinutes = $online_meeting->duration;
+
+                $startDateTimeObj = new \DateTime($startDatetime);
+
+                $endDateTimeObj = clone $startDateTimeObj;
+                $endDateTimeObj->modify("+" . $durationMinutes . " minutes");
+
+                $startTimestamp = $startDateTimeObj->getTimestamp();
+                $endTimestamp = $endDateTimeObj->getTimestamp();
+
+                $day = date('j', $startTimestamp);
+                $month = date('n', $startTimestamp);
+                $year = date('Y', $startTimestamp);
+
+                $startTime = date('H:i', $startTimestamp);
+                $endTime = date('H:i', $endTimestamp);
+
+                $meetingData['color'] = rand(1, 5);
+                $meetingData['day'] = $day;
+                $meetingData['description'] = $online_meeting->short_description;
+                $meetingData['duration'] = "1";
+                $meetingData['image'] = base_url('public/assets/images/zoom-placeholder.jpg');
+                $meetingData['location'] = "Online";
+                $meetingData['month'] = $month;
+                $meetingData['time'] = "$startTime - $endTime";
+                $meetingData['title'] = $online_meeting->name;
+                $meetingData['year'] = $year;
+
+                array_push($data['calendarData'], $meetingData);
+            }
+
         }
 
         echo json_encode($data['calendarData']);

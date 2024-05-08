@@ -4576,7 +4576,7 @@ Responsive Media Query CSS
     }
 /* progress styling */
 
-/* Donation WIzard */
+/* Donation Wizard */
 .amount-options {
     display: flex;
     justify-content: space-between;
@@ -4603,4 +4603,322 @@ Responsive Media Query CSS
     background-color: var(--theme-primary-color);
     color: #fff;
   }
-/* Donation WIzard */
+/* Donation Wizard */
+
+/* Events Landing Slider */
+    .display-table {
+        display: table;
+        width: 100%;
+        height: 100%;
+    }
+    .display-table-cell {
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+    #upcoming-area {
+        margin-top: -190px;
+        position: relative;
+        z-index: 400;
+    }
+    #upcoming-area .upcoming-event-wrap {
+        background-color: var(--theme-secondary-color);
+        padding: 40px;
+        color: #fff;
+        position: relative;
+    }
+    #upcoming-area .upcoming-event-wrap .up-event-titile {
+        position: absolute;
+        text-align: center;
+        margin: 0;
+        top: -31px;
+    }
+    #upcoming-area .upcoming-event-wrap .up-event-titile h3 {
+        background-color: #fff;
+        font-size: 26px;
+        font-size: 1.5rem;
+        color: #000;
+        text-transform: capitalize;
+        font-weight: 700;
+        padding: 10px 45px;
+        margin: 0;
+        -webkit-box-shadow: 14px 0 26px rgba(0, 0, 0, 0.4);
+        box-shadow: 14px 0 26px rgba(0, 0, 0, 0.4);
+    }
+    #upcoming-area .upcoming-event-wrap .upcoming-event-content .owl-nav {
+        position: absolute;
+        display: block;
+        width: initial;
+        transform: translateY(0%);
+        top: unset;
+        bottom: -40px;
+        right: -35px;
+    }
+    #upcoming-area .upcoming-event-wrap .upcoming-event-content .owl-nav button {
+        outline: 0;
+        background-color: #5481ff;
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
+        font-size: 2rem;
+        line-height: 3pc;
+        text-align: center;
+        margin-bottom: 5px;
+        -webkit-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+    }
+    #upcoming-area
+    .upcoming-event-wrap
+    .upcoming-event-content
+    .owl-nav
+    button:hover {
+        background-color: #fff;
+        color: #161f37;
+    }
+    #upcoming-area
+    .upcoming-event-wrap
+    .upcoming-event-content
+    .owl-nav
+    buttonfocus {
+        outline: 0;
+    }
+    .single-upcoming-event .up-event-thumb {
+        position: relative;
+        min-height: 294px;
+    }
+    .single-upcoming-event .up-event-thumb img {
+        width: 100%;
+        display: block;
+    }
+    .single-upcoming-event .up-event-thumb .up-event-date {
+        color: #3a3b3c;
+        font-size: 18px;
+        font-size: 1.8rem;
+        font-weight: 700;
+        background-color: #fff;
+        padding: 9pt;
+        text-align: center;
+        position: absolute;
+        width: 100%;
+        bottom: -5px;
+        border-bottom: 8px solid #000;
+    }
+    .single-upcoming-event .up-event-text h3 {
+        font-size: 30px;
+        font-size: 3rem;
+    }
+    .single-upcoming-event .up-event-text h3 a {
+        color: #fff;
+    }
+    .single-upcoming-event .up-event-text a {
+        margin-top: 10px;
+    }
+    .event-countdown {
+        margin-bottom: 18px;
+        position: relative;
+        display: inline-block;
+    }
+    .event-countdown .event-countdown-counter {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+    }
+    .event-countdown .event-countdown-counter .counter-item {
+        text-align: center;
+        color: #fff;
+        margin-right: 15px;
+    }
+    .event-countdown .event-countdown-counter .counter-item .counter-label {
+        font-size: 14px;
+        /* font-size: 1.4rem; */
+        line-height: 1;
+        font-weight: 700;
+        display: block;
+        margin-bottom: 5px;
+    }
+    .event-countdown .event-countdown-counter .counter-item .single-cont {
+        font-size: 18px;
+        line-height: 1;
+        font-weight: 700;
+        border: 1px solid #fff;
+        background-color: #161f37;
+        padding: 10px;
+        display: inline-block;
+    }
+    .event-countdown p {
+        font-size: 18px;
+        /* font-size: 1.8rem; */
+        line-height: 1;
+        font-weight: 700;
+        margin-bottom: 0;
+        position: absolute;
+        bottom: 0;
+        left: 100%;
+    }
+
+    @media only screen and (min-width: 320px) and (max-width: 575px) {
+        #upcoming-area {
+            margin-top: 0;
+            padding: 70px 0;
+        }
+        #upcoming-area .upcoming-event-wrap {
+            padding: 40px 10px;
+        }
+        #upcoming-area .upcoming-event-wrap .up-event-titile {
+            right: 50%;
+            -webkit-transform: translateX(50%);
+            -ms-transform: translateX(50%);
+            transform: translateX(50%);
+        }
+        #upcoming-area .upcoming-event-wrap .up-event-titile h3 {
+            padding: 10px 20px;
+            font-size: 20px;
+            font-size: 1.8rem;
+            width: 200px;
+        }
+        #upcoming-area .upcoming-event-wrap .upcoming-event-content .owl-nav {
+            right: 25px;
+            bottom: -7px;
+        }
+        #upcoming-area .upcoming-event-wrap .upcoming-event-content .owl-nav div {
+            display: inline-block;
+        }
+        .single-upcoming-event .up-event-text {
+            margin-top: 35px;
+        }
+        .single-upcoming-event .up-event-text h3 {
+            font-size: 20px;
+            font-size: 2rem;
+            line-height: 1.2;
+            margin-bottom: 25px;
+        }
+        .event-countdown p {
+            display: none;
+        }
+    }
+    #upcoming-area {
+        margin-top: 0;
+        padding: 70px 0
+    }
+
+    #upcoming-area .upcoming-event-wrap {
+        padding: 40px 10px
+    }
+
+    #upcoming-area .upcoming-event-wrap .up-event-titile {
+        right: 50%;
+        -webkit-transform: translateX(50%);
+        -ms-transform: translateX(50%);
+        transform: translateX(50%)
+    }
+
+    #upcoming-area .upcoming-event-wrap .up-event-titile h3 {
+        padding: 10px 20px;
+        font-size: 20px;
+        /* font-size: 2rem; */
+        width: 200px
+    }
+
+    #upcoming-area .upcoming-event-wrap .upcoming-event-content .owl-nav {
+        position: absolute;
+        bottom: -20px;
+        right: 90px;
+    }
+    #upcoming-area .upcoming-event-wrap .upcoming-event-content .owl-nav button {
+        outline: 0;
+        background-color: #5481ff;
+        color: #161f37;
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
+        font-size: 2rem;
+        line-height: 3pc;
+        text-align: center;
+        margin-bottom: 5px;
+        -webkit-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+    }
+    #upcoming-area
+    .upcoming-event-wrap
+    .upcoming-event-content
+    .owl-nav
+    button:hover {
+        background-color: #fff;
+        color: #161f37;
+    }
+    #upcoming-area
+    .upcoming-event-wrap
+    .upcoming-event-content
+    .owl-nav
+    buttonfocus {
+        outline: 0;
+    }
+    .single-upcoming-event .up-event-thumb {
+        position: relative;
+        min-height: 294px;
+    }
+    .single-upcoming-event .up-event-thumb img {
+        width: 100%;
+        display: block;
+    }
+    .single-upcoming-event .up-event-thumb .up-event-date {
+        color: #3a3b3c;
+        font-size: 18px;
+        /* font-size: 1.5rem; */
+        margin-bottom: 0px;
+        font-weight: 700;
+        background-color: #fff;
+        padding: 9pt;
+        text-align: center;
+        position: absolute;
+        width: 100%;
+        bottom: -5px;
+        border-bottom: 8px solid #000;
+    }
+    .single-upcoming-event .up-event-text h3 {
+        font-size: 30px;
+        /* font-size: 1.5rem; */
+    }
+    .single-upcoming-event .up-event-text h3 a {
+        color: #fff;
+    }
+    .single-upcoming-event .up-event-text a {
+        margin-top: 10px;
+    }
+
+    @media only screen and (min-width: 768px) {
+        #upcoming-area {
+            padding: 105px 0 70px;
+        }
+        .single-upcoming-event .up-event-text h3 {
+            font-size: 30px;
+            /* font-size: 3rem; */
+            line-height: 1.3;
+        } 
+    }
+
+    @media only screen and (min-width: 768px) {
+        #upcoming-area {
+            margin-top: -190px;
+            padding: 0;
+        }
+        #upcoming-area .upcoming-event-wrap .up-event-titile {
+            right: 40px;
+            -webkit-transform: inherit;
+            -ms-transform: inherit;
+            transform: inherit;
+            margin-bottom: 0;
+        }
+        #upcoming-area .upcoming-event-wrap .up-event-titile h3 {
+            padding: 10px 45px;
+            font-size: 24px;
+            /* font-size: 2.4rem; */
+            width: auto;
+        }
+        .single-upcoming-event .up-event-text {
+            margin-top: 0;
+        }
+    }
+/* Events Landing Slider */

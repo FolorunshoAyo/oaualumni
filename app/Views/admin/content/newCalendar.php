@@ -50,7 +50,7 @@
                                 <div class="form-group">
                                     <span>Start Date</span><span class="red">*</span>
                                     <?php
-                                    echo form_input('stdate','',array('class'=>'form-control datetimepicker','placeholder'=>'Select Start Date'));
+                                    echo form_input('stdate','',array('class'=>'form-control','placeholder'=>'Select Start Date'), 'datetime-local');
                                     ?>
                                 </div>
                             </div>
@@ -58,7 +58,7 @@
                                 <div class="form-group">
                                     <span>End Date</span><span class="red">*</span>
                                     <?php
-                                    echo form_input('endate','',array('class'=>'form-control datetimepicker','placeholder'=>'Select End Date'));
+                                    echo form_input('endate','',array('class'=>'form-control','placeholder'=>'Select End Date'), 'datetime-local');
                                     ?>
                                 </div>
                             </div>

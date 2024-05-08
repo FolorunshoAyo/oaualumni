@@ -672,7 +672,14 @@
         });
     });
 
+    $('[data-event-date]').each(function() {
+        var $this = $(this),
+            finalDate = $(this).data('event-date');
 
+        $this.countdown(finalDate, function(event) {
+            $this.html(event.strftime('<div class="counter-item"><span class="counter-label">Days</span><span class="single-cont">%D</span></div><div class="counter-item"><span class="counter-label">Hr</span><span class="single-cont">%H</span></div><div class="counter-item"><span class="counter-label">Min</span><span class="single-cont">%M</span></div><div class="counter-item"><span class="counter-label">Sec</span><span class="single-cont">%S</span></div>'));
+        });
+    });
 
     // Color and Layout Settings
     $('.color-panel').each(function() {
