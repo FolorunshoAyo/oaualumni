@@ -8,6 +8,7 @@ use App\Models\ModHowITWorks;
 use App\Models\ModNewEvents;
 use App\Models\Settings;
 use App\Models\Sliders;
+use App\Models\ModOnlineMeeting;
 
 class Home extends BaseController
 {
@@ -20,30 +21,32 @@ class Home extends BaseController
         $talbeCalendar = new ModEvents();
         $talbleWebsiteSetting = new Settings();
         $tableSliders = new Sliders();
-        $db      = \Config\Database::connect();
-        $builder = $db->table('events');
-        $calendarQuery = $builder->select('*')
-            ->where('ev_status',1)
-            ->join('newsevents','newsevents.ne_id=events.events_id')
-            ->limit(10)->get();
-        $calendarData = $calendarQuery->getResult();
-        $data = array();
+        $tableOnlineMeeting = new ModOnlineMeeting();
+        // $db      = \Config\Database::connect();
+        // $builder = $db->table('events');
+        // $calendarQuery = $builder->select('*')
+        //     ->where('ev_status',1)
+        //     ->join('newsevents','newsevents.ne_id=events.events_id')
+        //     ->limit(10)->get();
+        // $calendarData = $calendarQuery->getResult();
+        // $data = array();
 
-        if (count($calendarData) > 0) {
-            foreach ($calendarData as $key => $value) {
-                $data['calendarData'][$key]['title'] = $value->title;
-                $data['calendarData'][$key]['start'] = $value->start_date;
-                $data['calendarData'][$key]['end'] = $value->end_date;
-                $data['calendarData'][$key]['backgroundColor'] = "#DA9F37";
-            }
-        }else{
-            $data['calendarData'] = array();
-        }
+        // if (count($calendarData) > 0) {
+        //     foreach ($calendarData as $key => $value) {
+        //         $data['calendarData'][$key]['title'] = $value->title;
+        //         $data['calendarData'][$key]['start'] = $value->start_date;
+        //         $data['calendarData'][$key]['end'] = $value->end_date;
+        //         $data['calendarData'][$key]['backgroundColor'] = "#DA9F37";
+        //     }
+        // }else{
+        //     $data['calendarData'] = array();
+        // }
 
         $data['websiteSetting'] = $talbleWebsiteSetting->findAll();
 
         $data['newshome']= $tablePClip->where('ne_category','news')->findAll(3);
         $data['eventshome']= $tablePClip->where('ne_category','events')->findAll(3);
+        $data['onlinemeetings']= $tableOnlineMeeting->findAll(3);
         $data['howItWorks']= $tableHowITWorks->where('hi_set_featured', 1)->findAll();
         $data['whatWeDo']= $tableWhatWeDo->where('hs_status',1)->findAll();
         $data['sliders']= $tableSliders->where('sl_status',1)->findAll();
@@ -51,12 +54,14 @@ class Home extends BaseController
         $data['calendar']= $talbeCalendar->where('ev_status',1)->findAll();
         $data['title'] = 'Home' . PROJECT;
         $data['description'] = 'Home Description here';
+        $data['calendarData'] = hasCalendarData();
 
         // dd($data['calendarData']);
 
         echo view('header/header',$data);
         echo view('css/allCSS',$data);
         echo view('css/owl');
+        echo view('css/quickEvents');   
         echo view('header/homenavbar');
         echo view('header/Homebanner',$data);
         echo view('content/upcomingEvents');
@@ -74,7 +79,8 @@ class Home extends BaseController
             navText: ['<i class=\'fas fa-chevron-left\'></i>', '<i class=\'fas fa-chevron-right\'></i>']
         })
         </script>";
-        echo view('js/eventsCalendar',$data);
+        // echo view('js/eventsCalendar',$data);
+        echo view('js/quickEvents');
         echo view('footer/endfooter');
     }
 

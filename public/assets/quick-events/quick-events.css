@@ -22,20 +22,20 @@
 	font-weight: 700;
 }
 .quick-events .events-calendar .calendar-header .current-date span {
-	color: #f21e4e;
+	color: var(--theme-primary-color);
 	margin-left: 3px;
 }
 .quick-events .events-calendar .calendar-header .nav-time {
 	float: right;
 }
 .quick-events .events-calendar .calendar-header .nav-time .btn-change-date {
-	border: 1px solid #f21e4e;
+	border: 1px solid var(--theme-primary-color);
 	-webkit-border-radius: 5px;
     -moz-border-radius: 5px;
 	border-radius: 5px;
 	margin-left: 10px;
 	padding: 5px 10px;
-    background: #f21e4e;
+    background: var(--theme-primary-color);
     color: #fff;
 	cursor: pointer;
 	font-size: 15px;
@@ -87,14 +87,14 @@
 	display: inline-block;
 }
 .quick-events .events-calendar .calendar-table .calendar-day.weekend .day-num {
-	color: #f21e4e;
+	color: var(--theme-primary-color);
 }
 .quick-events .events-calendar .calendar-table .calendar-day.today {
 	padding-right: 6px;
 }
 .quick-events .events-calendar .calendar-table .calendar-day.today .day-num {
 	color: #fff;
-    background: #f21e4e;
+    background: var(--theme-primary-color);
     border-radius: 100%;
     width: 22px; 
     font-size: 12px;

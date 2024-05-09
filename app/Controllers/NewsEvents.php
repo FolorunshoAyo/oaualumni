@@ -215,10 +215,10 @@ class NewsEvents extends BaseController
 
                 $data['calendarData'][$key]['color'] = rand(1, 5);
                 $data['calendarData'][$key]['day'] = $day;
-                $data['calendarData'][$key]['description'] = base64_decode($value->ne_description);
+                $data['calendarData'][$key]['description'] = base64_decode($value->ne_description) . "<br> <a href='#'>Read More</a>";
                 $data['calendarData'][$key]['duration'] = $duration;
                 $data['calendarData'][$key]['image'] = base_url('public/assets/images/newsEvents/'.$value->ne_dp);
-                $data['calendarData'][$key]['location'] = $value->ne_category;
+                $data['calendarData'][$key]['location'] = $value->ne_location;
                 $data['calendarData'][$key]['month'] = $month;
                 $data['calendarData'][$key]['time'] = "$startTime - $endTime";
                 $data['calendarData'][$key]['title'] = $value->ne_title;
@@ -259,7 +259,7 @@ class NewsEvents extends BaseController
 
                 $meetingData['color'] = rand(1, 5);
                 $meetingData['day'] = $day;
-                $meetingData['description'] = $online_meeting->short_description;
+                $meetingData['description'] = $online_meeting->short_description . "<br> <a href='#'>Read More</a>";
                 $meetingData['duration'] = "1";
                 $meetingData['image'] = base_url('public/assets/images/zoom-placeholder.jpg');
                 $meetingData['location'] = "Online";

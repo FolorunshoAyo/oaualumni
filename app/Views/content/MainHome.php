@@ -243,7 +243,7 @@
         </div>
             <div class="row">
                 <?php foreach ($eventshome as $myevent): ?>
-                    `               <div class="col">
+                    <div class="col">
                         <div class="hover-zoomer thumb-two shadow-one">
                             <div class="overlay-black overflow-hidden position-relative">
                                 <img src="<?php echo base_url('public/assets/images/newsEvents/'.$myevent['ne_dp']);?>" alt="image">
@@ -267,11 +267,51 @@
 <?php endif; ?>
 <!--============== Blog Section End ==============-->
 
+<!--============== Blog Section Start ==============-->
+<?php if (count($onlinemeetings)): ?>
+
+<div class="full-row bg-white">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2 class="text-secondary double-down-line text-center">Online Meetings</h2>
+                <span class="text-center mt-4 d-block mb-5">
+                    <!-- <?php if (isset($websiteSetting) && count($websiteSetting) === 1){ echo $websiteSetting[0]['st_recent_events']; }?> -->
+                    Zoom meetings are listed here
+                </span>
+            </div>
+        </div>
+            <div class="row">
+                <?php foreach ($onlinemeetings as $meeting): ?>
+                    <div class="col">
+                        <div class="hover-zoomer thumb-two shadow-one">
+                            <div class="overlay-black overflow-hidden position-relative">
+                                <img src="<?php echo base_url('public/assets/images/zoom-placeholder.jpg')?>" alt="image">
+                                <div class="date text-white position-absolute z-index-9">November 26, 2018</div>
+                            </div>
+                            <div class="p-4">
+                                <h6 class="text-secondary hover-text-primary mb-4">
+                                    <a href="<?php echo site_url('online-meeting/'.$meeting['id'])?>">
+                                        <?php echo $meeting['name'];?>
+                                    </a>
+                                </h6>
+                                <p><?php echo $meeting['short_description'] ?></p>
+                                <a class="mt-3 text-primary hover-text-secondary" href="<?php echo site_url('online-meeting/'.$meeting['id'])?>">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+    </div>
+</div>
+<?php endif; ?>
+<!--============== Blog Section End ==============-->
+
 
 
 
 <!--============== Blog Section Start ==============-->
-<?php if (isset($calendarData)&& count($calendarData) > 0): ?>
+<?php if ($calendarData): ?>
 
     <div class="full-row bg-white">
         <div class="container">
@@ -283,7 +323,7 @@
                 </span>
             </div>
             <div class="row">
-                <div id="calendar"></div>
+                <div class="quick-events"></div>
             </div>
         </div>
     </div>

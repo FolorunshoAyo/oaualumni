@@ -3,6 +3,28 @@
 
 	// Global events variables
 	var quick_events = [];
+	// Day
+	var word_day_sun = 'Sunday';
+	var word_day_mon = 'Monday';
+	var word_day_tue = 'Tuesday';
+	var word_day_wed = 'Wednesday';
+	var word_day_thu = 'Thursday';
+	var word_day_fri = 'Friday';
+	var word_day_sat = 'Saturday';
+
+	// Month
+	var word_month_1 = 'January';
+	var word_month_2 = 'February';
+	var word_month_3 = 'March';
+	var word_month_4 = 'April';
+	var word_month_5 = 'May';
+	var word_month_6 = 'June';
+	var word_month_7 = 'July';
+	var word_month_8 = 'August';
+	var word_month_9 = 'September';
+	var word_month_10 = 'October';
+	var word_month_11 = 'November';
+	var word_month_12 = 'December';
 
 	// Global time variables
 	var today = new Date();
@@ -409,9 +431,9 @@
 				event_end_time = ' - ' + event_end_day + ', ' + event_end_date;
 			}
 
-			var event_image 		= (quick_list_events[i].image) ? '<img src="admin/event/images/' + quick_list_events[i].image + '" alt="' + quick_list_events[i].title + '" />' : '';
-			var event_time 			= (quick_list_events[i].time) ? '<i class="icon-clock"></i>' + quick_list_events[i].time : '';
-			var event_location 		= (quick_list_events[i].location) ? '<i class="icon-location-pin"></i>' + quick_list_events[i].location : '';
+			var event_image 		= (quick_list_events[i].image) ? '<img src="' + quick_list_events[i].image + '" alt="' + quick_list_events[i].title + '" />' : '';
+			var event_time 			= (quick_list_events[i].time) ? '<i class="fas fa-clock"></i>' + quick_list_events[i].time : '';
+			var event_location 		= (quick_list_events[i].location) ? '<i class="fas fa-location-arrow"></i>' + quick_list_events[i].location : '';
 			var event_description 	= ((layout == 'compact') || (view == 'grid')) ? shortTitle(quick_list_events[i].description, 10) : shortTitle(quick_list_events[i].description, 25);
 			
 			events_list +=	'<div class="event-item-wrap">'	
@@ -420,7 +442,7 @@
 									+ '<div class="event-info">'
 										+ '<div class="event-title" href="#' + el.attr('id') + '-popup-' + quick_list_events[i].id + '">' + quick_list_events[i].title + '</div>'
 										+ '<div class="event-meta">'
-											+ '<div class="event-date"><i class="icon-calendar"></i>' + event_day + ', ' + event_date + '</div>'
+											+ '<div class="event-date"><i class="fas fa-calendar"></i>' + event_day + ', ' + event_date + '</div>'
 											+ '<div class="event-time">' + event_time + '</div>'
 											+ '<div class="event-location">' + event_location + '</div>'
 										+ '</div>'
@@ -495,16 +517,16 @@
 			var event_end_date = ('0' + end_date.getDate()).slice(-2) + ' ' + word_month[Number(end_date.getMonth())] + ', ' + end_date.getFullYear();
 			event_end_time = ' - ' + event_end_day + ', ' + event_end_date;
 		}
-		var event_image 		= (event.image) ? '<img src="admin/event/images/' + event.image + '" alt="' + event.title + '" />' : '';
-		var event_time 			= (event.time) ? '<i class="icon-clock"></i>' + event.time : '';
-		var event_location 		= (event.location) ? '<i class="icon-location-pin"></i>' + event.location : '';
+		var event_image 		= (event.image) ? '<img src="' + event.image + '" alt="' + event.title + '" />' : '';
+		var event_time 			= (event.time) ? '<i class="fas fa-clock"></i>' + event.time : '';
+		var event_location 		= (event.location) ? '<i class="fas fa-location-arrow"></i>' + event.location : '';
 
 		event_string += '<div class="event-item">'
 							+ '<div class="event-image">' + event_image + '</div>'
 							+ '<div class="event-info">'
 								+ '<div class="event-title">' + event.title + '</div>'
 								+ '<div class="event-meta">'
-									+ '<div class="event-date"><i class="icon-calendar"></i>' + event_day + ', ' + event_date + event_end_time + '</div>'
+									+ '<div class="event-date"><i class="fas fa-calendar"></i>' + event_day + ', ' + event_date + event_end_time + '</div>'
 									+ '<div class="event-time">' + event_time + '</div>'
 									+ '<div class="event-location">' + event_location + '</div>'
 								+ '</div>'
@@ -528,7 +550,7 @@
 			var items 		= (typeof $(this).attr('data-items') != 'undefined') ? $(this).attr('data-items') : '1000';
 
 			$.ajax({
-				url: 'events.php',
+				url: '/oaualumni/fetch-events',
 				dataType: 'json',
 				data: '',
 				success: function(data) {
@@ -573,8 +595,8 @@
         });
 
         // On resize window
-		$(window).on('resize', function () {
-			renderQuickEvents();
-		});
+		// $(window).on('resize', function () {
+		// 	renderQuickEvents();
+		// });
 	});
 })(jQuery);

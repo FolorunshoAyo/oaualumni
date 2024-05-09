@@ -1,0 +1,2 @@
+<link rel="stylesheet" href="<?php echo base_url('public/assets/magnific-popup/magnific-popup.css'); ?>" type="text/css" charset="utf-8" />
+<link rel="stylesheet" href="<?php echo base_url('public/assets/quick-events/quick-events.css'); ?>" type="text/css" charset="utf-8" />

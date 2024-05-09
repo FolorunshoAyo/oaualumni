@@ -1,0 +1,2 @@
+<script type="text/javascript" src="<?php echo base_url('public/assets/magnific-popup/jquery.magnific-popup.js')?>"></script>
+<script type="text/javascript" src="<?php echo base_url('public/assets/quick-events/quick-events.js')?>"></script>

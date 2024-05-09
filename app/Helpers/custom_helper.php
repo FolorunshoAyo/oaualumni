@@ -198,6 +198,32 @@ if (!function_exists('getTrackData'))
     }
 }
 
+if (!function_exists('getCalendarData')){
+    function hasCalendarData(){
+        $db      = \Config\Database::connect();
+        $builder = $db->table('events');
+        $calendarQuery = $builder->select('*')
+            ->where('ev_status',1)
+            ->where('ev_delete',null)
+            ->join('newsevents','newsevents.ne_id=events.events_id')
+            ->get();
+        $calendarData = $calendarQuery->getResult();
+
+        // Fetch Online Meeting Events for calendar
+        $online_meetings_builder = $db->table('online_meeting');
+        $onlineMeetingsQuery = $online_meetings_builder->select("*")
+        ->where('deleted_at',null)
+        ->get();
+        $onlineMeetingsData = $onlineMeetingsQuery->getResult();
+
+        if(count($calendarData) > 0 || count($onlineMeetingsData) > 0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+}
+
 if (!function_exists('lastQuery'))
 {
     function lastQuery()
