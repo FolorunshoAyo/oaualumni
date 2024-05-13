@@ -1,5 +1,3 @@
-
-
 <!-- Favicon -->
 <link rel="shortcut icon" href="<?php echo base_url('public/assets/images/logo.ico')?>">
 

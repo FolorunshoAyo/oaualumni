@@ -42,10 +42,13 @@ $routes->get('/faq', 'Pages::faq');
 $routes->get('/executives', 'Pages::executives');
 $routes->get('/alumni', 'Pages::alumni');
 $routes->get('/interest-groups', 'InterestGroups::index');
-$routes->get('/interest-groups/read/(:segment)', 'InterestGroups::read/$1');
+$routes->get('/interest-group/read/(:segment)', 'InterestGroups::read/$1');
 $routes->get('/interest-group/join/(:segment)', 'InterestGroups::joingroup/$1');
 $routes->get('/donations', 'Donations::index');
 $routes->get('/donation/read/(:segment)', 'Donations::read/$1');
+$routes->get('/online-meetings', 'OnlineMeetings::index');
+$routes->get('/online-meeting/read/(:segment)', 'OnlineMeetings::read/$1');
+$routes->get('/online-meeting/join/(:segment)', 'OnlineMeetings::joinmeeting/$1');
 
 
 $routes->get('admin/new-news-and-event', 'Admin::newNewsEvents');

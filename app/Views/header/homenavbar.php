@@ -63,14 +63,11 @@
                                     </button>
                                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                         <ul class="navbar-nav me-auto">
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="<?php echo base_url(); ?>">Home</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="<?php echo base_url('about'); ?>">About</a>
-                                            </li>
                                             <li class="nav-item"> 
                                                 <a class="nav-link" href="<?php echo site_url('events')?>">Events</a>
+                                            </li>
+                                            <li class="nav-item"> 
+                                                <a class="nav-link" href="<?php echo site_url('online-meetings')?>">Online Meetings</a>
                                             </li>
                                             <li class="nav-item"> <a class="nav-link" href="<?php echo site_url('news')?>">
                                                     News
@@ -101,6 +98,9 @@
                                                 </ul>
                                             </li>
                                             <li class="nav-item"> <a class="nav-link" href="<?php echo site_url('contact')?>">Contact</a> </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="<?php echo base_url('about'); ?>">About</a>
+                                            </li>
                                         </ul>
                                         <a href="<?php echo site_url('login')?>" class="text-white hover-text-primary me-3"> Login </a>
 

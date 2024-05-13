@@ -14,7 +14,7 @@ class ModOnlineMeeting extends Model
     protected $useSoftDeletes = false;
 
     protected $allowedFields = [
-        'name', 'duration', 'timezone', 'start_time', 'host_video',
+        'name', 'short_description', 'duration', 'timezone', 'start_time', 'host_video',
         'participant_video', 'join_before_host', 'auto_recording', 'admin_id', 
         'password', 'meeting_id', 'meeting_url'
     ];

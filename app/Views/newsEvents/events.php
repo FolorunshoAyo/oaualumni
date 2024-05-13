@@ -28,8 +28,8 @@
                         </div>
                         <?php echo form_close();?>
                         <div class="" style="margin-top: 20px;">
-                            <?php if (isset($calendarData) && count($calendarData) > 0 ) :?>
-                                    <div id="calendar"></div>
+                            <?php if ($calendarData) :?>
+                                    <div  class="quick-events"></div>
                             <?php endif; ?>
                         </div>
                     </div>

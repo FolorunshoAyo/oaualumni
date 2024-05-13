@@ -122,7 +122,7 @@
                             <h4 class="double-down-line-left text-secondary position-relative pb-4 mb-4">Other Interest Groups</h4>
                             <ul>
                                 <?php foreach($otherGroups as $group): ?>
-                                    <li><?php $group['group_name']  . ' (' . $group['members'] . 'members)' ?></li>
+                                    <li><a href="<?php echo site_url('/interest-group/read/' . $group[0]['group_id']) ?>"><?php $group['group_name']  . ' (' . $group['members'] . 'members)' ?></a></li>
                                 <?php endforeach ?>
                             </ul>
                         </div>

@@ -77,28 +77,27 @@ class NewsEvents extends BaseController
     public function events()
     {
         $tablePClip = new ModNewEvents();
-        $tableCalendar = new ModEvents();
+        // $tableCalendar = new ModEvents();
         $filters = filterWhereForModels();
-
-        $db      = \Config\Database::connect();
-        $builder = $db->table('events');
-        $calendarQuery = $builder->select('*')
-            ->where('ev_status',1)
-            ->where('ev_delete',null)
-            ->join('newsevents','newsevents.ne_id=events.events_id')
-            ->limit(10)->get();
-        $calendarData = $calendarQuery->getResult();
-        $data = array();
-        if (count($calendarData) > 0) {
-            foreach ($calendarData as $key => $value) {
-                $data['calendarData'][$key]['title'] = $value->title;
-                $data['calendarData'][$key]['start'] = $value->start_date;
-                $data['calendarData'][$key]['end'] = $value->end_date;
-                $data['calendarData'][$key]['backgroundColor'] = "#DA9F37";
-            }
-        }else{
-            $data['calendarData'] = array();
-        }
+        // $db      = \Config\Database::connect();
+        // $builder = $db->table('events');
+        // $calendarQuery = $builder->select('*')
+        //     ->where('ev_status',1)
+        //     ->where('ev_delete',null)
+        //     ->join('newsevents','newsevents.ne_id=events.events_id')
+        //     ->limit(10)->get();
+        // $calendarData = $calendarQuery->getResult();
+        // $data = array();
+        // if (count($calendarData) > 0) {
+        //     foreach ($calendarData as $key => $value) {
+        //         $data['calendarData'][$key]['title'] = $value->title;
+        //         $data['calendarData'][$key]['start'] = $value->start_date;
+        //         $data['calendarData'][$key]['end'] = $value->end_date;
+        //         $data['calendarData'][$key]['backgroundColor'] = "#DA9F37";
+        //     }
+        // }else{
+        //     $data['calendarData'] = array();
+        // }
         //var_dump($data);
         //dd();
        /* $calendarQuery = $tableCalendar->where('ev_status',1)->
@@ -116,6 +115,7 @@ class NewsEvents extends BaseController
         $data['news'] = $tablePClip->paginate(5);
         $data['pager'] = $tablePClip->pager;
         $data['filtrs'] = filterForView();
+        $data['calendarData'] = hasCalendarData();
 /*        $data = [
             'news' => $tablePClip->paginate(5),
             'pager' => $tablePClip->pager,
@@ -132,11 +132,12 @@ class NewsEvents extends BaseController
         dd();*/
         echo view('header/header',$data);
         echo view('css/allCSS');
+        echo view('css/quickEvents');  
         echo view('header/navbar');
         echo view('newsEvents/events',$data);
         echo view('content/subscribed');
         echo view('footer/footer');
-        echo view('js/eventsCalendar',$data);
+        echo view('js/quickEvents');
         echo view('footer/endfooter');
     }
 
