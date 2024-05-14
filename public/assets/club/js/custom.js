@@ -121,10 +121,11 @@
         $('.navbar-nav a').each(function(e) {
             var $this = $(this);
             // if the current path is like this link, make it active
+
             if ($path == $this.attr('href')) {
                 $this.addClass('active');
             } else if ($path == '') {
-                $('.navbar-nav li:first-child > a').addClass('active');
+                // $('.navbar-nav li:first-child > a').addClass('active');
             }
         })
     })

@@ -158,7 +158,7 @@ function readDate($dateString){
 
 
 function meetingURL($params){
-    return  site_url() . 'start-meeting?' . http_build_query($params);
+    return  site_url() . 'online-meeting/join/' . $params['id'] . '?' . http_build_query($params);
 }
 
 function updateMeeting($meetingId, $data) {

@@ -49,6 +49,7 @@ $routes->get('/donation/read/(:segment)', 'Donations::read/$1');
 $routes->get('/online-meetings', 'OnlineMeetings::index');
 $routes->get('/online-meeting/read/(:segment)', 'OnlineMeetings::read/$1');
 $routes->get('/online-meeting/join/(:segment)', 'OnlineMeetings::joinmeeting/$1');
+$routes->get('/online-meeting/thank-you', 'OnlineMeetings::thankyou');
 
 
 $routes->get('admin/new-news-and-event', 'Admin::newNewsEvents');

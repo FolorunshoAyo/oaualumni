@@ -39,8 +39,8 @@
                                     Calendar
                                 </a>
                                 <div class="collapse show px-4" id="collapseOne">
-                                    <?php if (isset($calendarData)&& count($calendarData) > 0): ?>
-                                        <div id="calendar"></div>
+                                    <?php if ($calendarData): ?>
+                                        <div class="quick-events" data-layout="compact"></div>
                                     <?php endif; ?>
                                 </div>
                             </div>

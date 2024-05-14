@@ -133,7 +133,7 @@ class OnlineMeetings extends BaseController
                 return redirect()->to(site_url('online-meeting/read/' . $id));
             }
 
-            if (userLoggedIn()) {
+            if (userLoggedIn() || isAdmin()) {
                 $tableOnlineMeetings  = new ModOnlineMeeting();
                 $checkOnlineMeeting = $tableOnlineMeetings->select()
                 ->where([
@@ -179,6 +179,7 @@ class OnlineMeetings extends BaseController
 
         $parameters = array('who', 'topic', 'id');
         $isEmpty = false;
+        $isAdmin = isAdmin();
 
         foreach ($parameters as $param) {
             if (empty($this->request->getGet($param))) {
@@ -189,22 +190,23 @@ class OnlineMeetings extends BaseController
 
         if($isEmpty){
             customFlash('alert-info','Something went wrong, please check your required things and try again.');
-            return redirect()->to(site_url('online-meetings'));
+            return $isAdmin? redirect()->to(site_url('admin/all-zoom-meetings')) : redirect()->to(site_url('online-meetings'));
+        }
+
+        if($isAdmin){
+            return redirect()->to(site_url('admin/all-zoom-meetings'));
         }
 
         $data['meetingDetails'] = array(
-            "meeting_topic" => $this->request->getGet('name'),
-            "name" =>  $this->request->getGet('name'),
-            "email" =>  $this->request->getGet('email'),
-            "meeting_number" =>  $this->request->getGet('meeting_number'),
-            "meeting_password" =>  $this->request->getGet('meeting_pwd'),
-            "role" =>  $this->request->getGet('role')
+            "who" => $this->request->getGet('who'),
+            "topic" =>  $this->request->getGet('topic'),
+            "id" =>  $this->request->getGet('id'),
         );
 
         echo view('header/header',$data);
         echo view('css/allCSS');
         echo view('header/navbar');
-        echo view('users/readmeeting',$data);
+        echo view('users/meetingthankyou',$data);
         echo view('content/subscribed');
         echo view('footer/footer');
         echo view('footer/endfooter');

@@ -50,10 +50,10 @@
                                 <?php foreach($allOnlineMeetings as $meeting):?>
                                     <?php
                                         $params = [
+                                            'id' => $meeting['id'],
                                             'name'=>"Admin",
                                             'email' => $adminDetails[0]['email'],
                                             'meeting_number' => $meeting['meeting_id'],
-                                            'meeting_topic' => $meeting['name'],
                                             'meeting_pwd' => $meeting['password'],
                                             'role' => '1'
                                         ];

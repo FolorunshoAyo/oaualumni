@@ -151,26 +151,26 @@ class User extends BaseController
             $tableUsers = new ModUsers();
             $tableGallery = new ModGallery();
             $tableEvents = new ModEvents();
-            $db      = \Config\Database::connect();
-            $builder = $db->table('events');
-            $calendarQuery = $builder->select('*')
-                ->where('ev_status',1)
-                ->where('ev_delete', null)
-                ->join('newsevents','newsevents.ne_id=events.events_id')
-                ->limit(10)->get();
-            $calendarData = $calendarQuery->getResult();
-            $data = array();
+            // $db      = \Config\Database::connect();
+            // $builder = $db->table('events');
+            // $calendarQuery = $builder->select('*')
+            //     ->where('ev_status',1)
+            //     ->where('ev_delete', null)
+            //     ->join('newsevents','newsevents.ne_id=events.events_id')
+            //     ->limit(10)->get();
+            // $calendarData = $calendarQuery->getResult();
+            // $data = array();
 
-            if (count($calendarData) > 0) {
-                foreach ($calendarData as $key => $value) {
-                    $data['calendarData'][$key]['title'] = $value->title;
-                    $data['calendarData'][$key]['start'] = $value->start_date;
-                    $data['calendarData'][$key]['end'] = $value->end_date;
-                    $data['calendarData'][$key]['backgroundColor'] = "#DA9F37";
-                }
-            }else{
-                $data['calendarData'] = array();
-            }
+            // if (count($calendarData) > 0) {
+            //     foreach ($calendarData as $key => $value) {
+            //         $data['calendarData'][$key]['title'] = $value->title;
+            //         $data['calendarData'][$key]['start'] = $value->start_date;
+            //         $data['calendarData'][$key]['end'] = $value->end_date;
+            //         $data['calendarData'][$key]['backgroundColor'] = "#DA9F37";
+            //     }
+            // }else{
+            //     $data['calendarData'] = array();
+            // }
 
             $data['countUsers']  = $tableUsers->where('u_status',1)->findAll();
             $data['countGallery']  = $tableGallery->where('gl_status',1)->findAll();
@@ -179,17 +179,20 @@ class User extends BaseController
             $filters['u_id !='] = getUserId();
             $data['usersHome'] = $tableUsers->where($filters)->orderBy('u_id','desc')->findAll(6);
             $data['title'] = 'User' . PROJECT;
+            $data['calendarData'] = hasCalendarData();
 
 
             helper('html');
             echo view('users/headnav/header',$data);
             echo view('users/css/allCSS');
             //echo view('css/phone');
+            echo view('css/quickEvents');
             echo view('users/headnav/navbartop');
             echo view('users/headnav/navbarleft');
             echo view('users/content/home',$data);
             echo view('users/footer/footer');
-            echo view('js/eventsCalendar',$data);
+            // echo view('js/eventsCalendar',$data);
+            echo view('js/quickEvents');
             //echo view('js/phone');
             echo view('users/footer/endfooter');
         }
