@@ -25,6 +25,7 @@
 
 <div class="full-row bg-white">
     <div class="container">
+        <?php echo checkFlash(); ?>
         <div class="row">
             <div class="col-lg-8">
                 <div class="blog-details bg-white text-ordinary mb-4">
@@ -56,9 +57,15 @@
                         </div>
                     </div>
                 </div>
+                <?php if($checkProject[0]['status'] !== "2"): ?>
                 <div>
                     <button class="btn btn-primary donateButton">Make Donation</button>
                 </div>
+                <?php else: ?>
+                    <div class="mt-4">
+                        <p> Our Goal was successfully met. Thanks to the above contributors. 🎉✨</p>
+                    </div>
+                <?php endif; ?>
             </div>
             <div class="col-lg-4">
                 <div class="blog-sidebar mt-md-50">
@@ -68,7 +75,7 @@
                             <?php if ($contributors): ?>
                             <ul>
                                 <?php foreach($contributors as $contributor):?>
-                                    <li><?php echo $contributor['first_name'] . " " . $contributor['last_name'] ?></li>
+                                    <li><?php echo $contributor['first_name'] . " " . $contributor['last_name'] . " @ " . $contributor['email'] . " - <b>$" . $contributor['amount'] . "</b>"?></li>
                                 <?php endforeach;?>  
                             </ul>
                             <?php else: ?>
@@ -103,9 +110,15 @@
                                 }
                             </script>
                          <?php endif; ?>
-                        <div class="mt-2">
+                        <?php if($checkProject[0]['status'] !== "2"): ?>
+                        <div class="mt-4">
                             <button class="btn btn-primary donateButton">Make Donation</button>
                         </div>
+                        <?php else: ?>
+                            <div class="mt-4">
+                                <p> Our Goal was successfully met. Thanks to the above contributors. 🎉✨</p>
+                            </div>
+                        <?php endif; ?>
                     </div>
                 </div>
                 <?php if (count($otherProjects) > 0): ?>
@@ -114,7 +127,7 @@
                             <h4 class="double-down-line-left text-secondary position-relative pb-4 mb-4">Other Donations</h4>
                             <ul>
                                 <?php foreach($otherProjects as $project): ?>
-                                    <li><?php $project['project_name']  . ' (' . $project['contributors'] . 'contributors)' ?></li>
+                                    <li><a href="<?php echo site_url("donation/read/" . $project['project_id'])?>"><b><?php echo $project['project_name']  . ' (' . $project['contributors'] . ' contributors)' ?></b></a></li>
                                 <?php endforeach ?>
                             </ul>
                         </div>

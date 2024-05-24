@@ -62,7 +62,7 @@
                             <div class="form-group">
                                 <span>Start Date</span><span class="red">*</span>
                                 <?php
-                                echo form_input('stdate',$calendar[0]['start_date'],array('class'=>'form-control datepicker','placeholder'=>'Select Start Date'));
+                                echo form_input('stdate',$calendar[0]['start_date'],array('class'=>'form-control datepicker','placeholder'=>'Select Start Date'), 'datetime-local');
                                 ?>
                             </div>
                         </div>
@@ -70,7 +70,7 @@
                             <div class="form-group">
                                 <span>End Date</span><span class="red">*</span>
                                 <?php
-                                echo form_input('endate',$calendar[0]['end_date'],array('class'=>'form-control datepicker','placeholder'=>'Select End Date'));
+                                echo form_input('endate',$calendar[0]['end_date'],array('class'=>'form-control datepicker','placeholder'=>'Select End Date'), 'datetime-local');
                                 ?>
                             </div>
                         </div>

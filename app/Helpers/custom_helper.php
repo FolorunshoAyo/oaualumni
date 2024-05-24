@@ -318,6 +318,16 @@ if (!function_exists('getUserSession'))
 
 
 
+if (!function_exists('isJson')){
+    function isJson($string) {
+        $decodedData = json_decode($string);
+        if (json_last_error() == JSON_ERROR_NONE) {
+            // Check if the decoded data is an object or an array
+            return is_object($decodedData) || is_array($decodedData);
+        }
+        return false;
+    }
+}
 
 if (!function_exists('timeago'))
 {

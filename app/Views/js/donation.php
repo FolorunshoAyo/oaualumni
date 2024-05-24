@@ -3,12 +3,11 @@
     var currentStep = 1;
     var loggedIn = <?php echo isset($userData)? "true" : "false" ?>;
     const donation_id = "<?php echo $checkProject[0]['project_id'] ?>";
+
     // Donation Button Click Event
     $('.donateButton').click(function() {
         $('#donationModal').modal('show');
     });
-
-    console.log(baseurl);
 
     // Radio Button Change Event
     $('input[type=radio][name=donationAmount]').change(function() {
@@ -86,8 +85,60 @@
 
     // Pay Now Button Click Event
     $('#payNowButton').click(function() {
+        // Define the set of IDs to check
+        var idsToCheck = ['summaryFirstName', 'summaryLastName', 'summaryEmail', 'summaryPhone', 'summaryAmount'];
+
+        // Call the function to check if these elements are not empty
+        var result = checkElementsNotEmpty(idsToCheck);
+        // Remove dollar sign from amount
+        result.summaryAmount = result.summaryAmount.replace(/\$/g, '');
+
         // Process payment here
-        alert('Payment processed successfully!');
+        var form = document.createElement('form');
+
+        // Set the form's attributes
+        form.method = 'POST';
+        form.action = '<?php echo site_url('donate/' . $checkProject[0]['project_id'])?>'; // The URL to submit to
+        // form.target = '_blank';
+
+        // Create hidden input fields with the data you want to submit
+        var input1 = document.createElement('input');
+        input1.type = 'hidden';
+        input1.name = 'first_name';
+        input1.value = result.summaryFirstName;
+        form.appendChild(input1);
+
+        var input2 = document.createElement('input');
+        input2.type = 'hidden';
+        input2.name = 'last_name';
+        input2.value = result.summaryLastName;
+        form.appendChild(input2);
+
+        var input3 = document.createElement('input');
+        input3.type = 'hidden';
+        input3.name = 'email';
+        input3.value = result.summaryEmail;
+        form.appendChild(input3);
+
+        var input4 = document.createElement('input');
+        input4.type = 'hidden';
+        input4.name = 'phone';
+        input4.value = result.summaryPhone;
+        form.appendChild(input4);
+
+        var input5 = document.createElement('input');
+        input5.type = 'hidden';
+        input5.name = 'amount';
+        input5.value = result.summaryAmount;
+        form.appendChild(input5);
+
+        // Append the form to the body
+        document.body.appendChild(form);
+
+        // Submit the form
+        form.submit();
+
+        // alert('Payment processed successfully!');
     });
 
     function populateSummary(first_name, last_name, email, phone) {
@@ -99,25 +150,31 @@
         $('#summaryAmount').text('$' + amount);
     }
 
-    function fetchUserDetails(amount) {
-        $.ajax({
-            url: 'backend_endpoint_to_fetch_user_details',
-            method: 'GET',
-            success: function(response) {
-                // Replace placeholders with actual user data
-                var userData = response.data; // Assuming response contains user data
-                $('#summaryName').text(userData.name);
-                $('#summaryEmail').text(userData.email);
-                $('#summaryPhone').text(userData.phone);
-                $('#summaryAmount').text('$' + amount);
-                $('#donationSummary').show();
-            },
-            error: function(xhr, status, error) {
-            // Handle error
-            console.error(error);
+    function checkElementsNotEmpty(ids) {
+        var nonEmptyValues = {};
+
+        ids.forEach(function(id) {
+            // Get the element by its ID
+            var element = document.getElementById(id);
+            if (element) {
+                var value = '';
+
+                value = element.textContent.trim();
+
+                // Check if the element's text content is not empty
+                if (value !== '') {
+                    nonEmptyValues[id] = value;
+                } else {
+                    return false;
+                }
+            } else {
+                console.log('Element with id', id, 'not found.');
             }
         });
-        }
+
+        return nonEmptyValues;
+    }
+
 });
 
 </script>

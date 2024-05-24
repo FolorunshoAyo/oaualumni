@@ -6,6 +6,7 @@ namespace App\Controllers;
 use App\Models\ModAlumni;
 use App\Models\ModContact;
 use App\Models\ModGallery;
+use App\Models\ModHowITWorks;
 use App\Models\ModGalleryImages;
 
 class Pages extends BaseController
@@ -57,6 +58,11 @@ class Pages extends BaseController
 
     public function executives()
     {
+        $tableHowITWorks = new ModHowITWorks();
+        $data['executives']= $tableHowITWorks->findAll();
+
+        // dd($data['executives']);
+
         $data['title'] = 'Executives' . PROJECT;
         //$data['description'] = 'FAQ';
         echo view('header/header',$data);

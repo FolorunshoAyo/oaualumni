@@ -21,6 +21,7 @@
 <!--============== Property Grid Section Start ==============-->
 <div class="full-row bg-white">
     <div class="container">
+        <?php echo checkFlash(); ?>
         <div class="row">
             <?php if ($projects):?>
                 <div class="col-lg-12">
@@ -53,13 +54,15 @@
                         <?php foreach($projects as $project):?>
                             <div class="col">
                                 <div class="profile-list hover-zoomer bg-white shadow-one d-flex">
-                                    <div class="overflow-hidden"> <img src="<?= base_url('public/assets/images/project/'.$project['project_image']) ?>" alt="<?php echo $project['project_name']?>"> </div>
-                                    <div class="profile-data p-4 position-relative">
+                                    <div class="overflow-hidden w-50"> <img src="<?= base_url('public/assets/images/project/'.$project['project_image']) ?>" alt="<?php echo $project['project_name']?>"> </div>
+                                    <div class="profile-data p-4 position-relative w-50">
                                         <h5 class="text-secondary hover-text-primary"><a href="<?php echo site_url('donation/read/'.$project['project_id']) ?>"><?php echo $project['project_name']?></a></h5>
                                         <span class="location mb-3 d-block"><i class="fas fa-map-marker-alt text-primary"></i> <?php  echo $project['project_location']; ?></span>
-                                        <div class="rating position-absolute">
-                                            <a href="<?php echo site_url('donation/read/'.$project['project_id']) ?>" class="btn btn-primary">Donate</a>
-                                        </div>
+                                        <?php if($project['status'] === "1"): ?>
+                                            <div class="rating position-absolute">
+                                                <a href="<?php echo site_url('donation/read/'.$project['project_id']) ?>" class="btn btn-primary">Donate</a>
+                                            </div>
+                                        <?php endif; ?>
                                         <p><?php echo word_limiter($project['short_description'], 25); ?></p>
                                         <div class="py-3 px-4 mt-3 bg-gray">
                                             <div class="progress mb-3">

@@ -14,7 +14,8 @@ class ModDonations extends Model
     protected $useSoftDeletes = false;
 
     protected $allowedFields = [
-        'alumni_id', 'project_id', 'amount', 'donation_date'
+        'user_id', 'project_id', 'amount', 'first_name', 'last_name', 'email', 'phone',
+        'trx_id', 'donation_date'
     ];
 
     protected $useTimestamps = false;

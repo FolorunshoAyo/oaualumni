@@ -2364,10 +2364,9 @@ class Admin extends BaseController
             // Retrieve the count of members for the current group
             $project = $projectModel->where(['project_id' => $project_id])->findAll();
             $donations = $donationsModel->select('donations.*, users.u_dp, users.u_email, users.u_mobile, users.u_last_name, users.u_first_name')
-            ->join('users','donations.user_id = users.u_id')
+            ->join('users','donations.user_id = users.u_id', 'left')
             ->where(['project_id' => $project_id])
             ->orderBy('donation_id','desc')
-            ->findAll()
             ->paginate(20);
 
             $data['contributors'] = array();
@@ -2380,7 +2379,8 @@ class Admin extends BaseController
                     'last_name' => $donation['user_id']? $donation['u_last_name'] : $donation['last_name'],
                     'email' => $donation['user_id']? $donation['u_email'] : $donation['email'],
                     'phone' => $donation['user_id']? $donation['u_mobile'] : $donation['phone'],
-                    'amount' => $donation['amount']
+                    'amount' => $donation['amount'],
+                    'donation_date' => $donation['created_at']
                 );
                 $data['contributors'][] = $item;
             }
@@ -2495,7 +2495,7 @@ class Admin extends BaseController
                     {
 
                         $editProject['project_image'] = $messageImage->getRandomName();
-                        $messageImage->move('./public/assets/images/project',$editProject['group_image']);
+                        $messageImage->move('./public/assets/images/project',$editProject['project_image']);
                     }//checking image if selected.
 
                     if($isProject){

@@ -1,3 +1,4 @@
+use App\Models\ModHowITWorks;
 <div class="content-page">
     <!-- Start content -->
     <div class="content">

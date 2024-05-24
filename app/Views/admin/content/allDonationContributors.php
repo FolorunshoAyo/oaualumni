@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="page-title-box">
-                        <h4 class="page-title float-left"><?php echo 'Contributors to (' . $project[0]['project_name'] . ')' ?> Members</h4>
+                        <h4 class="page-title float-left"><?php echo 'Contributors to (' . $project[0]['project_name'] . ')' ?></h4>
 
                         <ol class="breadcrumb float-right">
                             <li class="breadcrumb-item"><a href="<?php echo site_url('admin')?>">Admin</a></li>
@@ -49,22 +49,22 @@
                                         </td>
                                         <td data-title="Order #">
                                             <div style="display: flex; align-items: center; width: fit-content;">
-                                                <?php if($contributor['u_dp']): ?>
+                                                <?php if($contributor['u_dp'] !== null): ?>
                                                     <img src="<?php echo base_url('public/assets/images/users/'.$contributor['u_dp']);?>" alt="Group Image" style="width: 50px; height: 50px; margin-inline-end: 5px; border-radius: 50%;">
                                                 <?php endif; ?>
                                                 <div style="display: inline-block; vertical-align: bottom;">
-                                                    <h6 style="margin:0;line-height:1;"><?php echo $contributor['u_last_name'] . " " . $contributor['u_first_name'] ?></h6>
+                                                    <h6 style="margin:0;line-height:1;"><?php echo $contributor['last_name'] . " " . $contributor['first_name'] ?></h6>
                                                 </div>
                                             </div>
                                         </td>
                                         <td data-title="Order #">   
                                             <?php 
-                                                echo $contributor['u_email'];
+                                                echo $contributor['email'];
                                             ?>
                                         </td>
                                         <td data-title="Order #">   
                                             <?php 
-                                                echo $contributor['u_mobile'];
+                                                echo $contributor['phone'];
                                             ?>
                                         </td>
                                         <td data-title="Order #">   
@@ -73,7 +73,7 @@
                                             ?>
                                         </td>
                                         <td data-title="Order #">
-                                            <?php echo $member['created_at']?>
+                                            <?php echo $contributor['donation_date']?>
                                         </td>
                                     </tr>
                                 <?php endforeach;?>

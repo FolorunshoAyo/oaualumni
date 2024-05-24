@@ -21,7 +21,7 @@
 <!--============== Committee List Section Start ==============-->
 <div class="full-row bg-white">
     <div class="container">
-        <div class="row">
+        <!-- <div class="row">
             <div class="col-lg-4 col-sm-10 col-md-7 m-auto">
                 <div class="single-committee-member">
                     <img src="<?php echo site_url('/public/assets/club/images/commitee/commitee-1.jpg') ?>" class="img-fluid" alt="Committee">
@@ -42,72 +42,42 @@
                     </h3>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="row">
-            <div class="col-lg-4 col-sm-6">
-                <div class="single-committee-member">
-                    <img src="<?php echo site_url('/public/assets/club/images/commitee/commitee-2.jpg') ?>" class="img-fluid" alt="Committee">
-                    <h3>
-                        Carlos Helu 
-                        <span class="committee-deg">Vice President</span>
-                        <div class="social-info">
-                            <a href="#">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                            <a href="#">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a href="#">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
+            <?php if ($executives):?>
+                <?php foreach($executives as $executive):?>
+                    <div class="col-lg-4 col-sm-6">
+                        <div class="single-committee-member">
+                            <img src="<?php echo site_url('/public/assets/images/howitworks/' . $executive['hi_dp']) ?>" class="img-fluid" alt="<?php echo $executive['hi_name'] ?>">
+                            <h3>
+                                <?php echo $executive['hi_name'] ?> 
+                                <span class="committee-deg"><?php echo $executive['hi_post'] ?></span>
+                                <div class="social-info">
+                                    <?php if(isset($executive['hi_facebook']) && !empty($executive['hi_facebook'])): ?>
+                                        <a href="<?= $executive['hi_facebook'] ?>">
+                                            <i class="fab fa-facebook-f"></i>
+                                        </a>
+                                    <?php endif;?>
+                                    <?php if(isset($executive['hi_twitter']) && !empty($executive['hi_twitter'])): ?>
+                                        <a href="<?= $executive['hi_twitter'] ?>">
+                                            <i class="fab fa-twitter"></i>
+                                        </a>
+                                    <?php endif;?>
+                                    <?php if(isset($executive['hi_linkedin']) && !empty($executive['hi_linkedin'])): ?>
+                                        <a href="<?= $executive['hi_linkedin'] ?>">
+                                            <i class="fab fa-linkedin-in"></i>
+                                        </a>
+                                    <?php endif;?>
+                                </div>
+                            </h3>
                         </div>
-                    </h3>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-sm-6">
-                <div class="single-committee-member">
-                    <img src="<?php echo site_url('/public/assets/club/images/commitee/commitee-3.jpg') ?>" class="img-fluid" alt="Committee">
-                    <h3>
-                        Amancio Ortega 
-                        <span class="committee-deg">Secretary</span>
-                        <div class="social-info">
-                            <a href="#">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                            <a href="#">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a href="#">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                        </div>
-                    </h3>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-sm-6">
-                <div class="single-committee-member">
-                    <img src="<?php echo site_url('/public/assets/club/images/commitee/commitee-4.jpg') ?>" class="img-fluid" alt="Committee">
-                    <h3>
-                        Angle Tuni 
-                        <span class="committee-deg">Asst Secretary</span>
-                        <div class="social-info">
-                            <a href="#">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                            <a href="#">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a href="#">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                        </div>
-                    </h3>
-                </div>
-            </div>
+                    </div>
+                <?php endforeach;?>
+            <?php else: ?>
+                <?php no_data('alert-info','No Alumni has been register'); ?>
+            <?php endif?>
         </div>
-        <div class="row">
+        <!-- <div class="row">
             <div class="col-lg-3 col-sm-6">
                 <div class="single-committee-member">
                     <img src="<?php echo site_url('/public/assets/club/images/commitee/commitee-5.jpg') ?>" class="img-fluid" alt="Committee">
@@ -276,7 +246,7 @@
                     </h3>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 </div>
 <!--============== Committee List Section End ==============-->

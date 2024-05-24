@@ -22,25 +22,14 @@ class Home extends BaseController
         $talbleWebsiteSetting = new Settings();
         $tableSliders = new Sliders();
         $tableOnlineMeeting = new ModOnlineMeeting();
-        // $db      = \Config\Database::connect();
-        // $builder = $db->table('events');
-        // $calendarQuery = $builder->select('*')
-        //     ->where('ev_status',1)
-        //     ->join('newsevents','newsevents.ne_id=events.events_id')
-        //     ->limit(10)->get();
-        // $calendarData = $calendarQuery->getResult();
-        // $data = array();
-
-        // if (count($calendarData) > 0) {
-        //     foreach ($calendarData as $key => $value) {
-        //         $data['calendarData'][$key]['title'] = $value->title;
-        //         $data['calendarData'][$key]['start'] = $value->start_date;
-        //         $data['calendarData'][$key]['end'] = $value->end_date;
-        //         $data['calendarData'][$key]['backgroundColor'] = "#DA9F37";
-        //     }
-        // }else{
-        //     $data['calendarData'] = array();
-        // }
+        $db      = \Config\Database::connect();
+        $builder = $db->table('events');
+        $calendarQuery = $builder->select('*')
+            ->where('ev_status',1)
+            ->where('DATE(start_date) >',date('Y-m-d'))
+            ->join('newsevents','newsevents.ne_id=events.events_id')
+            ->limit(5)->get();
+        $data['upcomingevents'] = $calendarQuery->getResult();
 
         $data['websiteSetting'] = $talbleWebsiteSetting->findAll();
 
@@ -56,7 +45,7 @@ class Home extends BaseController
         $data['description'] = 'Home Description here';
         $data['calendarData'] = hasCalendarData();
 
-        // dd($data['calendarData']);
+        // dd($data['upcomingevents']);
 
         echo view('header/header',$data);
         echo view('css/allCSS',$data);

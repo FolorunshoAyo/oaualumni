@@ -13,7 +13,7 @@
                             <?php
                                 if (count($checkInterestGroup) == 1):
                             ?>
-                                <?php echo $checkInterestGroup[0]['group_name'];?>
+                                <?php echo $checkInterestGroup[0]['group_name']; ?>
                             <?php  endif; ?>
                         </li>
                     </ol>

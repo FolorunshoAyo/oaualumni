@@ -21,6 +21,7 @@
 <!--============== Property Grid Section Start ==============-->
 <div class="full-row bg-white">
     <div class="container">
+        <?php echo checkFlash(); ?>
         <div class="row">
             <?php if ($groups):?>
                 <div class="col-lg-12">

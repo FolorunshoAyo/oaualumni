@@ -87,7 +87,7 @@
                 </div>
             </div>
             <?php else: ?>
-                <?php no_data('alert-info','No Interest Groups has been created'); ?>
+                <?php no_data('alert-info','No Alumni has been register'); ?>
             <?php endif?>
         </div>
     </div>

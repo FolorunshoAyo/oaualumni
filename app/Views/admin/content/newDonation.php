@@ -103,7 +103,7 @@
                                 <div class="form-group">
                                 </div>
                                 <div class="form-group">
-                                    <?php echo form_submit('slide','Add Interest Group','class="btn btn-primary skzmsubmbtn"'); ?>
+                                    <?php echo form_submit('slide','Add Donation','class="btn btn-primary skzmsubmbtn"'); ?>
                                 </div>
                             </div>
                         </div>
