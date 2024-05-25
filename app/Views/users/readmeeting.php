@@ -8,7 +8,7 @@
                 <nav class="float-start float-md-end">
                     <ol class="breadcrumb m-0">
                         <li class="breadcrumb-item"><a href="<?php echo base_url() ?>">Home</a></li>
-                        <li class="breadcrumb-item"><a href="<?php echo site_url('interest-groups') ?>">Interest Groups</a></li>
+                        <li class="breadcrumb-item"><a href="<?php echo site_url('online-meetings') ?>">Online Meetings</a></li>
                         <li class="breadcrumb-item active">
                             <?php
                             if (count($checkOnlineMeeting) == 1) :

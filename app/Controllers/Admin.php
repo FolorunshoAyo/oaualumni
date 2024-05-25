@@ -44,6 +44,42 @@ class Admin extends BaseController
     protected $helpers = ['url', 'custom_helper', 'zoom_helper', 'form','text'];
 
     /*club code starts here*/
+    private function sendOnlineMeetingUpdateEmail($data)
+    {
+        $tableUsers = new ModUsers();
+        $message = view('emails/signup',$data);
+        $email = \Config\Services::email();
+
+        $batchSize = 100; // Number of emails to send in one batch
+        $verifiedUsers = $tableUsers->where('u_status',1)->findAll();
+        $totalUsers = count($verifiedUsers);
+
+        for ($i = 0; $i < $totalUsers; $i += $batchSize) {
+            $batch = array_slice($verifiedUsers, $i, $batchSize);
+
+            foreach ($batch as $user) {
+                // Prepare and send email (as shown in the previous example)
+                $data['u_email'] = $user['u_email'];
+                $data['u_first_name'] = $user['u_first_name'];
+                $data['u_last_name'] = $user['u_last_name'];
+                $message = view('emails/signup', $data);
+
+                $email->setFrom(EMAIL, PROJECT);
+                $email->setTo($user['u_email']);
+                $email->setSubject('New Meeting Created');
+                $email->setMessage($message);
+
+                if (!$email->send()) {
+                    log_message('error', 'Failed to send email to ' . $user['u_email']);
+                }
+            }
+
+            // Optional: Sleep for a short period to avoid overloading the server
+            sleep(1);
+        }
+
+    }
+
     public function users()
     {
         if (isAdmin()){
