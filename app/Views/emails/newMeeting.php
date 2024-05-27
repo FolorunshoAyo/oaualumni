@@ -174,14 +174,28 @@
 												<td align="left" width="518" style="padding:0;Margin:0;">
 													<table width="100%" cellspacing="0" cellpadding="0" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;">
 														<tr style="border-collapse:collapse;">
-															<td class="es-m-txt-c" align="center" style="padding:0;Margin:0;"><h2 style="Margin:0;line-height:29px;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;font-size:24px;font-style:normal;font-weight:normal;color:#333333;">Hi, <?php echo $user_name;?><br></h2></td>
+															<td class="es-m-txt-c" align="center" style="padding:0;Margin:0;"><h2 style="Margin:0;line-height:29px;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;font-size:24px;font-style:normal;font-weight:normal;color:#333333;">Hi, <?php echo $u_first_name . " " . $u_last_name;?><br></h2></td>
 														</tr>
 														<tr style="border-collapse:collapse;">
-															<td class="es-m-txt-c" align="center" style="padding:0;Margin:0;padding-top:15px;"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;">Thank you for registering on <?php echo WEBSITENAME;?>
-                                                                    . Please click below to activate your account:</p></td>
+															<td class="es-m-txt-c" align="center" style="padding:0;Margin:0;padding-top:15px;"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;">A new online meeting was created at <?php echo WEBSITENAME;?>
+                                                                    . Please view meeting details below:</p></td>
 														</tr>
 														<tr style="border-collapse:collapse;">
-															<td align="center" style="Margin:0;padding-left:10px;padding-right:10px;padding-bottom:15px;padding-top:20px;"><span class="es-button-border" style="border-style:solid;border-color:#474745;background:#474745;border-width:0px;display:inline-block;border-radius:20px;width:auto;"><a href="<?php echo site_url('user/confirm/'.$u_link)?>" class="es-button" target="_blank" style="mso-style-priority:100 !important;text-decoration:none;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:helvetica, 'helvetica neue', arial, verdana, sans-serif;font-size:16px;color:#EFEFEF;border-style:solid;border-color:#474745;border-width:6px 25px 6px 25px;display:inline-block;background:#474745;border-radius:20px;font-weight:normal;font-style:normal;line-height:19px;width:auto;text-align:center;">Confirm Email</a></span></td>
+															<td class="es-m-txt-c" style="padding:0;Margin:0;padding-top:15px;">
+                                                                <ul style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;">
+                                                                    <li><b>Meeting Title</b>: <?php echo $topic ?></li>
+                                                                    <li><b>Date</b>: <?php echo $date ?></li>
+                                                                    <li><b>Time</b>: <?php echo "$startTime - $endTime" ?></li>
+                                                                    <li><b>Duration</b>: <?php echo $duration ?></li>
+                                                                    <li><b>Timezone</b>: <?php echo $timezone ?></li>
+                                                                    <li><b>Host Video</b>: <?php echo $hostVideo ?></li>
+                                                                    <li><b>Participant Video</b>: <?php echo $participantVideo ?></li>
+                                                                    <li><b>Join Before Host</b>: <?php echo $joinBeforeHost ?></li>
+                                                                </ul>
+                                                            </td>
+														</tr>
+														<tr style="border-collapse:collapse;">
+															<td align="center" style="Margin:0;padding-left:10px;padding-right:10px;padding-bottom:15px;padding-top:20px;"><span class="es-button-border" style="border-style:solid;border-color:#474745;background:#474745;border-width:0px;display:inline-block;border-radius:20px;width:auto;"><a href="<?php echo site_url('online-meeting/read/'.$meeting_id)?>" class="es-button" target="_blank" style="mso-style-priority:100 !important;text-decoration:none;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:helvetica, 'helvetica neue', arial, verdana, sans-serif;font-size:16px;color:#EFEFEF;border-style:solid;border-color:#474745;border-width:6px 25px 6px 25px;display:inline-block;background:#474745;border-radius:20px;font-weight:normal;font-style:normal;line-height:19px;width:auto;text-align:center;">View Meeting Details</a></span></td>
 														</tr>
 													</table></td>
 											</tr>
@@ -197,7 +211,7 @@
 															<td class="es-m-txt-c" align="center" style="padding:0;Margin:0;padding-bottom:5px;"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;">Or Copy and Paste following link below in your browser window</p></td>
 														</tr>
 														<tr style="border-collapse:collapse;">
-															<td class="es-m-txt-c" align="center" style="padding:0;Margin:0;padding-bottom:10px;"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;"> <?php echo anchor('user/confirm/'.$u_link,site_url('user/confirm/'.$u_link),'');?></p></td>
+															<td class="es-m-txt-c" align="center" style="padding:0;Margin:0;padding-bottom:10px;"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;"> <?php echo site_url('online-meeting/read/'.$meeting_id)?></p></td>
 														</tr>
 													</table></td>
 											</tr>

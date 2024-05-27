@@ -44,10 +44,9 @@ class Admin extends BaseController
     protected $helpers = ['url', 'custom_helper', 'zoom_helper', 'form','text'];
 
     /*club code starts here*/
-    private function sendOnlineMeetingUpdateEmail($data)
+    private function sendNewOnlineMeetingEmail($data)
     {
         $tableUsers = new ModUsers();
-        $message = view('emails/signup',$data);
         $email = \Config\Services::email();
 
         $batchSize = 100; // Number of emails to send in one batch
@@ -62,11 +61,46 @@ class Admin extends BaseController
                 $data['u_email'] = $user['u_email'];
                 $data['u_first_name'] = $user['u_first_name'];
                 $data['u_last_name'] = $user['u_last_name'];
-                $message = view('emails/signup', $data);
+                $message = view('emails/newMeeting', $data);
 
                 $email->setFrom(EMAIL, PROJECT);
                 $email->setTo($user['u_email']);
-                $email->setSubject('New Meeting Created');
+                $email->setSubject('New Online Meeting Created On ' . WEBSITENAME);
+                $email->setMessage($message);
+
+                if (!$email->send()) {
+                    log_message('error', 'Failed to send email to ' . $user['u_email']);
+                }
+            }
+
+            // Optional: Sleep for a short period to avoid overloading the server
+            sleep(1);
+        }
+
+    }
+
+    private function sendUpdateOnlineMeetingEmail($data)
+    {
+        $tableUsers = new ModUsers();
+        $email = \Config\Services::email();
+
+        $batchSize = 100; // Number of emails to send in one batch
+        $verifiedUsers = $tableUsers->where('u_status',1)->findAll();
+        $totalUsers = count($verifiedUsers);
+
+        for ($i = 0; $i < $totalUsers; $i += $batchSize) {
+            $batch = array_slice($verifiedUsers, $i, $batchSize);
+
+            foreach ($batch as $user) {
+                // Prepare and send email (as shown in the previous example)
+                $data['u_email'] = $user['u_email'];
+                $data['u_first_name'] = $user['u_first_name'];
+                $data['u_last_name'] = $user['u_last_name'];
+                $message = view('emails/updateMeeting', $data);
+
+                $email->setFrom(EMAIL, PROJECT);
+                $email->setTo($user['u_email']);
+                $email->setSubject('Online Meeting Updated On ' . WEBSITENAME);
                 $email->setMessage($message);
 
                 if (!$email->send()) {
@@ -2708,6 +2742,36 @@ class Admin extends BaseController
 
                         $isInserted = $tableOnlineMeeting->insert($newOnlineMeeting);
                         if ($isInserted) {
+                            $startDatetime = $newOnlineMeeting['start_time'];
+                            $durationMinutes = $newOnlineMeeting['duration'];
+
+                            $startDateTimeObj = new \DateTime($startDatetime);
+
+                            $endDateTimeObj = clone $startDateTimeObj;
+                            $endDateTimeObj->modify("+" . $durationMinutes . " minutes");
+
+                            $startTimestamp = $startDateTimeObj->getTimestamp();
+                            $endTimestamp = $endDateTimeObj->getTimestamp();
+
+                            $date = date('F j, Y', $startTimestamp);
+
+                            $startTime = date('H:i', $startTimestamp);
+                            $endTime = date('H:i', $endTimestamp);
+
+                            // Send mail to all registered and verified users
+                            $this->sendNewOnlineMeetingEmail([
+                                'meeting_id' => $tableOnlineMeeting->getInsertID(),
+                                'topic' => $newOnlineMeeting['name'],
+                                'date' => $date,
+                                'startTime' => $startTime,
+                                'endTime' => $endTime,
+                                'duration' => $newOnlineMeeting['duration'] . 'min',
+                                'timezone' => $newZoomMeetingData['timezone'],
+                                'hostVideo' => $request->getPost('host_video') === null? 'No' : 'Yes',
+                                'participantVideo' => $request->getPost('participant_video') === null? 'No' : 'Yes',
+                                'joinBeforeHost' => $request->getPost('join_before_host') === null? 'No' : 'Yes',
+                            ]);
+
                             customFlash('alert-success','Meeting created successfully.');
                             return redirect()->to(site_url('admin/all-zoom-meetings'));
                         }
@@ -2824,6 +2888,36 @@ class Admin extends BaseController
                     if($status){
                         $isUpdated = $tableOnlineMeeting->update($hmSectionId,$editOnlineMeeting);
                         if ($isUpdated) {
+                            $startDatetime = $editOnlineMeeting['start_time'];
+                            $durationMinutes = $editOnlineMeeting['duration'];
+
+                            $startDateTimeObj = new \DateTime($startDatetime);
+
+                            $endDateTimeObj = clone $startDateTimeObj;
+                            $endDateTimeObj->modify("+" . $durationMinutes . " minutes");
+
+                            $startTimestamp = $startDateTimeObj->getTimestamp();
+                            $endTimestamp = $endDateTimeObj->getTimestamp();
+
+                            $date = date('F j, Y', $startTimestamp);
+
+                            $startTime = date('H:i', $startTimestamp);
+                            $endTime = date('H:i', $endTimestamp);
+
+                            // Send update email to all registered and verified users
+                            $this->sendUpdateOnlineMeetingEmail([
+                                'meeting_id' => $hmSectionId,
+                                'topic' => $editOnlineMeeting['name'],
+                                'date' => $date,
+                                'startTime' => $startTime,
+                                'endTime' => $endTime,
+                                'duration' => $editOnlineMeeting['duration'] . 'min',
+                                'timezone' => $editZoomMeetingData['timezone'],
+                                'hostVideo' => $request->getPost('host_video') === null? 'No' : 'Yes',
+                                'participantVideo' => $request->getPost('participant_video') === null? 'No' : 'Yes',
+                                'joinBeforeHost' => $request->getPost('join_before_host') === null? 'No' : 'Yes',
+                            ]);
+
                             customFlash('alert-success','You have successfully updated.');
                             return redirect()->to(site_url('admin/all-zoom-meetings'));
                         }

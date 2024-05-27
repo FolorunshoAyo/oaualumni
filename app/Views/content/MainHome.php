@@ -206,7 +206,7 @@
                 <div class="hover-zoomer thumb-two shadow-one">
                     <div class="overlay-black overflow-hidden position-relative">
                         <img src="<?php echo base_url('public/assets/images/newsEvents/'.$mynews['ne_dp']);?>" alt="image">
-                        <div class="date text-white position-absolute z-index-9">November 26, 2018</div>
+                        <div class="date text-white position-absolute z-index-9"><?php echo date('d F, Y', strtotime($mynews[0]['ne_date']));?></div>
                     </div>
                     <div class="p-4">
                         <h6 class="text-secondary hover-text-primary mb-4">
@@ -247,7 +247,7 @@
                         <div class="hover-zoomer thumb-two shadow-one">
                             <div class="overlay-black overflow-hidden position-relative">
                                 <img src="<?php echo base_url('public/assets/images/newsEvents/'.$myevent['ne_dp']);?>" alt="image">
-                                <div class="date text-white position-absolute z-index-9">November 26, 2018</div>
+                                <div class="date text-white position-absolute z-index-9"><?php echo $myevent['start_date'] === null? date('d F, Y', strtotime($checkNewEnt[0]['ne_date'])) : "Event Date: " . date('d F, Y', strtotime($myevent['start_date'])) . " - " . date('d F, Y', strtotime($myevent['end_date'])) ?></div>
                             </div>
                             <div class="p-4">
                                 <h6 class="text-secondary hover-text-primary mb-4">

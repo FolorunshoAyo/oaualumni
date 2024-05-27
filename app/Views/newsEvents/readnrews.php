@@ -2,13 +2,13 @@
     <div class="container">
         <div class="row row-cols-md-2 row-cols-1 g-3">
             <div class="col">
-                <h3 class="page-name text-secondary m-0">Event/News Details</h3>
+                <h3 class="page-name text-secondary m-0"><?php echo $type == "event"? 'Event Details' : 'News Details' ?></h3>
             </div>
             <div class="col">
                 <nav class="float-start float-md-end">
                     <ol class="breadcrumb m-0">
                         <li class="breadcrumb-item"><a href="<?php echo base_url()?>">Home</a></li>
-                        <li class="breadcrumb-item"><a href="<?php echo site_url('news')?>">News</a></li>
+                        <li class="breadcrumb-item"><a href="<?php echo site_url($type == "event"? 'events' : 'news')?>"><?php echo $type == "event"? 'Events' : 'News' ?></a></li>
                         <li class="breadcrumb-item active">
                             <?php
                                 if (count($checkNewEnt) == 1):
@@ -42,7 +42,7 @@
                     <div class="thumb-two overlay-black overflow-hidden position-relative">
                         <img src="<?php echo base_url('public/assets/images/newsEvents/'.$checkNewEnt[0]['ne_dp']);?>" alt="image">
                         <div class="date text-white position-absolute z-index-9">
-                            <?php echo $checkNewEnt[0]['ne_date'];?>
+                            <?php echo $checkNewEnt[0]['start_date'] === null? date('d F, Y', strtotime($checkNewEnt[0]['ne_date'])) : "Event Date: " . date('d F, Y', strtotime($checkNewEnt[0]['start_date'])) . " - " . date('d F, Y', strtotime($checkNewEnt[0]['end_date'])) ?>
                         </div>
                     </div>
                     <div class="blog-content mt-5">

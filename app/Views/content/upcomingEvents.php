@@ -18,7 +18,14 @@
                                     <div class="col-lg-5">
                                         <div class="up-event-thumb">
                                             <img src="<?php echo base_url('public/assets/images/newsEvents/' . $upcomingevent->ne_dp)?>" class="img-fluid" alt="<?php echo $upcomingevent->ne_title ?>">
-                                            <h4 class="up-event-date">It’s <?php echo date('d F Y', strtotime($upcomingevent->start_date)) ?></h4>
+                                            <h4 class="up-event-date">
+                                            <?php
+                                                $currentDate = date('Y-m-d');
+                                                $eventDate = date('Y-m-d', strtotime($upcomingevent->start_date));
+
+                                                echo $eventDate === $currentDate ? "It's today!!" : date('d F Y', strtotime($upcomingevent->start_date));
+                                            ?>
+                                            </h4>
                                         </div>
                                     </div>
 

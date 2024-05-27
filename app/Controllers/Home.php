@@ -26,7 +26,7 @@ class Home extends BaseController
         $builder = $db->table('events');
         $calendarQuery = $builder->select('*')
             ->where('ev_status',1)
-            ->where('DATE(start_date) >',date('Y-m-d'))
+            ->where('DATE(start_date) >=',date('Y-m-d'))
             ->join('newsevents','newsevents.ne_id=events.events_id')
             ->limit(5)->get();
         $data['upcomingevents'] = $calendarQuery->getResult();
@@ -34,7 +34,9 @@ class Home extends BaseController
         $data['websiteSetting'] = $talbleWebsiteSetting->findAll();
 
         $data['newshome']= $tablePClip->where('ne_category','news')->findAll(3);
-        $data['eventshome']= $tablePClip->where('ne_category','events')->findAll(3);
+        $data['eventshome']= $tablePClip
+        ->join('events','newsevents.ne_id = events.ev_id', 'left')
+        ->where('ne_category','events')->findAll(3);
         $data['onlinemeetings']= $tableOnlineMeeting->findAll(3);
         $data['howItWorks']= $tableHowITWorks->where('hi_set_featured', 1)->findAll();
         $data['whatWeDo']= $tableWhatWeDo->where('hs_status',1)->findAll();

@@ -51,6 +51,7 @@ class NewsEvents extends BaseController
             if (count($checkNewEnt) == 1) {
                 $data['checkNewEnt'] = $checkNewEnt;
                 $data['filtrs'] = filterForView();
+                $data['type'] = "event";
                 $data['title'] =  $checkNewEnt[0]['ne_title'] . '  ' . PROJECT;
                 $data['description'] = $checkNewEnt[0]['ne_title'] . '  ' . PROJECT;
                 echo view('header/header',$data);
@@ -145,6 +146,7 @@ class NewsEvents extends BaseController
         if (!empty($id) && isset($id)) {
             $tableNewEvent  = new ModNewEvents();
             $checkNewEnt = $tableNewEvent->select()
+                ->join('events','newsevents.ne_id = events.ev_id', 'left')
                 ->where([
                     'ne_id'=>$id,
                 ])
@@ -152,6 +154,7 @@ class NewsEvents extends BaseController
 
             if (count($checkNewEnt) == 1) {
                 $data['checkNewEnt'] = $checkNewEnt;
+                $data['type'] = "event";
                 $data['filtrs'] = filterForView();
                 $data['title'] =  $checkNewEnt[0]['ne_title'] . '  ' . PROJECT;
                 $data['description'] = $checkNewEnt[0]['ne_title'] . '  ' . PROJECT;
@@ -216,8 +219,8 @@ class NewsEvents extends BaseController
 
                 $data['calendarData'][$key]['color'] = rand(1, 5);
                 $data['calendarData'][$key]['day'] = $day;
-                $data['calendarData'][$key]['description'] = base64_decode($value->ne_description) . "<br> <a href='#'>Read More</a>";
-                $data['calendarData'][$key]['duration'] = $duration;
+                $data['calendarData'][$key]['description'] = base64_decode($value->ne_description) . "<br> <a href='" . site_url("/events/read/" . $value->ne_id) . "'>Read More</a>";
+                $data['calendarData'][$key]['duration'] = $duration + 1;
                 $data['calendarData'][$key]['image'] = base_url('public/assets/images/newsEvents/'.$value->ne_dp);
                 $data['calendarData'][$key]['location'] = $value->ne_location;
                 $data['calendarData'][$key]['month'] = $month;
@@ -260,7 +263,7 @@ class NewsEvents extends BaseController
 
                 $meetingData['color'] = rand(1, 5);
                 $meetingData['day'] = $day;
-                $meetingData['description'] = $online_meeting->short_description . "<br> <a href='#'>Read More</a>";
+                $meetingData['description'] = $online_meeting->short_description . "<br><br> <a href='" . site_url("online-meeting/read/" . $online_meeting->id) . "'>Read More</a>";
                 $meetingData['duration'] = "1";
                 $meetingData['image'] = base_url('public/assets/images/zoom-placeholder.jpg');
                 $meetingData['location'] = "Online";
