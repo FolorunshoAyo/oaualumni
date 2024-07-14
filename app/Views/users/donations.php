@@ -54,7 +54,7 @@
                         <?php foreach($projects as $project):?>
                             <div class="col">
                                 <div class="profile-list hover-zoomer bg-white shadow-one d-flex">
-                                    <div class="overflow-hidden w-50"> <img src="<?= base_url('public/assets/images/project/'.$project['project_image']) ?>" alt="<?php echo $project['project_name']?>"> </div>
+                                    <div class="profile-data overflow-hidden w-50"> <img src="<?= base_url('public/assets/images/project/'.$project['project_image']) ?>" alt="<?php echo $project['project_name']?>"> </div>
                                     <div class="profile-data p-4 position-relative w-50">
                                         <h5 class="text-secondary hover-text-primary"><a href="<?php echo site_url('donation/read/'.$project['project_id']) ?>"><?php echo $project['project_name']?></a></h5>
                                         <span class="location mb-3 d-block"><i class="fas fa-map-marker-alt text-primary"></i> <?php  echo $project['project_location']; ?></span>

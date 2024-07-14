@@ -95,7 +95,7 @@
                                 <li><b>Date</b>: <?php echo $date ?></li>
                                 <li><b>Time</b>: <?php echo "$startTime - $endTime" ?></li>
                                 <li><b>Duration</b>: <?php echo $checkOnlineMeeting[0]['duration'] . 'min.' ?></li>
-                                <li><b>Timezone</b>: <?php echo timezone_identifiers_list()[$checkOnlineMeeting[0]['timezone']] ?></li>
+                                <li><b>Timezone</b>: <?php echo timezone_identifiers_list()[$checkOnlineMeeting[0]['timezone']]; ?></li>
                                 <li><b>Host Video</b>: <?php echo $checkOnlineMeeting[0]['host_video'] == 1 ? 'Yes' : 'No'; ?></li>
                                 <li><b>Participant Video</b>: <?php echo $checkOnlineMeeting[0]['participant_video'] == 1 ? 'Yes' : 'No'; ?></li>
                                 <li><b>Join Before Host</b>: <?php echo $checkOnlineMeeting[0]['join_before_host'] == 1 ? 'Yes' : 'No'; ?></li>

@@ -1,5 +1,5 @@
 <!-- Favicon -->
-<link rel="shortcut icon" href="<?php echo base_url('public/assets/images/logo.ico')?>">
+<link rel="shortcut icon" href="<?php echo base_url('public/assets/images/'.getwebsiteSetting('st_fav_icon'))?>">
 
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,500,600,700&display=swap" rel="stylesheet">

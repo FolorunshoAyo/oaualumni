@@ -1468,11 +1468,11 @@ Top Header CSS
 }
 
 .nav-logo-with-bg .navbar-brand {
-    padding: 40px 15px;
-    margin-top: -50px
+    padding: 15px;
+    margin-top: 0px
 }
 
-.nav-logo-with-bg .navbar-brand::before {
+/* .nav-logo-with-bg .navbar-brand::before {
     position: absolute;
     content: "";
     top: 100%;
@@ -1483,7 +1483,7 @@ Top Header CSS
     border-right: 50px solid transparent;
     border-top: 30px solid;
     z-index: 99;
-}
+} */
 
 
 /*==================================================================
@@ -3921,7 +3921,7 @@ Responsive Media Query CSS
         display: block !important
     }
     .profile-list .profile-data {
-        width: 100%;
+        width: 100% !important;
     }
     .profile-list .profile-data p {
         display: block;
