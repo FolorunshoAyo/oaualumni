@@ -198,6 +198,58 @@ if (!function_exists('getTrackData'))
     }
 }
 
+if (!function_exists('make_curl_request')) {
+    /**
+     * Make an HTTP request using raw cURL.
+     *
+     * @param string $url The URL to request.
+     * @param string $method The HTTP method (GET, POST, etc.).
+     * @param array $data Optional data to send with the request.
+     * @param array $headers Optional headers to include with the request.
+     * @return string The response body.
+     */
+    function make_curl_request(string $url, string $method = 'GET', array $data = [], array $headers = [])
+    {
+        // Initialize cURL session
+        $ch = curl_init();
+
+        // Set cURL options
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, strtoupper($method));
+
+        // Set data for POST requests
+        if (strtoupper($method) === 'POST') {
+            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+            // Ensure the Content-Type header is set for JSON
+            $headers[] = 'Content-Type: application/json';
+        }
+
+        // Set headers if provided
+        if (!empty($headers)) {
+            $formattedHeaders = [];
+            foreach ($headers as $key => $value) {
+                $formattedHeaders[] = "$key: $value";
+            }
+            curl_setopt($ch, CURLOPT_HTTPHEADER, $formattedHeaders);
+        }
+
+        // Execute cURL request and fetch response
+        $response = curl_exec($ch);
+
+        // Check for cURL errors
+        if (curl_errno($ch)) {
+            $response = 'cURL Error: ' . curl_error($ch);
+        }
+
+        // Close cURL session
+        curl_close($ch);
+
+        // Return the response body
+        return $response;
+    }
+}
+
 if (!function_exists('getCalendarData')){
     function hasCalendarData(){
         $db      = \Config\Database::connect();
@@ -515,17 +567,36 @@ if (!function_exists('ResendActivationLinkUser'))
 {
     function ResendActivationLinkUser($data)
     {
-
+        // $msg = view('emails/ResendActivationLinkUser',$data);
+        // $email = \Config\Services::email();
+        // $email->setFrom(EMAIL, PROJECT);
+        // $email->setTo($data['u_email']);
+        // $email->setSubject('Recover Account');
+        // $email->setMessage($msg);//your message here
+        // if ($email->send()) {
+        //     return true;
+        // }
+        // else{
+        //     return false;
+        // }
+        
         $msg = view('emails/ResendActivationLinkUser',$data);
-        $email = \Config\Services::email();
-        $email->setFrom(EMAIL, PROJECT);
-        $email->setTo($data['u_email']);
-        $email->setSubject('Recover Account');
-        $email->setMessage($msg);//your message here
-        if ($email->send()) {
+        $to = $data['u_email'];
+        $subject = 'Recover Account';
+        $htmlContent = $msg;
+
+        $emailController = new \App\Controllers\SendGridEmailController();
+        $emailSent = $emailController->sendEmail(
+            $subject,
+            $to,
+            [],
+            '',
+            $htmlContent
+        );
+
+        if ($emailSent) {
             return true;
-        }
-        else{
+        }else{
             return false;
         }
     }

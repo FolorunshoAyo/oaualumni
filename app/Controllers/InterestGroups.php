@@ -165,15 +165,15 @@ class InterestGroups extends BaseController
             $isInserted = $memberModel->insert($newInterestGroupMember);
             if ($isInserted) {
                 customFlash('alert-success','You have successfully joined ' . $group_name);
-                return redirect()->to(site_url('interest-groups/read/' . $id));
+                return redirect()->to(site_url('interest-group/read/' . $id));
             }
             else{
                 customFlash('alert-info','OOps..! something went wrong please try again.');
-                return redirect()->to(site_url('interest-groups/read/' . $id));
+                return redirect()->to(site_url('interest-group/read/' . $id));
             }
         }else{
             customFlash('alert-info','Kindly login before joining a group.');
-            return redirect()->to(site_url('interest-groups/read/' . $id));
+            return redirect()->to(site_url('interest-group/read/' . $id));
         }
     }
 }//class here

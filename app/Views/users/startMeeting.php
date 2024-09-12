@@ -19,12 +19,19 @@ function start(){
   var testTool = window.testTool;
   if (testTool.isMobileDevice()) { vConsole = new VConsole();}
   
-  var meetingConfig = meetingData();
+  var meetingConfig = "";
   
-  if(meetingConfig.china)
-  ZoomMtg.setZoomJSLib("https://jssdk.zoomus.cn/2.15.2/lib", "/av"); // china cdn option'   
-  ZoomMtg.preLoadWasm();
-  ZoomMtg.prepareJssdk();
+  meetingData().then(data => { 
+    meetingConfig = data;
+    beginJoin();
+  });
+
+  if(meetingConfig.china){
+    console.log("Meeting config is in china");
+    ZoomMtg.setZoomJSLib("https://jssdk.zoomus.cn/3.8.10/lib", "/av"); // china cdn option'   
+    ZoomMtg.preLoadWasm();
+    ZoomMtg.prepareJssdk();
+  }
   
   function beginJoin() {
     var tmpArgs = testTool.parseQuery();
@@ -78,39 +85,45 @@ function start(){
       console.warn("send meeting status to somewhere data");
     });
   }
-  beginJoin();
 };
 
 
-function getSignature(){
-    let result = "";
+async function getSignature() {
+  return new Promise((resolve, reject) => {
     ZoomMtg.generateSDKSignature({
-        meetingNumber: meeting_number,
-        sdkKey: client_id,
-        sdkSecret: client_secret,
-        role: 0,
-        success: function (res) {
-          result = res.result;
-        },
+      meetingNumber: meeting_number,
+      sdkKey: client_id,
+      sdkSecret: client_secret,
+      role: 0,
+      success: function (res) {
+        resolve(res);
+      },
+      error: function (err) {
+        console.error('Error generating signature:', err);
+        reject(err);
+      },
+    });
   });
-  
-  return result;
 }
 
-
-
-function meetingData() {
-  return {
-    sdkKey: client_id,
-    meetingNumber: meeting_number,
-    userName: name,
-    passWord: password,
-    leaveUrl: leaveUrl,
-    role: role,
-    userEmail: email,
-    lang: "en",
-    signature: getSignature(),
-    china: 0,
-  };
+async function meetingData() {
+  try {
+    const signature = await getSignature();
+    return {
+      sdkKey: client_id,
+      meetingNumber: meeting_number,
+      userName: name,
+      passWord: password,
+      leaveUrl: leaveUrl,
+      role: role,
+      userEmail: email,
+      lang: "en",
+      signature: signature,
+      china: 0,
+    };
+  } catch (err) {
+    console.error('Error getting signature:', err);
+    return null;
+  }
 }
 </script>

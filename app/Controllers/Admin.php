@@ -63,12 +63,30 @@ class Admin extends BaseController
                 $data['u_last_name'] = $user['u_last_name'];
                 $message = view('emails/newMeeting', $data);
 
-                $email->setFrom(EMAIL, PROJECT);
-                $email->setTo($user['u_email']);
-                $email->setSubject('New Online Meeting Created On ' . WEBSITENAME);
-                $email->setMessage($message);
+                // $email->setFrom(EMAIL, PROJECT);
+                // $email->setTo($user['u_email']);
+                // $email->setSubject('New Online Meeting Created On ' . WEBSITENAME);
+                // $email->setMessage($message);
 
-                if (!$email->send()) {
+                // if (!$email->send()) {
+                //     log_message('error', 'Failed to send email to ' . $user['u_email']);
+                // }
+
+
+                $subject = 'New Online Meeting Created On ' . WEBSITENAME;
+                $to = [$user['u_email']];
+                $htmlContent = $message;
+
+                $emailController = new \App\Controllers\SendGridEmailController();
+                $emailSent = $emailController->sendEmail(
+                    $subject,
+                    $to,
+                    [],
+                    '',
+                    $htmlContent
+                );
+
+                if (!$emailSent) {
                     log_message('error', 'Failed to send email to ' . $user['u_email']);
                 }
             }
@@ -98,12 +116,29 @@ class Admin extends BaseController
                 $data['u_last_name'] = $user['u_last_name'];
                 $message = view('emails/updateMeeting', $data);
 
-                $email->setFrom(EMAIL, PROJECT);
-                $email->setTo($user['u_email']);
-                $email->setSubject('Online Meeting Updated On ' . WEBSITENAME);
-                $email->setMessage($message);
+                // $email->setFrom(EMAIL, PROJECT);
+                // $email->setTo($user['u_email']);
+                // $email->setSubject('Online Meeting Updated On ' . WEBSITENAME);
+                // $email->setMessage($message);
 
-                if (!$email->send()) {
+                // if (!$email->send()) {
+                //     log_message('error', 'Failed to send email to ' . $user['u_email']);
+                // }
+
+                $subject = 'Online Meeting Updated On ' . WEBSITENAME;
+                $to = [$user['u_email']];
+                $htmlContent = $message;
+
+                $emailController = new \App\Controllers\SendGridEmailController();
+                $emailSent = $emailController->sendEmail(
+                    $subject,
+                    $to,
+                    [],
+                    '',
+                    $htmlContent
+                );
+
+                if (!$emailSent) {
                     log_message('error', 'Failed to send email to ' . $user['u_email']);
                 }
             }
@@ -1522,7 +1557,7 @@ class Admin extends BaseController
                     return redirect()->to(site_url('admin/new-how-it-works'));
                 }
 
-                $checkMessage = $tableHowITWorks->where(['hi_title'=>$newHIWSection['hi_title']])->findAll();
+                $checkMessage = $tableHowITWorks->where(['hi_name'=>$newHIWSection['hi_name']])->findAll();
                 if (count($checkMessage) > 0) {
                     customFlash('alert-info','The Section is already exist.');
                     return redirect()->to(site_url('admin/new-how-it-works'));
@@ -1699,6 +1734,41 @@ class Admin extends BaseController
         }
         else{
             customFlash('alert-info','Please login first to access the admin panel');
+            return redirect()->to(site_url('admin/login'));
+        }
+    }
+
+    public function deleteHowWorks($id)
+    {
+        if (isAdmin()){
+            if (!empty($id) && isset($id)) {
+                $tableProjects = new ModHowITWorks();
+                $isProject = $tableProjects->where(['hi_id'=>$id])->findAll();
+
+                if (count($isProject) === 1) {
+                    $isDeleted = $tableProjects->delete($id);
+                    //$events = $this->modAdmin->deleteAlbum($id);
+                    if ($isDeleted) {
+                        customFlash('alert-success','The Executive has been deleted.');
+                        return redirect()->to(site_url('admin/all-how-it-works'));
+                    }
+                    else{
+                        customFlash('alert-warning','You can\'t delete the Executive right now; please try again.');
+                        return redirect()->to(site_url('admin/all-how-it-works'));
+                    }
+                }
+                else{
+                    customFlash('alert-warning','The Executive is not available; please try again.');
+                    return redirect()->to(site_url('admin/all-how-it-works'));
+                }
+            }
+            else{
+                customFlash('alert-warning','Something went wrong.');
+                return redirect()->to(site_url('admin/all-how-it-works'));
+            }
+        }
+        else{
+            customFlash('alert-warning','Please login first.');
             return redirect()->to(site_url('admin/login'));
         }
     }

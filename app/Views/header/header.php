@@ -25,3 +25,10 @@
         }
         ?>
     </title>
+    <style>
+        div.errors[role="alert"] {
+            background-color: #dc3545;
+            padding: 0.5rem 1rem;
+            color: #fff;
+        }
+    </style>
