@@ -35,6 +35,7 @@ $routes->get('/', 'Home::index');
 $routes->get('/register', 'User::register');
 //$routes->get('/new-user/', 'User::newUser');
 $routes->get('/update-pofile', 'User::updateUser');
+$routes->get('/send-email', 'User::sendEmail');
 $routes->get('/login', 'User::login');
 $routes->get('/contact', 'Pages::contact');
 $routes->post('contact/send-message', 'Pages::userQuery');
@@ -82,6 +83,7 @@ $routes->get('admin/new-how-it-works', 'Admin::newHowWorks');
 $routes->post('admin/add-how-it-works', 'Admin::addHowWorks');
 $routes->get('admin/all-how-it-works', 'Admin::allHowWorks');
 $routes->get('admin/edit-how-it-works/(:segment)', 'Admin::editHowWorks/$1');
+$routes->get('admin/delete-how-it-works/(:num)', 'Admin::deleteHowWorks/$1');
 $routes->post('admin/update-how-it-works', 'Admin::updateHowWorks');
 
 $routes->get('admin/new-alumni', 'Admin::newAlumni');
