@@ -1,3 +1,16 @@
+<div class="bg-gray pt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2 class="text-secondary double-down-line text-center">Welcome Fellow Alumni</h2>
+                <span class="text-center mt-4 d-block">
+                    <?php echo getwebsiteSetting('st_footer_cotnent');  ?>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
 <?php if (count($whatWeDo) > 0) :?>
 <!--============== Text Block One Section Start ==============-->
     <div class="full-row bg-gray">

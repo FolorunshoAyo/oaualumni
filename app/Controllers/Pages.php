@@ -31,11 +31,9 @@ class Pages extends BaseController
       $data['description'] = 'About page description';
        echo view('header/header',$data);
        echo view('css/allCSS');
-       echo view('css/whatsapp');
        echo view('header/navbar');
-       echo view('content/about',$data);
+       echo view('content/about');
        echo view('footer/footer');
-       echo view('js/whatsapp');
        echo view('footer/endfooter');
     }
 
@@ -148,6 +146,55 @@ class Pages extends BaseController
 
     }
 
+    public function cashapp(){
+        echo view('content/cashapp');
+    }
+
+    public function cashappPayment() {
+        $request = $this->request;
+    
+        $json = $request->getBody();
+        
+        $data = json_decode($json, true);
+        
+        // Validate the required fields
+        if (!isset($data['amount']) || !isset($data['sourceId']) || !isset($data['idempotencyKey'])) {
+            return $this->response->setJSON([
+                'status' => 'error',
+                'message' => 'Missing required fields',
+            ])->setStatusCode(400); // Bad Request
+        }
+    
+        // Define your parameters
+        $url = 'https://connect.squareupsandbox.com/v2/payments';
+        $method = 'POST';
+        
+        // Prepare the data for the payment request
+        $paymentData = [
+            'idempotency_key' => $data['idempotencyKey'], // Unique key
+            'amount_money' => [
+                'amount' => (int) $data['amount'], // Amount in cents
+                'currency' => 'USD'
+            ],
+            'source_id' => $data['sourceId'] // Payment token
+        ];
+    
+        $headers = [
+            'Square-Version' => date("Y-m-d"),
+            'Authorization' => 'Bearer ' . getenv("SQUAREUP_SANDBOX_ACCESS_TOKEN"), // Your access token
+            'Content-Type' => 'application/json'
+        ];
+    
+        $response = make_curl_request($url, $method, $paymentData, $headers);
+    
+        // Return a success response
+        return $this->response->setJSON([
+            'status' => 'success',
+            'message' => 'Payment processed successfully',
+            'data' => json_decode($response)
+        ])->setStatusCode(200); // OK
+    }
+    
 
 
     public function userQuery()
