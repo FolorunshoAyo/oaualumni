@@ -1454,7 +1454,7 @@ class Admin extends BaseController
                     ])->findAll();
                     if (count($checkMessage) > 0) {
                         customFlash('alert-info','Home section already exist.');
-                        return redirect()->to(site_url('admin/edit-message/'.$hmSectionId));
+                        return redirect()->to(site_url('admin/edit-about-section/'.$hmSectionId));
                     }
                     else{
                         $messageImage = $request->getFile('image');

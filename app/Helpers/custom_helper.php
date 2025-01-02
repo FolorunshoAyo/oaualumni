@@ -581,7 +581,7 @@ if (!function_exists('ResendActivationLinkUser'))
         // }
         
         $msg = view('emails/ResendActivationLinkUser',$data);
-        $to = $data['u_email'];
+        $to = [$data['u_email']];
         $subject = 'Recover Account';
         $htmlContent = $msg;
 

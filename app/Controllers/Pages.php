@@ -59,6 +59,18 @@ class Pages extends BaseController
         $tableHowITWorks = new ModHowITWorks();
         $data['executives']= $tableHowITWorks->findAll();
 
+        // Custom sorting for "Chairman" and "Vice Chairperson"
+        usort($data['executives'], function($a, $b) {
+            // Define the order for specific posts
+            $priority = ['Chairman' => 1, 'Vice Chairperson' => 2];
+            
+            // Get the priority value or assign a default value (999) for other posts
+            $postA = isset($priority[$a['hi_post']]) ? $priority[$a['hi_post']] : 999;
+            $postB = isset($priority[$b['hi_post']]) ? $priority[$b['hi_post']] : 999;
+
+            return $postA - $postB; // Sort by priority
+        });
+        
         // dd($data['executives']);
 
         $data['title'] = 'Executives' . PROJECT;

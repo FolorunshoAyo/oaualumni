@@ -56,7 +56,7 @@
 
 										<td><?php if(!empty($myAdmin['aName'])){ echo $myAdmin['aName'];}else{ echo 'N/A';}?></td>
 										<td><?php echo timeago($myAdmin['aDate'])?></td>
-										<td><?php echo timeago($myAdmin['aUpdateDate'])?></td>
+										<td><?php echo $myAdmin['aUpdateDate'] !== null? timeago($myAdmin['aUpdateDate']) : "" ?></td>
 										<td><?php echo $myAdmin['email']?></td>
 										<td>
 											<?php if ($myAdmin['aStatus'] ==1): ?>

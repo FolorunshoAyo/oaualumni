@@ -28,7 +28,7 @@
                     <div class="d-flex">
                         <div class="circle me-4"><img src="<?php base_url('public/assets/club/images/team/01.png')?>" alt=""></div>
                         <div class="contact-details">
-                            <h5>Lawrance Kyle</h5>
+                            <h5>Tunde Adeyemo</h5>
                             <span class="d-block">Support Member</span> <a class="text-primary" href="#">www.internationalfamilyclub.org</a> </div>
                     </div>
                 </div>

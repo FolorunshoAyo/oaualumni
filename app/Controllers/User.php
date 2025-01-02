@@ -3184,19 +3184,40 @@ class User extends BaseController
 
     private function sendActivateEmail($data)
     {
-        //var_dump($data);
-        $message = view('emails/signup',$data);
-        $email = \Config\Services::email();
-        $email->setFrom(EMAIL, PROJECT);
-        $email->setTo($data['u_email']);
-        $email->setSubject('Account activation');
-        $email->setMessage($message);//your message here
-        if ($email->send()) {
+        $msg = view('emails/signup',$data);
+        $to = [$data['u_email']];
+        $subject = 'Account Activation';
+        $htmlContent = $msg;
+
+        $emailController = new \App\Controllers\SendGridEmailController();
+        $emailSent = $emailController->sendEmail(
+            $subject,
+            $to,
+            [],
+            '',
+            $htmlContent
+        );
+
+        if ($emailSent) {
             return true;
-        }
-        else{
+        }else{
             return false;
         }
+        //var_dump($data);
+        // $message = view('emails/signup',$data);        
+        // $email = \Config\Services::email();
+        // $emailConfig = new \Config\Email();
+        // $email->initialize($emailConfig);
+        // $email->setFrom(EMAIL, PROJECT);
+        // $email->setTo($data['u_email']);
+        // $email->setSubject('Account activation');
+        // $email->setMessage($message);//your message here
+        // if ($email->send()) {
+        //     return true;
+        // }
+        // else{
+        //     return false;
+        // }
     }
 
     public function forgot()
