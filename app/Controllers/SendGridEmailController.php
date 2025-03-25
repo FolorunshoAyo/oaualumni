@@ -74,6 +74,7 @@ class SendGridEmailController extends BaseController
 
         $response = json_decode($response, true);
 
+        
         // Output the response
         if(isset($response['errors'])){
             return false;
