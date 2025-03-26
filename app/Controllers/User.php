@@ -215,6 +215,7 @@ class User extends BaseController
             $newUser['u_first_name'] = $request->getPost('first_name');
             $newUser['u_last_name'] = $request->getPost('last_name');
             $newUser['u_occupation'] = $request->getPost('occupation');
+            $newUser['u_dob'] = $request->getPost('dob');
             $newUser['u_address'] = $request->getPost('address');
             $newUser['u_hobbies'] = $request->getPost('hobbies');
             $newUser['country_id'] = $request->getPost('country');
@@ -488,6 +489,7 @@ class User extends BaseController
                 $newUser['u_first_name'] = $request->getPost('first_name');
                 $newUser['u_last_name'] = $request->getPost('last_name');
                 $newUser['u_occupation'] = $request->getPost('occupation');
+                $newUser['u_dob'] = $request->getPost('dob');
                 $newUser['u_address'] = $request->getPost('address');
                 $newUser['u_hobbies'] = $request->getPost('hobbies');
                 $newUser['u_mobile'] = $request->getPost('realPhone');
@@ -3218,6 +3220,50 @@ class User extends BaseController
         // else{
         //     return false;
         // }
+    }
+
+    public function sendBirthdayWishes()
+    {
+        // Get today's date in the format YYYY-MM-DD
+        $today = date('Y-m-d');
+        $tableUser =  new ModUsers();
+        
+        // Fetch users who have a birthday today
+        $users = $tableUser->where('DATE(u_dob)', $today)->findAll();
+
+        if (!empty($users)) {
+            $emailController = new \App\Controllers\SendGridEmailController();
+            $subject = "Happy Birthday from Great Ife Alumni";
+    
+            // Send birthday wishes email to each user
+            foreach ($users as $user) {
+                $userData = [
+                    'u_email' => $user['u_email'],
+                    'u_first_name' => $user['u_first_name'],
+                    'u_last_name' => $user['u_last_name'],
+                ];
+
+                // Create the email content using the template
+                $msg = view('emails/birthday', $userData);
+
+                // Send the email
+                $emailSent = $emailController->sendEmail(
+                    $subject,
+                    [$user['u_email']],
+                    [],
+                    '',
+                    $msg
+                );
+                
+                // Log or handle the result as needed
+                if (!$emailSent) {
+                    // Handle failure to send the email (e.g., log error, retry, etc.)
+                    log_message('error', 'Failed to send birthday email to ' . $user['u_email']);
+                }
+            }
+        } else {
+            log_message('info', 'No users with birthdays today');
+        }
     }
 
     public function forgot()

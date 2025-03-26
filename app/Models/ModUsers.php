@@ -20,7 +20,7 @@ class ModUsers extends Model
         'password','u_mobile', 'u_dp',
         'u_news_letter','u_agree', 'u_first_name','u_last_name',
         'u_link','u_date','u_status','uRememberMe',
-        'u_view','u_occupation','u_update',
+        'u_view','u_occupation','u_dob','u_update',
         'u_phone','u_delete','country_id','u_spouse','u_emergency_phone',
         'u_address','u_hobbies'
     ];
