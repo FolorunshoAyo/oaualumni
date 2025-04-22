@@ -98,13 +98,33 @@
                             <br>
                             <!-- Date of Birth Field -->
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label>
-                                            Date of Birth<span class="red">*</span>
+                                            Day of Birth<span class="red">*</span>
                                         </label>
                                         <?php
-                                        echo form_input('dob', $userData[0]['u_dob'], array('class' => 'form-control', 'placeholder' => 'Please Enter Your Date of Birth'), 'date');
+                                            echo form_dropdown(
+                                                'day',
+                                                $days,
+                                                $selectedDay,
+                                                ['class' => 'form-control']
+                                            );
+                                        ?>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>
+                                            Month of Birth<span class="red">*</span>
+                                        </label>
+                                        <?php
+                                            echo form_dropdown(
+                                                'month',
+                                                $months,
+                                                $selectedMonth,
+                                                ['class' => 'form-control']
+                                            );
                                         ?>
                                     </div>
                                 </div>

@@ -100,6 +100,57 @@
 </div>
 <!-- Wrapper End -->
 
+<!-- Drawer Sidebar -->
+<div id="birthdayDrawer" class="drawer">
+    <a href="javascript:void(0)" onclick="closeDrawer()">&times;</a>
+    <p class="fs-4 text-secondary hover-text-primary p-3 m-0">Users Celebrating Birthdays <?= date("F") ?></p>
+    <div id="birthdayUsersList" class="px-3">
+        <!-- The birthday users will be dynamically inserted here -->
+    </div>
+</div>
+
+<!-- Left arrow button -->
+<button id="arrow-button" onclick="openDrawer()">
+    Birthday Celebrants
+</button>
+
+<script>
+    // Function to open the drawer
+    function openDrawer() {
+        document.getElementById("birthdayDrawer").classList.toggle("open");
+    }
+
+    // Function to close the drawer
+    function closeDrawer() {
+        document.getElementById("birthdayDrawer").classList.toggle("open");
+    }
+
+    // Fetch birthday users data from the server
+    function fetchBirthdayUsers() {
+        fetch('<?= site_url('birthday-users') ?>')
+        .then(response => response.json())
+        .then(data => {
+            const usersList = document.getElementById('birthdayUsersList');
+            usersList.innerHTML = ''; // Clear the list
+
+            console.log(data);
+
+            if (data && data?.data?.length > 0) {
+                data.data.forEach(user => {
+                    const userElement = document.createElement('div');
+                    userElement.innerHTML = `<p>${user.u_first_name} ${user.u_last_name}</p>`;
+                    usersList.appendChild(userElement);
+                });
+            } else {
+                usersList.innerHTML = "<p>No birthdays today!</p>";
+            }
+        })
+        .catch(error => console.error('Error fetching users:', error));
+    }
+
+    // Automatically fetch users data when the page loads
+    window.onload = fetchBirthdayUsers;
+</script>
 <script type="text/javascript">
     baseurl="<?php echo base_url('');?>"
     sturl="<?php echo site_url('');?>"

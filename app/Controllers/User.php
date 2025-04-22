@@ -20,6 +20,29 @@ class User extends BaseController
     }
     protected $helpers = ['url', 'custom_helper','form','text'];
 
+    public function getBirthdayUsers(){
+        $tableUsers = new ModUsers();
+
+        $currentMonth = date('m');
+        $birthdayUsers = $tableUsers->where('MONTH(u_dob)', $currentMonth)->findAll();
+
+        $data = "";
+
+        if (count($birthdayUsers) > 0) {
+            $data =[
+                'status' => 'success',
+                'data' => $birthdayUsers
+            ];
+        } else {
+            $data = [
+                'status' => 'success',
+                'message' => 'No users have birthdays this month.',
+                'data' => []
+            ];
+        }
+
+        echo json_encode($data);
+    }
 
     /*club script starts here*/
     public function login()
@@ -42,6 +65,7 @@ class User extends BaseController
         }
 
     }
+
     public function checkuser()//actual login system
     {
         if (isUserLoggedIn()) {
@@ -125,6 +149,24 @@ class User extends BaseController
             $request = $this->request;
             $data['title'] = 'Register' . PROJECT;
             $data['description'] = 'Register';
+
+            $data['days'] = array_combine(range(1, 31), range(1, 31));
+
+            $data['months'] = [
+                1  => 'January',
+                2  => 'February',
+                3  => 'March',
+                4  => 'April',
+                5  => 'May',
+                6  => 'June',
+                7  => 'July',
+                8  => 'August',
+                9  => 'September',
+                10 => 'October',
+                11 => 'November',
+                12 => 'December',
+            ];
+
             echo view('header/header',$data);
             echo view('css/allCSS');
             echo view('css/phone');
@@ -215,7 +257,7 @@ class User extends BaseController
             $newUser['u_first_name'] = $request->getPost('first_name');
             $newUser['u_last_name'] = $request->getPost('last_name');
             $newUser['u_occupation'] = $request->getPost('occupation');
-            $newUser['u_dob'] = $request->getPost('dob');
+            $newUser['u_dob'] = date("Y")."-".$request->getPost('month')."-".$request->getPost('day');
             $newUser['u_address'] = $request->getPost('address');
             $newUser['u_hobbies'] = $request->getPost('hobbies');
             $newUser['country_id'] = $request->getPost('country');
@@ -229,8 +271,6 @@ class User extends BaseController
             //var_dump($newUser);
             //dd();
             $user = $tableUser->where(['u_email'=>$newUser['u_email']])->findAll();
-
-
 
             if ($user && count($user) == 1){
                 if ($user[0]['u_status'] == 0){
@@ -355,6 +395,30 @@ class User extends BaseController
             $data['title'] = 'Profile' . PROJECT;
             $tableUser =  new ModUsers();
             $data['userData'] = $tableUser->where('u_id',getUserId())->findAll();
+
+            $data['days'] = array_combine(range(1, 31), range(1, 31));
+
+            $data['months'] = [
+                1  => 'January',
+                2  => 'February',
+                3  => 'March',
+                4  => 'April',
+                5  => 'May',
+                6  => 'June',
+                7  => 'July',
+                8  => 'August',
+                9  => 'September',
+                10 => 'October',
+                11 => 'November',
+                12 => 'December',
+            ];
+
+
+            $dob = explode("-", $data['userData'][0]['u_dob']);
+
+            $data['selectedDay'] = (int) $dob[2];
+            $data['selectedMonth'] = (int) $dob[1];
+
             helper('html');
             echo view('users/headnav/header',$data);
             echo view('users/css/allCSS');
@@ -489,7 +553,7 @@ class User extends BaseController
                 $newUser['u_first_name'] = $request->getPost('first_name');
                 $newUser['u_last_name'] = $request->getPost('last_name');
                 $newUser['u_occupation'] = $request->getPost('occupation');
-                $newUser['u_dob'] = $request->getPost('dob');
+                $newUser['u_dob'] = date("Y")."-".$request->getPost('month')."-".$request->getPost('day');
                 $newUser['u_address'] = $request->getPost('address');
                 $newUser['u_hobbies'] = $request->getPost('hobbies');
                 $newUser['u_mobile'] = $request->getPost('realPhone');

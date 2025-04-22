@@ -37,6 +37,7 @@ $routes->get('/register', 'User::register');
 $routes->get('/update-pofile', 'User::updateUser');
 $routes->get('/send-email', 'User::sendEmail');
 $routes->get('/login', 'User::login');
+$routes->get('/birthday-users', 'User::getBirthdayUsers');
 $routes->get('/contact', 'Pages::contact');
 $routes->post('contact/send-message', 'Pages::userQuery');
 $routes->get('/faq', 'Pages::faq');

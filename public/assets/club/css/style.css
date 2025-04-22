@@ -4927,3 +4927,55 @@ Responsive Media Query CSS
         }
     }
 /* Events Landing Slider */
+
+/* Birthdays Drawer */
+.drawer {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #f8f9fa;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 20px;
+    z-index: 2000;
+    box-shadow: 4px 0px 6px rgba(0, 0, 0, 0.1);
+}
+
+.drawer.open{
+    width: 250px;
+}
+
+.drawer a {
+    padding: 8px 32px 8px 8px;
+    text-decoration: none;
+    text-align: right;
+    font-size: 25px;
+    color: #000;
+    display: block;
+    transition: 0.3s;
+}
+.drawer a:hover {
+    color: var(--theme-secondary-color);
+}
+
+/* Arrow Button */
+#arrow-button {
+    position: fixed;
+    top: 50%;
+    right: -80px;
+    transform: translateY(-50%) rotate(-90deg);
+    background-color: var(--theme-secondary-color);
+    color: white;
+    border: none;
+    padding: 0 20px;
+    border-radius: 80px 80px 0 0;
+    font-size: 1rem;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+#arrow-button i {
+    font-size: 20px;
+}
