@@ -261,7 +261,7 @@ class User extends BaseController
             $newUser['u_address'] = $request->getPost('address');
             $newUser['u_hobbies'] = $request->getPost('hobbies');
             $newUser['country_id'] = $request->getPost('country');
-            $newUser['u_spouse'] = $request->getPost('spouse');
+            $newUser['u_spouse'] = $request->getPost('spouse') ?? null;
             $newUser['u_mobile'] = $request->getPost('realPhone');
             $newUser['u_emergency_phone'] = $request->getPost('emergencyPhone');
 
@@ -302,10 +302,10 @@ class User extends BaseController
                     $userImage->move('./public/assets/images/users',$userProfilePicture);
                     $newUser['u_dp'] = $userProfilePicture;
                 }
-                else{
-                    customFlash('alert-warning','A profile picture is required.');
-                    return redirect()->to(site_url('register'));
-                }
+                // else{
+                //     customFlash('alert-warning','A profile picture is required.');
+                //     return redirect()->to(site_url('register'));
+                // }
 
 
                 $isUserExist = $tableUser->insert($newUser);//userId

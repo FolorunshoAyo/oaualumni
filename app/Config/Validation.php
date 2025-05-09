@@ -1,4 +1,4 @@
-<?php namespace Config;
+    <?php namespace Config;
 
 class Validation
 {
@@ -43,7 +43,7 @@ class Validation
         'password'=> 'trim|required',
         'realPhone'=> 'trim|required',
         'emergencyPhone'=> 'trim|required',
-        'spouse'=> 'trim|required',
+        'spouse'=> 'trim',
         'country'=> 'trim|required',
 
         /*'accept'=> 'trim|required',*/
@@ -68,7 +68,7 @@ class Validation
         'email'=> 'trim|required|valid_email',
         'realPhone'=> 'trim|required',
         'emergencyPhone'=> 'trim|required',
-        'spouse'=> 'trim|required',
+        'spouse'=> 'trim',
         'country'=> 'trim|required',
 
         /*'agreeTermCon'=> 'required'*/
